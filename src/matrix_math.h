@@ -16,6 +16,6 @@ typedef struct MTX_Matrix_STRUCT MTX_Matrix_S;
 typedef enum MTX_Error_ENUM MTX_Error_E;
 
 void MTX_add(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_Error_E *error);
-void MTX_print(const MTX_Matrix_S *c);
+void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error);
 
 #endif /* MATRIX_MATH_H_ */

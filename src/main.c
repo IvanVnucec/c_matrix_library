@@ -38,7 +38,7 @@ int test_add(void) {
 
     MTX_add(&C, &A, &B, &error);
 
-    MTX_print(&C);
+    MTX_print(&C, NULL);
 
     if (error != MTX_Matrix_ERROR_NONE) {
         return 1;

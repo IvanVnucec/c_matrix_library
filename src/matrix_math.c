@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include <stddef.h>
 #include <stdio.h>
 #include "matrix_math.h"
 
@@ -20,8 +20,11 @@ void MTX_add(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_
     return;
 }
 
-void MTX_print(const MTX_Matrix_S *c) {
+void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error) {
+    MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i, j;
+
+    // TODO: Check NULL ptrs
 
     for (i = 0u; i < c->rows; i++) {
         for (j = 0u; j < c->cols; j++) {
@@ -29,4 +32,10 @@ void MTX_print(const MTX_Matrix_S *c) {
         }
         printf("\n");
     }
+
+    if (error != NULL) {
+        *error = errorLocal;
+    }
+
+    return;
 }
