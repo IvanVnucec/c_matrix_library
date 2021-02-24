@@ -480,7 +480,7 @@ MU_TEST(test_sub_success_A_A_A) {
     mu_assert_double_eq(A.data[4], 0.0);
     mu_assert_double_eq(A.data[5], 0.0);
     mu_assert_double_eq(A.data[6], 0.0);
-    mu_assert_double_eq(A.data[7], 1.0);
+    mu_assert_double_eq(A.data[7], 0.0);
     mu_assert_double_eq(A.data[8], 0.0);
 }
 
