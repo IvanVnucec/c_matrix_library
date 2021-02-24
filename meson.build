@@ -1,5 +1,7 @@
 project('matrix', 'c')
 
+cc = meson.get_compiler('c')
+
 src = ['src/matrix_math.c']
 inc = include_directories('src')
 
@@ -10,15 +12,20 @@ test_cargs = [
     '-DMTX_MATRIX_CHECK_DIMS'
     ]
 
+m_dep = cc.find_library('m', required : false)
+rt_dep = cc.find_library('rt', required : false)
+
 test_add_exe = executable('test_add_exe', 
     sources : [src, 'test/test_add.c'], 
     include_directories : [inc, test_inc], 
-    c_args : test_cargs)
+    c_args : test_cargs,
+    dependencies: [m_dep, rt_dep])
 
 test_sub_exe = executable('test_sub_exe', 
     sources : [src, 'test/test_sub.c'], 
     include_directories : [inc, test_inc], 
-    c_args : test_cargs)
+    c_args : test_cargs,
+    dependencies: [m_dep, rt_dep])
 
 test('test_add_exe', test_add_exe)
 test('test_sub_exe', test_sub_exe)
