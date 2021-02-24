@@ -18,7 +18,7 @@ void MTX_add(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_
 
     if (errorLocal == MTX_Matrix_ERROR_NONE) {
         for (i = 0; i < a->rows * a->cols; i++) {
-            c->data[i] = a->data[i] + b->data[i];
+            c->data[i] = a->data[i] + b->data[i]; 
         }
     }
 
