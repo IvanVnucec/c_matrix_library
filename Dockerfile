@@ -12,4 +12,4 @@ ENV PATH /opt/conda/envs/env/bin:$PATH
 
 WORKDIR /app
 
-CMD ["/bin/bash", "-c", "meson setup builddir && meson test -C builddir"]
+CMD ["/bin/bash", "-c", "meson setup builddir -Db_coverage=true && meson test -C builddir"]
