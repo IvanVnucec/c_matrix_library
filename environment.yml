@@ -3,6 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - gcovr
   - ninja
   - python=3.8
   - pip

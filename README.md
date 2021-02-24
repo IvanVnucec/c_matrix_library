@@ -1,3 +1,6 @@
+[![CI](https://github.com/IvanVnucec/c_matrix_library/actions/workflows/main.yml/badge.svg)](https://github.com/IvanVnucec/c_matrix_library/actions/workflows/main.yml)
+[![codecov](https://codecov.io/gh/IvanVnucec/c_matrix_library/branch/master/graph/badge.svg?token=DIJ1KJMVTM)](https://codecov.io/gh/IvanVnucec/c_matrix_library)
+
 ## About The Project
 Statically linked Matrix library written in C language. Suitable for Embedded systems and for Unscented Kalman filtering math. Row-major order optimized.
 
