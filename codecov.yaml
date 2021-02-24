@@ -6,6 +6,10 @@ coverage:
   round: down
   range: "70...100"
 
+ignore:
+  - "test/**/*"
+  - "test_*.c"
+
 parsers:
   gcov:
     branch_detection:
@@ -18,6 +22,3 @@ comment:
   layout: "reach,diff,flags,files,footer"
   behavior: default
   require_changes: no
-
-  ignore:
-  - "test/**/*"
