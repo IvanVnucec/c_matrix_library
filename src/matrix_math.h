@@ -14,7 +14,8 @@ struct MTX_Matrix_STRUCT {
 
 enum MTX_Error_ENUM {
     MTX_Matrix_ERROR_NONE,
-    MTX_Matrix_ERROR_DIMENSIONS
+    MTX_Matrix_ERROR_DIMENSIONS,
+    MTX_Matrix_ERROR_NULL
 };
 
 typedef struct MTX_Matrix_STRUCT MTX_Matrix_S;
