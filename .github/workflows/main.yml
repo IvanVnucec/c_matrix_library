@@ -31,12 +31,13 @@ jobs:
       
       # Runs a single command using the runners shell
       - name: Run Unit tests in Docker container
-        run: |
-        ./scripts/docker_run_container.sh
-        cat ./builddir/meson-logs/testlog.txt
+        run: ./scripts/docker_run_container.sh
 
       - name: Upload Test results
         uses: actions/upload-artifact@v2
         with:
           name: testlog.txt
           path: ./builddir/meson-logs/testlog.txt
+        
+      - name: Upload code coverage reports
+        run: bash <(curl -s https://codecov.io/bash) 
