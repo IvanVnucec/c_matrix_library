@@ -6,6 +6,53 @@ extern "C"
 {
 #endif
 
+#define MTX_CHECK_NULL_PTRS_1(err, a) ({ \
+    if ((a) == NULL || (a)->data == NULL) \
+        { \
+            (err) = MTX_Matrix_ERROR_NULL; \
+        } \
+})
+
+#define MTX_CHECK_NULL_PTRS_2(err, a, b) ({\
+    if ((a) == NULL || (b) == NULL || \
+        (a)->data == NULL || (b)->data == NULL) \
+        { \
+            (err) = MTX_Matrix_ERROR_NULL; \
+        } \
+})
+
+#define MTX_CHECK_NULL_PTRS_3(err, a, b, c) ({ \
+    if ((a) == NULL || (b) == NULL || (c) == NULL || \
+        (a)->data == NULL || (b)->data == NULL || (c)->data == NULL) \
+        { \
+            (err) = MTX_Matrix_ERROR_NULL; \
+        } \
+})
+
+#define MTX_MATRIX_CHECK_DIMS_3(err, a, b, c) ({ \
+    if (err == MTX_Matrix_ERROR_NONE) { \
+        if ((a)->rows != (b)->rows || \
+            (a)->cols != (b)->cols || \
+            (c)->rows != (a)->rows || \
+            (c)->cols != (a)->cols || \
+            (b)->rows != (c)->rows || \
+            (b)->cols != (c)->cols)   \
+        { \
+            (err) = MTX_Matrix_ERROR_DIMENSIONS; \
+        } \
+    } \
+})
+
+#define MTX_MATRIX_CHECK_DIMS_2(err, a, b) ({ \
+    if (err == MTX_Matrix_ERROR_NONE) { \
+        if ((a)->rows != (b)->rows || \
+            (a)->cols != (b)->cols)   \
+        { \
+            (err) = MTX_Matrix_ERROR_DIMENSIONS; \
+        } \
+    } \
+})
+
 struct MTX_Matrix_STRUCT {
     const unsigned int rows;
     const unsigned int cols;

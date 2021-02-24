@@ -7,24 +7,14 @@ void MTX_add(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_
     int i;
 
     #ifdef MTX_MATRIX_CHECK_PTRS
-    if (c == NULL || a == NULL || b == NULL || 
-        c->data == NULL || a->data == NULL || b->data == NULL) {
-
-        errorLocal = MTX_Matrix_ERROR_NULL;
-    }
-    #endif /* #ifdef MTX_MATRIX_CHECK_PTRS */
+    MTX_CHECK_NULL_PTRS_3(errorLocal, a, b, c);
+    #endif
 
     #ifdef MTX_MATRIX_CHECK_DIMS
     if (errorLocal == MTX_Matrix_ERROR_NONE) {
-        if (a->rows != b->rows ||
-            a->cols != b->cols ||
-            c->rows != a->rows ||
-            c->cols != a->cols)
-        {
-            errorLocal = MTX_Matrix_ERROR_DIMENSIONS;
-        }
+        MTX_MATRIX_CHECK_DIMS_3(errorLocal, a, b, c);
     }
-    #endif /* #ifdef MTX_MATRIX_CHECK_DIMS */
+    #endif
 
     if (errorLocal == MTX_Matrix_ERROR_NONE) {
         for (i = 0; i < a->rows * a->cols; i++) {
