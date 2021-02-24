@@ -30,5 +30,11 @@ jobs:
         run: ./scripts/docker_build_image.sh
       
       # Runs a single command using the runners shell
-      - name: Run Docker container
+      - name: Run Unit tests in Docker container
         run: ./scripts/docker_run_container.sh
+
+      - name: Upload Test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: testlog.txt
+          path: /app/builddir/meson-logs/testlog.txt
