@@ -1,5 +1,5 @@
 ## About The Project
-Statically linked Matrix library written in C language. Suitable for Embedded systems. Row-major order.
+Statically linked Matrix library written in C language. Suitable for Embedded systems and for Unscented Kalman filtering math. Row-major order optimized.
 
 ### Built With
 Project is build using Meson and Unit tested in Docker container. Also, it uses Conda as package manager:
