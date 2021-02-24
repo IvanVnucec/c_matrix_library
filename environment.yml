@@ -1,0 +1,12 @@
+name: matrix_lib_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - make
+  - ninja
+  - gcc_linux-64
+  - python=3.8
+  - pip
+  - pip:
+    - meson

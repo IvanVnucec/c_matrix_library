@@ -1,6 +1,11 @@
 #ifndef MATRIX_MATH_H_
 #define MATRIX_MATH_H_
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 struct MTX_Matrix_STRUCT {
     const unsigned int rows;
     const unsigned int cols;
@@ -17,5 +22,9 @@ typedef enum MTX_Error_ENUM MTX_Error_E;
 
 void MTX_add(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_Error_E *error);
 void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error);
+
+#ifdef __cplusplus 
+}
+#endif
 
 #endif /* MATRIX_MATH_H_ */
