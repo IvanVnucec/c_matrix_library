@@ -1,6 +1,6 @@
 ignore:
-  - "test/**/*"
-  - "test_*.c"
+  - "**/test/**/*"
+  - "**/test_*.c"
 
 codecov:
   require_ci_to_pass: yes
