@@ -15,6 +15,12 @@ test_cargs = [
 m_dep = cc.find_library('m', required : false)
 rt_dep = cc.find_library('rt', required : false)
 
+test_print_exe = executable('test_print_exe', 
+    sources : [src, 'test/test_print.c'], 
+    include_directories : [inc, test_inc], 
+    c_args : test_cargs,
+    dependencies: [m_dep, rt_dep])
+
 test_add_exe = executable('test_add_exe', 
     sources : [src, 'test/test_add.c'], 
     include_directories : [inc, test_inc], 
@@ -27,5 +33,13 @@ test_sub_exe = executable('test_sub_exe',
     c_args : test_cargs,
     dependencies: [m_dep, rt_dep])
 
-test('test_add_exe', test_add_exe)
-test('test_sub_exe', test_sub_exe)
+test_scale_exe = executable('test_scale_exe', 
+    sources : [src, 'test/test_scale.c'], 
+    include_directories : [inc, test_inc], 
+    c_args : test_cargs,
+    dependencies: [m_dep, rt_dep])
+
+test('test_print_exe', test_print_exe)
+test('test_add_exe',   test_add_exe)
+test('test_sub_exe',   test_sub_exe)
+test('test_scale_exe', test_scale_exe)

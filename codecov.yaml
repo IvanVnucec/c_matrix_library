@@ -1,14 +1,14 @@
+ignore:
+  - "test/**/*"
+  - "test_*.c"
+
 codecov:
   require_ci_to_pass: yes
 
 coverage:
-  precision: 2
+  precision: 1
   round: down
   range: "70...100"
-
-ignore:
-  - "test/**/*"
-  - "test_*.c"
 
 parsers:
   gcov:

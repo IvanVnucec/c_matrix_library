@@ -8,6 +8,36 @@ void test_setup(void) {
 void test_teardown(void) {
 }
 
+MU_TEST(test_sub_fail_err_null) {
+    float dataA[3][3] = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+        {7.0, 8.0, 9.0}
+    };
+
+    float dataB[3][3] = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+        {7.0, 8.0, 9.0}
+    };
+
+    MTX_Matrix_S A = {
+        .rows = 3,
+        .cols = 3,
+        .data = (float *)dataA
+    };
+
+    MTX_Matrix_S B = {
+        .rows = 3,
+        .cols = 3,
+        .data = (float *)dataB
+    };
+
+    MTX_sub(&A, &A, &B, NULL);
+
+    mu_check(1);
+}
+
 MU_TEST(test_sub_fail_dim_a) {
     MTX_Error_E error;
 
@@ -485,6 +515,8 @@ MU_TEST(test_sub_success_A_A_A) {
 }
 
 MU_TEST_SUITE(test_suite) {
+    MU_RUN_TEST(test_sub_fail_err_null);
+
     MU_RUN_TEST(test_sub_fail_dim_a);
     MU_RUN_TEST(test_sub_fail_dim_b);
     MU_RUN_TEST(test_sub_fail_dim_c);
