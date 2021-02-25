@@ -1,6 +1,7 @@
 ignore:
   - "**/test/**/*"
   - "**/test_*.c"
+  - "**/minunit.h"
 
 codecov:
   require_ci_to_pass: yes
