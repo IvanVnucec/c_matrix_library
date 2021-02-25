@@ -29,27 +29,23 @@ extern "C"
         } \
 })
 
-#define MTX_MATRIX_CHECK_DIMS_3(err, a, b, c) ({ \
-    if (err == MTX_Matrix_ERROR_NONE) { \
-        if ((a)->rows != (b)->rows || \
-            (a)->cols != (b)->cols || \
-            (c)->rows != (a)->rows || \
-            (c)->cols != (a)->cols || \
-            (b)->rows != (c)->rows || \
-            (b)->cols != (c)->cols)   \
-        { \
-            (err) = MTX_Matrix_ERROR_DIMENSIONS; \
-        } \
+#define MTX_MATRIX_CHECK_DIMS_2(err, a, b) ({ \
+    if ((a)->rows != (b)->rows || \
+        (a)->cols != (b)->cols)   \
+    { \
+        (err) = MTX_Matrix_ERROR_DIMENSIONS; \
     } \
 })
 
-#define MTX_MATRIX_CHECK_DIMS_2(err, a, b) ({ \
-    if (err == MTX_Matrix_ERROR_NONE) { \
-        if ((a)->rows != (b)->rows || \
-            (a)->cols != (b)->cols)   \
-        { \
-            (err) = MTX_Matrix_ERROR_DIMENSIONS; \
-        } \
+#define MTX_MATRIX_CHECK_DIMS_3(err, a, b, c) ({ \
+    if ((a)->rows != (b)->rows || \
+        (a)->cols != (b)->cols || \
+        (c)->rows != (a)->rows || \
+        (c)->cols != (a)->cols || \
+        (b)->rows != (c)->rows || \
+        (b)->cols != (c)->cols)   \
+    { \
+        (err) = MTX_Matrix_ERROR_DIMENSIONS; \
     } \
 })
 
