@@ -17,7 +17,7 @@ void MTX_add(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_
     #endif
 
     if (errorLocal == MTX_Matrix_ERROR_NONE) {
-        for (i = 0; i < a->rows * a->cols; i++) {
+        for (i = 0; i < c->rows * c->cols; i++) {
             c->data[i] = a->data[i] + b->data[i]; 
         }
     }
@@ -44,7 +44,7 @@ void MTX_sub(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_
     #endif
 
     if (errorLocal == MTX_Matrix_ERROR_NONE) {
-        for (i = 0; i < a->rows * a->cols; i++) {
+        for (i = 0; i < c->rows * c->cols; i++) {
             c->data[i] = a->data[i] - b->data[i];
         }
     }
@@ -71,7 +71,7 @@ void MTX_scale(MTX_Matrix_S *c, float k, const MTX_Matrix_S *a, MTX_Error_E *err
     #endif
 
     if (errorLocal == MTX_Matrix_ERROR_NONE) {
-        for (i = 0; i < a->rows * a->cols; i++) {
+        for (i = 0; i < c->rows * c->cols; i++) {
             c->data[i] = k * a->data[i];
         }
     }
@@ -81,6 +81,27 @@ void MTX_scale(MTX_Matrix_S *c, float k, const MTX_Matrix_S *a, MTX_Error_E *err
     }
 
     return;
+}
+
+void MTX_zeros(MTX_Matrix_S *c, MTX_Error_E *error) {
+    MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
+    int i;
+
+    #ifdef MTX_MATRIX_CHECK_PTRS
+    MTX_CHECK_NULL_PTRS_1(errorLocal, c);
+    #endif
+
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        for (i = 0; i < c->rows * c->cols; i++) {
+            c->data[i] = 0.0f;
+        }
+    }
+
+    if (error != NULL) {
+        *error = errorLocal;
+    }
+
+    return; 
 }
 
 void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error) {

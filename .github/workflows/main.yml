@@ -35,11 +35,12 @@ jobs:
       - name: Run Unit tests in Docker container
         run: ./scripts/docker_run_container.sh
 
-      - name: Upload Test results
+      # Upload gcovr code coverage report
+      - name: Upload GCC Code Coverage Report
         uses: actions/upload-artifact@v2
         with:
-          name: testlog.txt
-          path: ./builddir/meson-logs/testlog.txt
+          name: coveragereport
+          path: ./builddir/meson-logs/coveragereport/
         
-      - name: Upload code coverage reports
+      - name: Upload code coverage reports to codecov.io page
         run: bash <(curl -s https://codecov.io/bash) 
