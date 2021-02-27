@@ -142,7 +142,7 @@ void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
     int i, j;
 
     #ifdef MTX_MATRIX_CHECK_PTRS
-    MTX_CHECK_NULL_PTRS_1(errorLocal, c);
+    MTX_CHECK_NULL_PTRS_2(errorLocal, c, a);
     #endif
 
     #ifdef MTX_MATRIX_CHECK_DIMS
