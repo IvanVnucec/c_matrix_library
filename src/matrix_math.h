@@ -70,6 +70,7 @@ void MTX_sub  (MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MT
 void MTX_scale(MTX_Matrix_S *c, float k, const MTX_Matrix_S *a, MTX_Error_E *error);
 void MTX_zeros(MTX_Matrix_S *c, MTX_Error_E *error);
 void MTX_ones (MTX_Matrix_S *c, MTX_Error_E *error);
+void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error);
 
 void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error);
 

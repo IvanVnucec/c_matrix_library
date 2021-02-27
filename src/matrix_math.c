@@ -137,6 +137,37 @@ void MTX_ones(MTX_Matrix_S *c, MTX_Error_E *error) {
     return; 
 }
 
+void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
+    MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
+    int i, j;
+
+    #ifdef MTX_MATRIX_CHECK_PTRS
+    MTX_CHECK_NULL_PTRS_1(errorLocal, c);
+    #endif
+
+    #ifdef MTX_MATRIX_CHECK_DIMS
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        if (c->rows != a->cols || c->cols != a->rows) {
+            errorLocal = MTX_Matrix_ERROR_DIMENSIONS;
+        }
+    }
+    #endif
+
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        for (i = 0; i < c->rows; i++) {
+            for (j = 0; j < c->cols; j++) {
+                c->data[j + i * c->cols] = a->data[i + j * a->cols];
+            }
+        }
+    }
+
+    if (error != NULL) {
+        *error = errorLocal;
+    }
+
+    return; 
+}
+
 void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i, j;
