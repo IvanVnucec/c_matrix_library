@@ -104,6 +104,39 @@ void MTX_zeros(MTX_Matrix_S *c, MTX_Error_E *error) {
     return; 
 }
 
+void MTX_ones(MTX_Matrix_S *c, MTX_Error_E *error) {
+    MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
+    int i;
+
+    #ifdef MTX_MATRIX_CHECK_PTRS
+    MTX_CHECK_NULL_PTRS_1(errorLocal, c);
+    #endif
+
+    #ifdef MTX_MATRIX_CHECK_DIMS
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        if (c->rows != c->cols) {
+            errorLocal = MTX_Matrix_ERROR_NOT_SQUARE;
+        }
+    }
+    #endif
+
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        MTX_zeros(c, &errorLocal);
+    }
+
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        for (i = 0; i < c->rows; i++) {
+            c->data[i + c->cols * i] = 1.0f;
+        }
+    }
+
+    if (error != NULL) {
+        *error = errorLocal;
+    }
+
+    return; 
+}
+
 void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i, j;
