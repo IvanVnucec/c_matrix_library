@@ -8,7 +8,7 @@ void test_setup(void) {
 void test_teardown(void) {
 }
 
-MU_TEST(test_ones_fail_err_null) {
+MU_TEST(test_identity_fail_err_null) {
     float dataC[3][3] = {
         {1.0, 2.0, 3.0},
         {4.0, 5.0, 6.0},
@@ -21,12 +21,12 @@ MU_TEST(test_ones_fail_err_null) {
         .data = (float *)dataC
     };
 
-    MTX_ones(&C, NULL);
+    MTX_identity(&C, NULL);
 
     mu_check(1);
 }
 
-MU_TEST(test_ones_fail_dim_c) {
+MU_TEST(test_identity_fail_dim_c) {
     MTX_Error_E error;
 
     float dataC[2][3];
@@ -37,20 +37,20 @@ MU_TEST(test_ones_fail_dim_c) {
         .data = (float *)dataC
     };
 
-    MTX_ones(&C, &error);
+    MTX_identity(&C, &error);
 
     mu_check(error == MTX_Matrix_ERROR_NOT_SQUARE);
 }
 
-MU_TEST(test_ones_fail_null_c) {
+MU_TEST(test_identity_fail_null_c) {
     MTX_Error_E error;
 
-    MTX_ones(NULL, &error);
+    MTX_identity(NULL, &error);
 
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_ones_fail_null_c_data) {
+MU_TEST(test_identity_fail_null_c_data) {
     MTX_Error_E error;
 
     MTX_Matrix_S C = {
@@ -59,12 +59,12 @@ MU_TEST(test_ones_fail_null_c_data) {
         .data = (float *)NULL
     };
 
-    MTX_ones(&C, &error);
+    MTX_identity(&C, &error);
 
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_ones_success_c) {
+MU_TEST(test_identity_success_c) {
     MTX_Error_E error;
 
     float dataC[3][3];
@@ -75,7 +75,7 @@ MU_TEST(test_ones_success_c) {
         .data = (float *)dataC
     };
 
-    MTX_ones(&C, &error);
+    MTX_identity(&C, &error);
 
     mu_check(error == MTX_Matrix_ERROR_NONE);
     mu_assert_double_eq(C.data[0], 1.0);
@@ -91,14 +91,14 @@ MU_TEST(test_ones_success_c) {
 
 
 MU_TEST_SUITE(test_suite) {
-    MU_RUN_TEST(test_ones_fail_err_null);
+    MU_RUN_TEST(test_identity_fail_err_null);
 
-    MU_RUN_TEST(test_ones_fail_dim_c);
+    MU_RUN_TEST(test_identity_fail_dim_c);
 
-    MU_RUN_TEST(test_ones_fail_null_c);
-    MU_RUN_TEST(test_ones_fail_null_c_data);
+    MU_RUN_TEST(test_identity_fail_null_c);
+    MU_RUN_TEST(test_identity_fail_null_c_data);
     
-    MU_RUN_TEST(test_ones_success_c);
+    MU_RUN_TEST(test_identity_success_c);
 }
 
 int main(int argc, char *argv[]) {

@@ -104,7 +104,7 @@ void MTX_zeros(MTX_Matrix_S *c, MTX_Error_E *error) {
     return; 
 }
 
-void MTX_ones(MTX_Matrix_S *c, MTX_Error_E *error) {
+void MTX_identity(MTX_Matrix_S *c, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i;
 
