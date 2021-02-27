@@ -39,7 +39,14 @@ test_scale_exe = executable('test_scale_exe',
     c_args : test_cargs,
     dependencies: [m_dep, rt_dep])
 
+test_zeros_exe = executable('test_zeros_exe', 
+    sources : [src, 'test/test_zeros.c'], 
+    include_directories : [inc, test_inc], 
+    c_args : test_cargs,
+    dependencies: [m_dep, rt_dep])
+
 test('test_print_exe', test_print_exe)
 test('test_add_exe',   test_add_exe)
 test('test_sub_exe',   test_sub_exe)
 test('test_scale_exe', test_scale_exe)
+test('test_zeros_exe',  test_zeros_exe)
