@@ -126,6 +126,44 @@ MU_TEST(test_trans_fail_null_c_data) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
+MU_TEST(test_trans_fail_null_a) {
+    MTX_Error_E error;
+
+    float dataC[4][3];
+
+    MTX_Matrix_S C = {
+        .rows = 4,
+        .cols = 3,
+        .data = (float *)dataC
+    };
+
+    MTX_trans(&C, NULL, &error);
+
+    mu_check(error == MTX_Matrix_ERROR_NULL);
+}
+
+MU_TEST(test_trans_fail_null_a_data) {
+    MTX_Error_E error;
+
+    float dataC[4][3];
+
+    MTX_Matrix_S A = {
+        .rows = 3,
+        .cols = 4,
+        .data = (float *)NULL
+    };
+
+    MTX_Matrix_S C = {
+        .rows = 4,
+        .cols = 3,
+        .data = (float *)dataC
+    };
+
+    MTX_trans(&C, &A, &error);
+
+    mu_check(error == MTX_Matrix_ERROR_NULL);
+}
+
 MU_TEST(test_trans_success_c) {
     MTX_Error_E error;
 
@@ -178,6 +216,8 @@ MU_TEST_SUITE(test_suite) {
 
     MU_RUN_TEST(test_trans_fail_null_c);
     MU_RUN_TEST(test_trans_fail_null_c_data);
+    MU_RUN_TEST(test_trans_fail_null_a);
+    MU_RUN_TEST(test_trans_fail_null_a_data);
     
     MU_RUN_TEST(test_trans_success_c);
 }
