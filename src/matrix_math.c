@@ -168,6 +168,54 @@ void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
     return; 
 }
 
+void MTX_mult(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_Error_E *error) {
+    MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
+    int m, r, k;
+    float sum;
+    
+    #ifdef MTX_MATRIX_CHECK_PTRS
+    MTX_CHECK_NULL_PTRS_3(errorLocal, c, a, b);
+    #endif
+
+    #ifdef MTX_MATRIX_CHECK_DIMS
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        if (a->cols != b->rows ||
+            a->rows != c->rows ||
+            b->cols != c->cols) 
+        {
+            errorLocal = MTX_Matrix_ERROR_DIMENSIONS;
+        }
+    }
+    #endif
+
+    /* can't do A = A * B or A = B * A or A = A * A */
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        if (c->data == a->data ||
+            c->data == b->data) 
+        {
+            errorLocal = MTX_Matrix_ERROR_INPLACE;
+        }
+    }
+
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        for (m = 0; m < a->rows; m++) {
+            for (r = 0; r < b->cols; r++) {
+                c->data[r + m * c->cols] = 0.0f;
+
+                for (k = 0; k < b->rows; k++) {
+                    c->data[r + m * c->cols] = c->data[r + m * c->cols] + a->data[k + m * a->cols] * b->data[r + k * b->cols];
+                }
+            }
+        }
+    }
+
+    if (error != NULL) {
+        *error = errorLocal;
+    }
+
+    return; 
+}
+
 void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i, j;

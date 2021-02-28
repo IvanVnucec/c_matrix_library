@@ -59,7 +59,8 @@ enum MTX_Error_ENUM {
     MTX_Matrix_ERROR_NONE,
     MTX_Matrix_ERROR_DIMENSIONS,
     MTX_Matrix_ERROR_NULL,
-    MTX_Matrix_ERROR_NOT_SQUARE
+    MTX_Matrix_ERROR_NOT_SQUARE,
+    MTX_Matrix_ERROR_INPLACE
 };
 
 typedef struct MTX_Matrix_STRUCT MTX_Matrix_S;
@@ -71,6 +72,7 @@ void MTX_scale(MTX_Matrix_S *c, float k, const MTX_Matrix_S *a, MTX_Error_E *err
 void MTX_zeros(MTX_Matrix_S *c, MTX_Error_E *error);
 void MTX_identity(MTX_Matrix_S *c, MTX_Error_E *error);
 void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error);
+void MTX_mult (MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_Error_E *error);
 
 void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error);
 
