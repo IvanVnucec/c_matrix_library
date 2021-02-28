@@ -244,6 +244,36 @@ void MTX_mult(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX
     return; 
 }
 
+void MTX_setColumn(MTX_Matrix_S *c, unsigned int columnIndex, const MTX_Matrix_S *column, MTX_Error_E *error) {
+    MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
+    int i;
+
+    #ifdef MTX_MATRIX_CHECK_PTRS
+    MTX_CHECK_NULL_PTRS_2(errorLocal, c, column);
+    #endif
+
+    #ifdef MTX_MATRIX_CHECK_DIMS
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        if (columnIndex >= c->cols || 
+            column->rows != c->rows) {
+            errorLocal = MTX_Matrix_ERROR_DIMENSIONS;
+        }
+    }
+    #endif
+
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        for (i = 0; i < c->rows; i++) {
+            c->data[columnIndex + i * c->cols] = column->data[0 + i * column->cols];
+        }
+    }
+
+    if (error != NULL) {
+        *error = errorLocal;
+    }
+
+    return; 
+}
+
 void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i, j;
