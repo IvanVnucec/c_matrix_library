@@ -87,6 +87,39 @@ MU_TEST(test_setColumn_fail_null_c_data) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
+MU_TEST(test_setColumn_fail_null_column) {
+    MTX_Error_E error;
+
+    float dataC[3][3];
+
+    MTX_Matrix_S C;
+
+    MTX_init(&C, 3, 1, dataC, &error);
+
+    MTX_setColumn(&C, 0, NULL, &error);
+
+    mu_check(error == MTX_Matrix_ERROR_NULL);
+}
+
+MU_TEST(test_setColumn_fail_null_column_data) {
+    MTX_Error_E error;
+
+    float dataC[3][3];
+
+    MTX_Matrix_S C;
+    MTX_Matrix_S column = {
+        .rows = 3,
+        .cols = 1,
+        .data = (float *)NULL
+    };
+
+    MTX_init(&C, 3, 1, dataC, &error);
+
+    MTX_setColumn(&C, 0, &column, &error);
+
+    mu_check(error == MTX_Matrix_ERROR_NULL);
+}
+
 MU_TEST(test_setColumn_fail_dim_rows) {
     MTX_Error_E error;
 
@@ -244,6 +277,8 @@ MU_TEST_SUITE(test_suite) {
 
     MU_RUN_TEST(test_setColumn_fail_null_c);
     MU_RUN_TEST(test_setColumn_fail_null_c_data);
+    MU_RUN_TEST(test_setColumn_fail_null_column);
+    MU_RUN_TEST(test_setColumn_fail_null_column_data);
 
     MU_RUN_TEST(test_setColumn_fail_dim_cols);
     MU_RUN_TEST(test_setColumn_fail_dim_rows);
