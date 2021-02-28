@@ -66,6 +66,36 @@ MU_TEST(test_mult_fail_dim_a) {
     mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
 }
 
+MU_TEST(test_mult_fail_dim_b) {
+    MTX_Error_E error;
+
+    float dataA[2][3];
+    float dataB[2][3];
+    float dataC[2][3];
+
+    MTX_Matrix_S A = {
+        .rows = 2,
+        .cols = 3,
+        .data = (float *)dataA
+    };
+
+    MTX_Matrix_S B = {
+        .rows = 3,
+        .cols = 3,
+        .data = (float *)dataB
+    };
+
+    MTX_Matrix_S C = {
+        .rows = 2,
+        .cols = 2,
+        .data = (float *)dataC
+    };
+
+    MTX_mult(&C, &A, &B, &error);
+
+    mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
+}
+
 MU_TEST(test_mult_fail_dim_c) {
     MTX_Error_E error;
 
@@ -421,6 +451,7 @@ MU_TEST_SUITE(test_suite) {
     MU_RUN_TEST(test_mult_fail_err_null);
 
     MU_RUN_TEST(test_mult_fail_dim_a);
+    MU_RUN_TEST(test_mult_fail_dim_b);
     MU_RUN_TEST(test_mult_fail_dim_c);
 
     MU_RUN_TEST(test_mult_fail_null_a);
