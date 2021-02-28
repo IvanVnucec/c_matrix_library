@@ -58,6 +58,9 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
+      - name: Run Docker container
+        run: docker run --rm c_matrix_library
+
       # Upload gcovr code coverage report
       - name: Upload GCC Code Coverage Report
         uses: actions/upload-artifact@v2
