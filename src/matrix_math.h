@@ -75,7 +75,7 @@ void MTX_zeros(MTX_Matrix_S *c, MTX_Error_E *error);
 void MTX_identity(MTX_Matrix_S *c, MTX_Error_E *error);
 void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error);
 void MTX_mult (MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_Error_E *error);
-
+void MTX_setColumn(MTX_Matrix_S *c, unsigned int columnIndex, const MTX_Matrix_S *column, MTX_Error_E *error);
 void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error);
 
 #ifdef __cplusplus 
