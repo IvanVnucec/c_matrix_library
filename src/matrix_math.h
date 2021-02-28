@@ -67,6 +67,7 @@ enum MTX_Error_ENUM {
 typedef struct MTX_Matrix_STRUCT MTX_Matrix_S;
 typedef enum MTX_Error_ENUM MTX_Error_E;
 
+void MTX_init (MTX_Matrix_S *c, unsigned int rows, unsigned int cols, const float *data, MTX_Error_E *error);
 void MTX_add  (MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_Error_E *error);
 void MTX_sub  (MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_Error_E *error);
 void MTX_scale(MTX_Matrix_S *c, float k, const MTX_Matrix_S *a, MTX_Error_E *error);
