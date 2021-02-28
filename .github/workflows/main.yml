@@ -59,8 +59,7 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache
 
       - name: Run Docker container
-        run: ls
-        #run: docker run --rm ${{ steps.buildx.outputs.name }}
+        run: docker run --rm ivan123123/c_matrix_library:latest
 
       # Upload gcovr code coverage report
       - name: Upload GCC Code Coverage Report
