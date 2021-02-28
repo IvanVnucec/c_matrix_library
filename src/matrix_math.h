@@ -50,8 +50,8 @@ extern "C"
 })
 
 struct MTX_Matrix_STRUCT {
-    const unsigned int rows;
-    const unsigned int cols;
+    unsigned int rows;
+    unsigned int cols;
     float *data;
 };
 
@@ -60,7 +60,8 @@ enum MTX_Error_ENUM {
     MTX_Matrix_ERROR_DIMENSIONS,
     MTX_Matrix_ERROR_NULL,
     MTX_Matrix_ERROR_NOT_SQUARE,
-    MTX_Matrix_ERROR_INPLACE
+    MTX_Matrix_ERROR_INPLACE,
+    MTX_Matrix_ERROR_ZERO_DIMS
 };
 
 typedef struct MTX_Matrix_STRUCT MTX_Matrix_S;
