@@ -30,37 +30,24 @@ int main(void) {
     MTX_Error_E error;
 
     float dataA[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
+        {1.0f, 2.0f, 3.0f},
+        {4.0f, 5.0f, 6.0f},
+        {7.0f, 8.0f, 9.0f}
     };
 
     float dataB[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
+        {1.0f, 2.0f, 3.0f},
+        {4.0f, 5.0f, 6.0f},
+        {7.0f, 8.0f, 9.0f}
     };
 
     float dataC[3][3];
 
-    MTX_Matrix_S A = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataA
-    };
+    MTX_init(&A, 3, 3, dataA, &error);
+    MTX_init(&B, 3, 3, dataB, &error);
+    MTX_init(&C, 3, 3, dataC, &error);
 
-    MTX_Matrix_S B = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataB
-    };
-
-    MTX_Matrix_S C = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataC
-    };
-
+    /* C = A + B */
     MTX_add(&C, &A, &B, &error);
 
     MTX_print(&C, &error);
