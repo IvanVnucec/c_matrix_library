@@ -2,6 +2,34 @@
 #include <stdio.h>
 #include "matrix_math.h"
 
+void MTX_init (MTX_Matrix_S *c, unsigned int rows, unsigned int cols, const float *data, MTX_Error_E *error) {
+    MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
+
+    #ifdef MTX_MATRIX_CHECK_PTRS
+    if (c == NULL || data == NULL) {
+        errorLocal = MTX_Matrix_ERROR_NULL;
+    }
+    #endif
+
+    #ifdef MTX_MATRIX_CHECK_DIMS
+    if (rows == 0 || cols == 0) {
+        errorLocal = MTX_Matrix_ERROR_ZERO_DIMS;
+    }
+    #endif
+
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        c->rows = rows;
+        c->cols = cols;
+        c->data = data;
+    }
+
+    if (error != NULL) {
+        *error = errorLocal;
+    }
+
+    return;
+}
+
 void MTX_add(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i;
