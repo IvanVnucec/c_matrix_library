@@ -32,11 +32,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/Dockerfile') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+          key: ${{ runner.os }}-build-${{ hashFiles('**/Dockerfile') }}
             
       - name: Build Docker image
         if: steps.cache-docker-layers.outputs.cache-hit != 'true'
