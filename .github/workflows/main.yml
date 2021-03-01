@@ -30,7 +30,7 @@ jobs:
         id: cache-docker-layers
         uses: actions/cache@v2
         with:
-          path: $(pwd)
+          path: /var/lib/docker/
           key: ${{ runner.os }}-build-${{ hashFiles('**/Dockerfile') }}
             
       - name: Build Docker image
