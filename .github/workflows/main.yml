@@ -39,9 +39,12 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
+            
+      - name: Build Docker image
+        run: docker build -t="cont" .
 
       - name: Run Docker container
-        uses: docker://ivan123123/c_matrix_library:latest
+        run: docker run -d -v "$(pwd):/app" cont
 
       # Upload gcovr code coverage report
       - name: Upload GCC Code Coverage Report
