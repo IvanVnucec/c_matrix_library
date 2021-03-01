@@ -48,12 +48,12 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           load: true
-          tags: ivan123123/c_matrix_library:latest
+          tags: c_matrix_library:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
       - name: Run Docker container
-        run: docker run ivan123123/c_matrix_library
+        run: docker run -v "$(pwd):/app" c_matrix_library
 
       # Upload gcovr code coverage report
       - name: Upload GCC Code Coverage Report
