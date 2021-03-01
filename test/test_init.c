@@ -100,7 +100,7 @@ MU_TEST(test_init_success_c) {
     mu_check(error == MTX_Matrix_ERROR_NONE);
     mu_check(C.rows == 3);
     mu_check(C.cols == 3);
-    mu_check(C.data == dataC);
+    mu_check(C.data == (float *)dataC);
 }
 
 MU_TEST_SUITE(test_suite) {
