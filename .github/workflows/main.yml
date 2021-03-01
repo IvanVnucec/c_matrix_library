@@ -38,7 +38,7 @@ jobs:
         run: docker build -t="cont" .
 
       - name: Run Docker container
-        run: docker run -v "$(pwd):/app" cont
+        run: docker run -v "$(pwd):/app" /tmp/cont
 
       # Upload gcovr code coverage report
       - name: Upload GCC Code Coverage Report
