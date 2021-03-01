@@ -43,26 +43,8 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ hashFiles('**/Dockerfile') }}
 
       - name: Build Docker image
-        id: docker_build
-        uses: docker/build-push-action@v2
-        with:
-          context: ./
-          file: ./Dockerfile
-          builder: ${{ steps.buildx.outputs.name }}
-          load: true
-          tags: c_matrix_library:latest
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
-
-      - name: Run Docker container
-        run: docker run -v "$(pwd):/app" c_matrix_library
-
-      # Upload gcovr code coverage report
-      - name: Upload GCC Code Coverage Report
-        uses: actions/upload-artifact@v2
-        with:
-          name: coveragereport
-          path: ./builddir/meson-logs/coveragereport/
+        run: ls /tmp/
+        
         
       - name: Upload code coverage reports to codecov.io page
         run: bash <(curl -s https://codecov.io/bash) 
