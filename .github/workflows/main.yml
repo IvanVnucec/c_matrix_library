@@ -30,11 +30,11 @@ jobs:
         id: cache-docker-layers
         uses: actions/cache@v2
         with:
-          path: ./.buildx-cache
+          path: ./.
           key: ${{ runner.os }}-build-${{ hashFiles('**/Dockerfile') }}
           
       - name: Print Docker images
-        run: docker images && ls /home/runner/work/c_matrix_library/c_matrix_library
+        run: docker images && ls $(pwd)
             
       - name: Build Docker image
         if: steps.cache-docker-layers.outputs.cache-hit != 'true'
