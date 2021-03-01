@@ -30,15 +30,17 @@ jobs:
         id: cache-docker-layers
         uses: actions/cache@v2
         with:
-          path: ./.
+          path: $(pwd)
           key: ${{ runner.os }}-build-${{ hashFiles('**/Dockerfile') }}
-          
-      - name: Print Docker images
-        run: docker images && ls $(pwd)
             
       - name: Build Docker image
         if: steps.cache-docker-layers.outputs.cache-hit != 'true'
         run: docker build -t="cont" .
+        
+      - name: Print Docker images
+        run: |
+          docker images
+          ls $(pwd)
 
       - name: Run Docker container
         run: docker run -v "$(pwd):/app" cont
