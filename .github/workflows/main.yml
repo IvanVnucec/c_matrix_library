@@ -32,6 +32,9 @@ jobs:
         with:
           path: ./.buildx-cache
           key: ${{ runner.os }}-build-${{ hashFiles('**/Dockerfile') }}
+          
+      - name: Print Docker images
+        run: docker images
             
       - name: Build Docker image
         if: steps.cache-docker-layers.outputs.cache-hit != 'true'
