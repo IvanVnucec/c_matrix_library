@@ -30,7 +30,7 @@ jobs:
         id: cache-docker-layers
         uses: actions/cache@v2
         with:
-          path: /tmp/.buildx-cache
+          path: ./.buildx-cache
           key: ${{ runner.os }}-build-${{ hashFiles('**/Dockerfile') }}
             
       - name: Build Docker image
@@ -38,7 +38,7 @@ jobs:
         run: docker build -t="cont" .
 
       - name: Run Docker container
-        run: docker run -v "$(pwd):/app" $(pwd)/tmp/cont
+        run: docker run -v "$(pwd):/app" cont
 
       # Upload gcovr code coverage report
       - name: Upload GCC Code Coverage Report
