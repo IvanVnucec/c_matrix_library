@@ -43,7 +43,7 @@ int main(void) {
 
     float dataC[3][3];
     
-    MTX_Matrix_S C, A, B;
+    MTX_Matrix_S A, B, C;
 
     MTX_init(&A, 3, 3, dataA, &error);
     MTX_init(&B, 3, 3, dataB, &error);
