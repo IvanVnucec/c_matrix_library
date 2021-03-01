@@ -26,7 +26,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: cache-docker-layers
+      - name: Cache Docker layers
+        id: cache-docker-layers
         uses: actions/cache@v2
         with:
           path: /tmp/.buildx-cache
