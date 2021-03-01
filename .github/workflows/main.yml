@@ -43,7 +43,7 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ hashFiles('**/Dockerfile') }}
 
       - name: Build Docker image
-        run: ls /tmp/
+        run: ls -a /tmp/.buildx-cache
         
         
       - name: Upload code coverage reports to codecov.io page
