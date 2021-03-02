@@ -31,12 +31,12 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           load: true
-          tags: $(DOCKER_IMAGE_NAME)
+          tags: $DOCKER_IMAGE_NAME
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
       - name: Run Docker container
-        run: docker run -v "$(pwd):/app" $(DOCKER_IMAGE_NAME)
+        run: docker run -v "$(pwd):/app" $DOCKER_IMAGE_NAME
 
       - name: Upload GCC Code Coverage Report
         uses: actions/upload-artifact@v2
