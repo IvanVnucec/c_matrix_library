@@ -27,8 +27,8 @@ MU_TEST(test_setColumn_fail_err_null) {
 
     MTX_Matrix_S C;
 
-    MTX_init(&column, 3, 1, dataColumn, &error);
-    MTX_init(&C,      3, 3, dataC,      &error);
+    MTX_init(&column, 3, 1, (float *)dataColumn, &error);
+    MTX_init(&C,      3, 3, (float *)dataC,      &error);
 
     MTX_setColumn(&C, 0, &column, NULL);
 
@@ -56,7 +56,7 @@ MU_TEST(test_setColumn_fail_null_c) {
 
     MTX_Matrix_S column;
 
-    MTX_init(&column, 3, 1, dataColumn, &error);
+    MTX_init(&column, 3, 1, (float *)dataColumn, &error);
 
     MTX_setColumn(NULL, 0, &column, &error);
 
@@ -80,7 +80,7 @@ MU_TEST(test_setColumn_fail_null_c_data) {
         .data = (float *)NULL
     };
 
-    MTX_init(&column, 3, 1, dataColumn, &error);
+    MTX_init(&column, 3, 1, (float *)dataColumn, &error);
 
     MTX_setColumn(&C, 0, &column, &error);
 
@@ -94,7 +94,7 @@ MU_TEST(test_setColumn_fail_null_column) {
 
     MTX_Matrix_S C;
 
-    MTX_init(&C, 3, 1, dataC, &error);
+    MTX_init(&C, 3, 1, (float *)dataC, &error);
 
     MTX_setColumn(&C, 0, NULL, &error);
 
@@ -113,7 +113,7 @@ MU_TEST(test_setColumn_fail_null_column_data) {
         .data = (float *)NULL
     };
 
-    MTX_init(&C, 3, 1, dataC, &error);
+    MTX_init(&C, 3, 1, (float *)dataC, &error);
 
     MTX_setColumn(&C, 0, &column, &error);
 
@@ -140,8 +140,8 @@ MU_TEST(test_setColumn_fail_dim_rows) {
 
     MTX_Matrix_S C;
 
-    MTX_init(&column, 3, 1, dataColumn, &error);
-    MTX_init(&C,      4, 3, dataC,      &error);
+    MTX_init(&column, 3, 1, (float *)dataColumn, &error);
+    MTX_init(&C,      4, 3, (float *)dataC,      &error);
 
     MTX_setColumn(&C, 0, &column, &error);
 
@@ -167,8 +167,8 @@ MU_TEST(test_setColumn_fail_dim_cols) {
 
     MTX_Matrix_S C;
 
-    MTX_init(&column, 3, 1, dataColumn, &error);
-    MTX_init(&C,      3, 3, dataC,      &error);
+    MTX_init(&column, 3, 1, (float *)dataColumn, &error);
+    MTX_init(&C,      3, 3, (float *)dataC,      &error);
 
     MTX_setColumn(&C, 3, &column, &error);
 
@@ -194,8 +194,8 @@ MU_TEST(test_setColumn_success_c) {
 
     MTX_Matrix_S C;
 
-    MTX_init(&column, 3, 1, dataColumn, &error);
-    MTX_init(&C,      3, 3, dataC,      &error);
+    MTX_init(&column, 3, 1, (float *)dataColumn, &error);
+    MTX_init(&C,      3, 3, (float *)dataC,      &error);
 
     MTX_setColumn(&C, 0, &column, &error);
 
@@ -232,8 +232,8 @@ MU_TEST(test_setColumn_success_column_not_column) {
 
     MTX_Matrix_S C;
 
-    MTX_init(&column, 3, 2, dataColumn, &error);
-    MTX_init(&C,      3, 3, dataC,      &error);
+    MTX_init(&column, 3, 2, (float *)dataColumn, &error);
+    MTX_init(&C,      3, 3, (float *)dataC,      &error);
 
     MTX_setColumn(&C, 0, &column, &error);
 
@@ -262,7 +262,7 @@ MU_TEST(test_setColumn_success_inplace) {
 
     MTX_Matrix_S column;
 
-    MTX_init(&column, 3, 1, dataColumn, &error);
+    MTX_init(&column, 3, 1, (float *)dataColumn, &error);
 
     MTX_setColumn(&column, 0, &column, &error);
 

@@ -24,7 +24,7 @@ MU_TEST(test_init_fail_err_null) {
 
 MU_TEST(test_init_fail_null_c) {
     MTX_Error_E error;
-
+	
     float dataC[3][3] = {
         {1.0, 2.0, 3.0},
         {4.0, 5.0, 6.0},
@@ -38,12 +38,6 @@ MU_TEST(test_init_fail_null_c) {
 
 MU_TEST(test_init_fail_null_c_data) {
     MTX_Error_E error;
-
-    float dataC[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
 
     MTX_Matrix_S C;
 

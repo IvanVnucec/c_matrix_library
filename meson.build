@@ -1,4 +1,4 @@
-project('matrix', 'c', default_options: 'c_std=gnu89')
+project('matrix', 'c', default_options: ['c_std=c89'])
 
 cc = meson.get_compiler('c')
 
@@ -8,6 +8,8 @@ inc = include_directories('src')
 test_inc = include_directories('test')
 
 test_cargs = [
+    '-Wall',
+    '-Werror',
     '-DMTX_MATRIX_CHECK_PTRS', 
     '-DMTX_MATRIX_CHECK_DIMS'
     ]

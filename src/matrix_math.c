@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "matrix_math.h"
 
-void MTX_init (MTX_Matrix_S *c, unsigned int rows, unsigned int cols, const float *data, MTX_Error_E *error) {
+void MTX_init (MTX_Matrix_S *c, unsigned int rows, unsigned int cols, float *data, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
 
     #ifdef MTX_MATRIX_CHECK_PTRS
@@ -199,7 +199,6 @@ void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
 void MTX_mult(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int m, r, k;
-    float sum;
     
     #ifdef MTX_MATRIX_CHECK_PTRS
     MTX_CHECK_NULL_PTRS_3(errorLocal, c, a, b);
