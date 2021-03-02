@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "matrix_math.h"
 
-void MTX_init (MTX_Matrix_S *c, unsigned int rows, unsigned int cols, const float *data, MTX_Error_E *error) {
+void MTX_init (MTX_Matrix_S *c, unsigned int rows, unsigned int cols, float *data, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
 
     #ifdef MTX_MATRIX_CHECK_PTRS
