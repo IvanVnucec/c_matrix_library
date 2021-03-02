@@ -31,19 +31,13 @@ MU_TEST(test_init_fail_null_c) {
         {7.0, 8.0, 9.0}
     };
 
-    MTX_init(NULL, 3, 3, dataC, &error);
+    MTX_init(NULL, 3, 3, (float *)dataC, &error);
 
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
 MU_TEST(test_init_fail_null_c_data) {
     MTX_Error_E error;
-
-    float dataC[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
 
     MTX_Matrix_S C;
 
