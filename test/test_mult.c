@@ -366,6 +366,89 @@ MU_TEST(test_mult_success_C_A_B) {
     mu_assert_double_eq(C.data[5], 96.0);
 }
 
+MU_TEST(test_mult_success_C_Arow_Bcol) {
+    MTX_Error_E error;
+
+    float dataA[2][1] = {
+        {1.0},
+        {2.0},
+    };
+
+    float dataB[1][3] = {
+        {1.0, 2.0, 3.0}
+    };
+
+    float dataC[2][3];
+
+    MTX_Matrix_S A = {
+        .rows = 2,
+        .cols = 1,
+        .data = (float *)dataA
+    };
+
+    MTX_Matrix_S B = {
+        .rows = 1,
+        .cols = 3,
+        .data = (float *)dataB
+    };
+
+    MTX_Matrix_S C = {
+        .rows = 2,
+        .cols = 3,
+        .data = (float *)dataC
+    };
+
+    MTX_mult(&C, &A, &B, &error);
+
+    mu_check(error == MTX_Matrix_ERROR_NONE);
+    mu_assert_double_eq(C.data[0], 1.0);
+    mu_assert_double_eq(C.data[1], 2.0);
+    mu_assert_double_eq(C.data[2], 3.0);
+
+    mu_assert_double_eq(C.data[3], 2.0);
+    mu_assert_double_eq(C.data[4], 4.0);
+    mu_assert_double_eq(C.data[5], 6.0);
+}
+
+MU_TEST(test_mult_success_C_Acol_Brow) {
+    MTX_Error_E error;
+
+    float dataA[1][3] = {
+        {1.0, 2.0, 3.0},
+    };
+
+    float dataB[3][1] = {
+        {1.0},
+        {2.0},
+        {3.0}
+    };
+
+    float dataC[1][1];
+
+    MTX_Matrix_S A = {
+        .rows = 1,
+        .cols = 3,
+        .data = (float *)dataA
+    };
+
+    MTX_Matrix_S B = {
+        .rows = 3,
+        .cols = 1,
+        .data = (float *)dataB
+    };
+
+    MTX_Matrix_S C = {
+        .rows = 1,
+        .cols = 1,
+        .data = (float *)dataC
+    };
+
+    MTX_mult(&C, &A, &B, &error);
+
+    mu_check(error == MTX_Matrix_ERROR_NONE);
+    mu_assert_double_eq(C.data[0], 14.0);
+}
+
 MU_TEST(test_mult_fail_inplace_A_A_B) {
     MTX_Error_E error;
 
@@ -466,6 +549,8 @@ MU_TEST_SUITE(test_suite) {
     MU_RUN_TEST(test_mult_fail_inplace_A_A_A);
     
     MU_RUN_TEST(test_mult_success_C_A_B);
+    MU_RUN_TEST(test_mult_success_C_Arow_Bcol);
+    MU_RUN_TEST(test_mult_success_C_Acol_Brow);
 }
 
 int main(int argc, char *argv[]) {

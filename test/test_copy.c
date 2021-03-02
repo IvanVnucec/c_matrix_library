@@ -267,6 +267,56 @@ MU_TEST(test_copy_success_A_A) {
     mu_assert_double_eq(9.0, A.data[8]);
 }
 
+MU_TEST(test_copy_success_C_A_rowVect) {
+    MTX_Error_E error;
+
+    float dataA[3][1] = {
+        {1.0},
+        {4.0},
+        {7.0}
+    };
+
+    float dataC[3][1] = {
+        {0.0},
+        {0.0},
+        {0.0}
+    };
+
+    MTX_Matrix_S A;
+    MTX_Matrix_S C;
+
+    MTX_init(&A, 3, 1, (float *)dataA, &error);
+    MTX_init(&C, 3, 1, (float *)dataC, &error);
+
+    MTX_copy(&C, &A, &error);
+
+    mu_check(error == MTX_Matrix_ERROR_NONE);
+    mu_assert_double_eq(1.0, C.data[0]);
+    mu_assert_double_eq(4.0, C.data[1]);
+    mu_assert_double_eq(7.0, C.data[2]);
+}
+
+MU_TEST(test_copy_success_C_A_colVect) {
+    MTX_Error_E error;
+
+    float dataA[1][3] = {{1.0, 2.0, 3.0}};
+
+    float dataC[1][3] = {{0.0, 0.0, 0.0}};
+
+    MTX_Matrix_S A;
+    MTX_Matrix_S C;
+
+    MTX_init(&A, 1, 3, (float *)dataA, &error);
+    MTX_init(&C, 1, 3, (float *)dataC, &error);
+
+    MTX_copy(&C, &A, &error);
+
+    mu_check(error == MTX_Matrix_ERROR_NONE);
+    mu_assert_double_eq(1.0, C.data[0]);
+    mu_assert_double_eq(2.0, C.data[1]);
+    mu_assert_double_eq(3.0, C.data[2]);
+}
+
 MU_TEST_SUITE(test_suite) {
     MU_RUN_TEST(test_copy_fail_err_null);
 
@@ -282,6 +332,9 @@ MU_TEST_SUITE(test_suite) {
     
     MU_RUN_TEST(test_copy_success_C_A);
     MU_RUN_TEST(test_copy_success_A_A);
+
+    MU_RUN_TEST(test_copy_success_C_A_rowVect);
+    MU_RUN_TEST(test_copy_success_C_A_colVect);
 }
 
 int main(int argc, char *argv[]) {
