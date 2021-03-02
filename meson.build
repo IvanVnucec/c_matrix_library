@@ -77,6 +77,12 @@ test_setcolumn_exe = executable('test_setcolumn_exe',
     c_args : test_cargs,
     dependencies: [m_dep, rt_dep])
 
+test_getcolumn_exe = executable('test_getcolumn_exe', 
+    sources : [src, 'test/test_getcolumn.c'], 
+    include_directories : [inc, test_inc], 
+    c_args : test_cargs,
+    dependencies: [m_dep, rt_dep])
+
 test('test_print_exe', test_print_exe)
 test('test_init_exe',  test_init_exe)
 test('test_add_exe',   test_add_exe)
@@ -87,3 +93,4 @@ test('test_identity_exe', test_identity_exe)
 test('test_trans_exe', test_trans_exe)
 test('test_mult_exe',  test_mult_exe)
 test('test_setcolumn_exe', test_setcolumn_exe)
+test('test_getcolumn_exe', test_getcolumn_exe)
