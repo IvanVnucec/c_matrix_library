@@ -47,7 +47,7 @@ MU_TEST(test_cholesky_fail_err_null) {
     mu_assert_double_eq( 3.0, C.data[8]);
 }
 
-MU_TEST(test_cholesky_fail_dim_c) {
+MU_TEST(test_cholesky_fail_dim_not_square) {
     MTX_Error_E error = MTX_Matrix_ERROR_NONE;
 
     float dataA[4][3] = {
@@ -97,6 +97,34 @@ MU_TEST(test_cholesky_fail_dim_a) {
     MTX_Matrix_S C = {
         .rows = 3,
         .cols = 3,
+        .data = (float *)dataC
+    };
+
+    MTX_cholesky(&C, &A, &error);
+
+    mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
+}
+
+MU_TEST(test_cholesky_fail_dim_c) {
+    MTX_Error_E error = MTX_Matrix_ERROR_NONE;
+
+    float dataA[3][3] = {
+        {  4.0,  12.0, -16.0},
+        { 12.0,  37.0, -43.0},
+        {-16.0, -43.0,  98.0}
+    };
+
+    float dataC[3][4] = {0};
+
+    MTX_Matrix_S A = {
+        .rows = 3,
+        .cols = 3,
+        .data = (float *)dataA
+    };
+
+    MTX_Matrix_S C = {
+        .rows = 3,
+        .cols = 4,
         .data = (float *)dataC
     };
 
@@ -286,8 +314,9 @@ MU_TEST(test_cholesky_success_c) {
 MU_TEST_SUITE(test_suite) {
     MU_RUN_TEST(test_cholesky_fail_err_null);
 
-    MU_RUN_TEST(test_cholesky_fail_dim_c);
+    MU_RUN_TEST(test_cholesky_fail_dim_not_square);
     MU_RUN_TEST(test_cholesky_fail_dim_a);
+    MU_RUN_TEST(test_cholesky_fail_dim_c);
 
     MU_RUN_TEST(test_cholesky_fail_null_c);
     MU_RUN_TEST(test_cholesky_fail_null_a);
