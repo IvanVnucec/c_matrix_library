@@ -68,6 +68,42 @@ MU_TEST(test_print_success) {
     mu_check(error == MTX_Matrix_ERROR_NONE);
 }
 
+MU_TEST(test_print_success_rowVect) {
+    MTX_Error_E error;
+
+    float dataC[3][1] = {
+        {1.0},
+        {4.0},
+        {7.0}
+    };
+
+    MTX_Matrix_S C = {
+        .rows = 3,
+        .cols = 1,
+        .data = (float *)dataC
+    };
+
+    MTX_print(&C, &error);
+
+    mu_check(error == MTX_Matrix_ERROR_NONE);
+}
+
+MU_TEST(test_print_success_colVect) {
+    MTX_Error_E error;
+
+    float dataC[1][3] = {{1.0, 2.0, 3.0}};
+
+    MTX_Matrix_S C = {
+        .rows = 1,
+        .cols = 3,
+        .data = (float *)dataC
+    };
+
+    MTX_print(&C, &error);
+
+    mu_check(error == MTX_Matrix_ERROR_NONE);
+}
+
 MU_TEST_SUITE(test_suite) {
     MU_RUN_TEST(test_print_fail_err_null);
 
@@ -75,6 +111,8 @@ MU_TEST_SUITE(test_suite) {
     MU_RUN_TEST(test_print_fail_null_c_data);
     
     MU_RUN_TEST(test_print_success);
+    MU_RUN_TEST(test_print_success_rowVect);
+    MU_RUN_TEST(test_print_success_colVect);
 
 }
 

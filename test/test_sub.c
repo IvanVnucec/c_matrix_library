@@ -514,7 +514,7 @@ MU_TEST(test_sub_success_A_A_A) {
     mu_assert_double_eq(A.data[8], 0.0);
 }
 
-MU_TEST(test_sub_success_C_A_B_rowVect) {
+MU_TEST(test_sub_success_C_A_B_colVect) {
     MTX_Error_E error;
 
     float dataA[1][3] = {
@@ -553,7 +553,7 @@ MU_TEST(test_sub_success_C_A_B_rowVect) {
     mu_assert_double_eq(C.data[2],  14.0);
 }
 
-MU_TEST(test_sub_success_C_A_B_colVect) {
+MU_TEST(test_sub_success_C_A_B_rowVect) {
     MTX_Error_E error;
 
     float dataA[3][1] = {
