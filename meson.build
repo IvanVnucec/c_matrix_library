@@ -89,15 +89,22 @@ test_copy_exe = executable('test_copy_exe',
     c_args : test_cargs,
     dependencies: [m_dep, rt_dep])
 
+test_cholesky_exe = executable('test_cholesky_exe', 
+    sources : [src, 'test/test_cholesky.c'], 
+    include_directories : [inc, test_inc], 
+    c_args : test_cargs,
+    dependencies: [m_dep, rt_dep])
+
 test('test_print_exe', test_print_exe)
 test('test_init_exe',  test_init_exe)
 test('test_add_exe',   test_add_exe)
 test('test_sub_exe',   test_sub_exe)
 test('test_scale_exe', test_scale_exe)
 test('test_zeros_exe', test_zeros_exe)
-test('test_identity_exe', test_identity_exe)
-test('test_trans_exe', test_trans_exe)
-test('test_mult_exe',  test_mult_exe)
+test('test_identity_exe',  test_identity_exe)
+test('test_trans_exe',     test_trans_exe)
+test('test_mult_exe',      test_mult_exe)
 test('test_setcolumn_exe', test_setcolumn_exe)
 test('test_getcolumn_exe', test_getcolumn_exe)
-test('test_copy_exe',  test_copy_exe)
+test('test_copy_exe',      test_copy_exe)
+test('test_cholesky_exe',  test_cholesky_exe)

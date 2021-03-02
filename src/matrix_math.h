@@ -61,7 +61,8 @@ enum MTX_Error_ENUM {
     MTX_Matrix_ERROR_NULL,
     MTX_Matrix_ERROR_NOT_SQUARE,
     MTX_Matrix_ERROR_INPLACE,
-    MTX_Matrix_ERROR_ZERO_DIMS
+    MTX_Matrix_ERROR_ZERO_DIMS,
+    MTX_Matrix_ERROR_NOT_POS_DEF
 };
 
 typedef struct MTX_Matrix_STRUCT MTX_Matrix_S;
@@ -77,8 +78,10 @@ void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error);
 void MTX_mult (MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_Error_E *error);
 void MTX_setColumn(MTX_Matrix_S *c, unsigned int columnIndex, const MTX_Matrix_S *column, MTX_Error_E *error);
 void MTX_getColumn(MTX_Matrix_S *column, MTX_Matrix_S *c, unsigned int columnIndex, MTX_Error_E *error);
-void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error);
 void MTX_copy (MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error);
+void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error);
+void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error);
+
 
 #ifdef __cplusplus 
 }
