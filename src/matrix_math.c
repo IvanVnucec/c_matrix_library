@@ -302,6 +302,33 @@ void MTX_getColumn(MTX_Matrix_S *column, MTX_Matrix_S *c, unsigned int columnInd
     return; 
 }
 
+void MTX_copy(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
+    MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
+    int i;
+
+    #ifdef MTX_MATRIX_CHECK_PTRS
+    MTX_CHECK_NULL_PTRS_2(errorLocal, c, a);
+    #endif
+
+    #ifdef MTX_MATRIX_CHECK_DIMS
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        MTX_MATRIX_CHECK_DIMS_2(errorLocal, a, c);
+    }
+    #endif
+
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        for (i = 0; i < c->rows * c->cols; i++) {
+            c->data[i] = a->data[i];
+        }
+    }
+
+    if (error != NULL) {
+        *error = errorLocal;
+    }
+
+    return; 
+}
+
 void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i, j;
