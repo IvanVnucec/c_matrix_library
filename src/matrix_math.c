@@ -1,5 +1,6 @@
 #include <stddef.h>
 #include <stdio.h>
+#include <math.h>
 #include "matrix_math.h"
 
 void MTX_init (MTX_Matrix_S *c, unsigned int rows, unsigned int cols, float *data, MTX_Error_E *error) {
@@ -319,6 +320,71 @@ void MTX_copy(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
     if (errorLocal == MTX_Matrix_ERROR_NONE) {
         for (i = 0; i < c->rows * c->cols; i++) {
             c->data[i] = a->data[i];
+        }
+    }
+
+    if (error != NULL) {
+        *error = errorLocal;
+    }
+
+    return; 
+}
+
+void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
+    MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
+    int i, j, k;
+    float sum, val;
+
+    #ifdef MTX_MATRIX_CHECK_PTRS
+    MTX_CHECK_NULL_PTRS_2(errorLocal, c, a);
+    #endif
+
+    #ifdef MTX_MATRIX_CHECK_DIMS
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        MTX_MATRIX_CHECK_DIMS_2(errorLocal, a, c);
+    }
+
+    if (errorLocal ==MTX_Matrix_ERROR_NONE) {
+        if (c->rows != c->cols) {
+            errorLocal = MTX_Matrix_ERROR_NOT_SQUARE;
+        }
+    }
+    #endif
+
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        if (c->data == a->data) {
+            errorLocal = MTX_Matrix_ERROR_INPLACE;
+        }
+    }
+
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        MTX_zeros(c, &errorLocal);
+    }
+
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        for (i = 0; i < c->rows; i++) {
+            for (j = 0; j < (i+1); j++) {
+                sum = 0.0f;
+
+                for (k = 0; k < j; k++) {
+                    sum += c->data[i * c->cols + k] * c->data[j * c->cols + k];
+                }
+
+                if (i == j) {
+                    val = a->data[i * a->cols + i] - sum;
+
+                    if (val >= 0.0f) {
+                        c->data[i * c->cols + j] = sqrtf(val);
+
+                    } else {
+                        errorLocal = MTX_Matrix_ERROR_NOT_POS_DEF;
+                    }
+
+                } else {
+                    c->data[i * c->cols + j] = (1.0f / c->data[j * c->cols + j] * (a->data[i * a->cols + j] - sum));
+
+                }
+            }
         }
     }
 
