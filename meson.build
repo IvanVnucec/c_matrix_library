@@ -1,4 +1,4 @@
-project('matrix', 'c', default_options: ['c_std=c89'])
+project('matrix', 'c', default_options: ['c_std=c99'])
 
 cc = meson.get_compiler('c')
 
