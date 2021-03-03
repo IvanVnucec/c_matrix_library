@@ -19,4 +19,8 @@ ENV PATH /opt/conda/envs/env/bin:$PATH
 WORKDIR /app
 
 # Run Meson build manager to compile, run tests, and save code coverage results
-CMD ["/bin/bash", "-c", "rm -rf builddir && meson setup builddir -Db_coverage=true && meson test -C builddir && ninja coverage -v -C builddir"]
+CMD ["/bin/bash", "-c", \
+    "rm -rf builddir && \
+    meson setup builddir -Db_coverage=true && \
+    meson test -C builddir && \
+    ninja coverage -v -C builddir"]
