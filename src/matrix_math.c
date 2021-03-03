@@ -216,7 +216,9 @@ void MTX_mult(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX
     }
     #endif
 
-    /* can't do A = A * B or A = B * A or A = A * A */
+    // can't do A = A * B 
+    // or A = B * A 
+    // or A = A * A
     if (errorLocal == MTX_Matrix_ERROR_NONE) {
         if (c->data == a->data ||
             c->data == b->data) 
@@ -362,8 +364,8 @@ void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
     }
 
     if (errorLocal == MTX_Matrix_ERROR_NONE) {
-        for (i = 0; i < c->rows; i++) {
-            for (j = 0; j < (i+1); j++) {
+        for (i = 0; i < c->rows && errorLocal != MTX_Matrix_ERROR_NOT_POS_DEF; i++) {
+            for (j = 0; j < (i+1) && errorLocal != MTX_Matrix_ERROR_NOT_POS_DEF; j++) {
                 sum = 0.0f;
 
                 for (k = 0; k < j; k++) {
