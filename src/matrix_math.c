@@ -22,9 +22,9 @@
  * @param cols Number of matrix columns.
  * @param data Pointer to a (float *) data.
  * @param error Variable used to return error. It can have the following values:
- * MTX_Matrix_ERROR_NONE - No errors occured,
- * MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c or float *data was NULL,
- * MTX_Matrix_ERROR_ZERO_DIMS - variable rows or cols has 0 value.
+ *      - MTX_Matrix_ERROR_NONE - No errors occured,
+ *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c or float *data was NULL,
+ *      - MTX_Matrix_ERROR_ZERO_DIMS - variable rows or cols has 0 value.
  */
 void MTX_init (MTX_Matrix_S *c, unsigned int rows, unsigned int cols, float *data, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
@@ -62,9 +62,9 @@ void MTX_init (MTX_Matrix_S *c, unsigned int rows, unsigned int cols, float *dat
  * @param a First operand to add.
  * @param b Second operand to add.
  * @param error Variable used to return error. It can have the following values:
- * MTX_Matrix_ERROR_NONE - No errors occured,
- * MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c, *a or *b or their *->data equivalents were NULL.
- * MTX_Matrix_ERROR_DIMENSIONS - Matrices a, b and c don't have the same dimensions.
+ *      - MTX_Matrix_ERROR_NONE - No errors occured,
+ *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c, *a or *b or their *->data equivalents were NULL.
+ *      - MTX_Matrix_ERROR_DIMENSIONS - Matrices a, b and c don't have the same dimensions.
  */
 void MTX_add(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
@@ -101,9 +101,9 @@ void MTX_add(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_
  * @param a First operand to subtract from.
  * @param b Second operand to subctract.
  * @param error Variable used to return error. It can have the following values:
- * MTX_Matrix_ERROR_NONE - No errors occured,
- * MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c, *a or *b or their *->data equivalents were NULL.
- * MTX_Matrix_ERROR_DIMENSIONS - Matrices a, b and c don't have the same dimensions.
+ *      - MTX_Matrix_ERROR_NONE - No errors occured,
+ *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c, *a or *b or their *->data equivalents were NULL.
+ *      - MTX_Matrix_ERROR_DIMENSIONS - Matrices a, b and c don't have the same dimensions.
  */
 void MTX_sub(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
@@ -140,9 +140,9 @@ void MTX_sub(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_
  * @param k Scalar scale term.
  * @param a Matrix to scale from.
  * @param error Variable used to return error. It can have the following values:
- * MTX_Matrix_ERROR_NONE - No errors occured,
- * MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c or *a or c->data or a->data were NULL.
- * MTX_Matrix_ERROR_DIMENSIONS - Matrices a and c don't have the same dimensions.
+ *      - MTX_Matrix_ERROR_NONE - No errors occured,
+ *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c or *a or c->data or a->data were NULL.
+ *      - MTX_Matrix_ERROR_DIMENSIONS - Matrices a and c don't have the same dimensions.
  */
 void MTX_scale(MTX_Matrix_S *c, float k, const MTX_Matrix_S *a, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
@@ -176,8 +176,8 @@ void MTX_scale(MTX_Matrix_S *c, float k, const MTX_Matrix_S *a, MTX_Error_E *err
  * 
  * @param c Result of operation matrix.
  * @param error Variable used to return error. It can have the following values:
- * MTX_Matrix_ERROR_NONE - No errors occured,
- * MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c or c->data was NULL
+ *      - MTX_Matrix_ERROR_NONE - No errors occured,
+ *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c or c->data was NULL
  */
 void MTX_zeros(MTX_Matrix_S *c, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
@@ -205,9 +205,9 @@ void MTX_zeros(MTX_Matrix_S *c, MTX_Error_E *error) {
  * 
  * @param c Result of operation matrix.
  * @param error Variable used to return error. It can have the following values:
- * MTX_Matrix_ERROR_NONE - No errors occured,
- * MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c or c->data was NULL,
- * MTX_Matrix_ERROR_NOT_SQUARE - MTX_Matrix_S *c is not square matrix.
+ *      - MTX_Matrix_ERROR_NONE - No errors occured,
+ *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c or c->data was NULL,
+ *      - MTX_Matrix_ERROR_NOT_SQUARE - MTX_Matrix_S *c is not square matrix.
  */
 void MTX_identity(MTX_Matrix_S *c, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
@@ -248,9 +248,9 @@ void MTX_identity(MTX_Matrix_S *c, MTX_Error_E *error) {
  * @param c Result of operation matrix.
  * @param a Matrix to transpose.
  * @param error Variable used to return error. It can have the following values:
- * MTX_Matrix_ERROR_NONE - No errors occured,
- * MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c, *a or c->data, a->data were NULL,
- * MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c has invalid dimensions.
+ *      - MTX_Matrix_ERROR_NONE - No errors occured,
+ *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c, *a or c->data, a->data were NULL,
+ *      - MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c has invalid dimensions.
  */
 void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
@@ -291,10 +291,10 @@ void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
  * @param a First operand.
  * @param b Second operand.
  * @param error Variable used to return error. It can have the following values:
- * MTX_Matrix_ERROR_NONE - No errors occured,
- * MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c, *a or *b or their *->data equivalents were NULL.
- * MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c has invalid dimensions.
- * MTX_Matrix_ERROR_INPLACE - It occured because you presumably did: A = A * A or B = A * B or similar.
+ *      - MTX_Matrix_ERROR_NONE - No errors occured,
+ *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c, *a or *b or their *->data equivalents were NULL.
+ *      - MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c has invalid dimensions.
+ *      - MTX_Matrix_ERROR_INPLACE - It occured because you presumably did: A = A * A or B = A * B or similar.
  */
 void MTX_mult(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
@@ -346,18 +346,18 @@ void MTX_mult(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX
 }
 
 /**
- * @brief Function fills <columnIndex> column of matrix <c> with values in <column> matrix.
+ * @brief Function fills columnIndex column of matrix c with values in column matrix.
  * @note Function can be inplaced.
- * @note If <column> is matrix then it will copy its values from the 0'th column.
+ * @note If column is matrix then it will copy its values from the 0'th column.
  * 
  * @param c Matrix to fill its column with values.
  * @param columnIndex Index of column to fill. Starts with index 0.
- * @param column Values to fill. Must have the same number of rows as <c> data.
+ * @param column Values to fill. Must have the same number of rows as c data.
  * @param error Variable used to return error. It can have the following values:
- * MTX_Matrix_ERROR_NONE - No errors occured,
- * MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c, *column or *b or their *->data equivalents were NULL.
- * MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c and MTX_Matrix_S *column has != number of rows or
- * columnIndex is greather then <c> matrix columns.
+ *      - MTX_Matrix_ERROR_NONE - No errors occured,
+ *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c, *column or *b or their *->data equivalents were NULL.
+ *      - MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c and MTX_Matrix_S *column has != number of rows or
+ * columnIndex is greather then c matrix columns.
  */
 void MTX_setColumn(MTX_Matrix_S *c, unsigned int columnIndex, const MTX_Matrix_S *column, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
@@ -390,18 +390,18 @@ void MTX_setColumn(MTX_Matrix_S *c, unsigned int columnIndex, const MTX_Matrix_S
 }
 
 /**
- * @brief Function copies <columnIndex> column vector of matrix <c> to column vector <column>.
+ * @brief Function copies columnIndex column vector of matrix c to column vector column.
  * @note Function can be inplaced.
- * @note If <column> is matrix then it will copy <c> column values to its 0'th column.
+ * @note If column is matrix then it will copy c column values to its 0'th column.
  * 
- * @param column Column vector to fill with values. Must have the same number of rows as <c> data.
+ * @param column Column vector to fill with values. Must have the same number of rows as c data.
  * @param c Values to copy from. 
  * @param columnIndex Index of column to fill. Starts with index 0.
  * @param error Variable used to return error. It can have the following values:
- * MTX_Matrix_ERROR_NONE - No errors occured,
- * MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c, *column or *b or their *->data equivalents were NULL.
- * MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c and MTX_Matrix_S *column has != number of rows or
- * columnIndex is larger then number of columns that <c> matrix has.
+ *      - MTX_Matrix_ERROR_NONE - No errors occured,
+ *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c, *column or *b or their *->data equivalents were NULL.
+ *      - MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c and MTX_Matrix_S *column has != number of rows or
+ *      columnIndex is larger then number of columns that c matrix has.
  */
 void MTX_getColumn(MTX_Matrix_S *column, MTX_Matrix_S *c, unsigned int columnIndex, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
@@ -433,14 +433,14 @@ void MTX_getColumn(MTX_Matrix_S *column, MTX_Matrix_S *c, unsigned int columnInd
 }
 
 /**
- * @brief Function copies values from <a> matrix to <c> matrix.
+ * @brief Function copies values from <a> matrix to c matrix.
  * 
  * @param c Matrix to copy to.
  * @param a Matrix to copy from.
  * @param error Variable used to return error. It can have the following values:
- * MTX_Matrix_ERROR_NONE - No errors occured,
- * MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c, *column or *a or their *->data equivalents were NULL.
- * MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c and MTX_Matrix_S *a have different dimensions.
+ *      - MTX_Matrix_ERROR_NONE - No errors occured,
+ *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c, *column or *a or their *->data equivalents were NULL.
+ *      - MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c and MTX_Matrix_S *a have different dimensions.
  */
 void MTX_copy(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
@@ -477,12 +477,12 @@ void MTX_copy(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
  * @param c Lower triangular matrix.
  * @param a Matrix to perform Cholesky decomposition.
  * @param error Variable used to return error. It can have the following values:
- * MTX_Matrix_ERROR_NONE - No errors occured,
- * MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c, *column or *a or their *->data equivalents were NULL.
- * MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c and MTX_Matrix_S *a have different dimensions.
- * MTX_Matrix_ERROR_NOT_SQUARE - MTX_Matrix_S *c is not square matrix.
- * MTX_Matrix_ERROR_INPLACE - It occured because you presumably did: A = cholesky(A)
- * MTX_Matrix_ERROR_NOT_POS_DEF - MTX_Matrix_S *a is not positive definite.
+ *      - MTX_Matrix_ERROR_NONE - No errors occured,
+ *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c, *column or *a or their *->data equivalents were NULL.
+ *      - MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c and MTX_Matrix_S *a have different dimensions.
+ *      - MTX_Matrix_ERROR_NOT_SQUARE - MTX_Matrix_S *c is not square matrix.
+ *      - MTX_Matrix_ERROR_INPLACE - It occured because you presumably did: A = cholesky(A)
+ *      - MTX_Matrix_ERROR_NOT_POS_DEF - MTX_Matrix_S *a is not positive definite.
  */
 void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
@@ -554,7 +554,7 @@ void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
  * 
  * @param c Matrix to print.
  * @param error Variable used to return error. It can have the following values:
- * MTX_Matrix_ERROR_NONE - No errors occured.
+ *      - MTX_Matrix_ERROR_NONE - No errors occured.
  */
 void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
