@@ -22,6 +22,7 @@ Project is build using Meson and Unit tested in Docker container. Also, it uses 
  
 ### Prerequisites
 * Docker
+* Doxygen (optional)
 
 ### Installation
 1. Copy `matrix_math.c` and `matrix_math.h` into your project.
