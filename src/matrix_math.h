@@ -16,7 +16,10 @@ extern "C"
 {
 #endif
 
-//!< Check one Matrix NULL pointers macro
+/**
+ * @brief Check NULL pointers of one Matrice
+ * 
+ */
 #define MTX_CHECK_NULL_PTRS_1(err, a) ({ \
     if ((a) == NULL || (a)->data == NULL) \
         { \
@@ -24,7 +27,10 @@ extern "C"
         } \
 })
 
-//!< Check two Matrix NULL pointers macro
+/**
+ * @brief Check NULL pointers of two Matrices
+ * 
+ */
 #define MTX_CHECK_NULL_PTRS_2(err, a, b) ({ \
     if ((a) == NULL || (b) == NULL || \
         (a)->data == NULL || (b)->data == NULL) \
@@ -33,7 +39,10 @@ extern "C"
         } \
 })
 
-//!< Check three Matrix NULL pointers macro
+/**
+ * @brief Check NULL pointers of three Matrices
+ * 
+ */
 #define MTX_CHECK_NULL_PTRS_3(err, a, b, c) ({ \
     if ((a) == NULL || (b) == NULL || (c) == NULL || \
         (a)->data == NULL || (b)->data == NULL || (c)->data == NULL) \
@@ -42,7 +51,10 @@ extern "C"
         } \
 })
 
-//!< Check two Matrix dimensions macro
+/**
+ * @brief Check dimensions of two Matrices
+ * 
+ */
 #define MTX_MATRIX_CHECK_DIMS_2(err, a, b) ({ \
     if (!((a)->rows == (b)->rows && \
         (a)->cols == (b)->cols))   \
@@ -51,7 +63,10 @@ extern "C"
     } \
 })
 
-//!< Check three Matrix dimensions macro
+/**
+ * @brief Check dimensions of three Matrices
+ * 
+ */
 #define MTX_MATRIX_CHECK_DIMS_3(err, a, b, c) ({ \
     if (!((c)->rows == (a)->rows && \
         (c)->cols == (a)->cols && \
@@ -68,12 +83,20 @@ or leave uncommented to improve execution time. */
 //#define MTX_MATRIX_CHECK_DIMS     // This macro enables matrix dimension checking.
 //#define MTX_MATRIX_CHECK_PTRS     // This macro enables NULL pointer checking.
 
+/**
+ * @brief Matrix data structure
+ * 
+ */
 struct MTX_Matrix_STRUCT {  //!< Matrix data structure
     unsigned int rows;      //!< Number of matrix rows
     unsigned int cols;      //!< Number of matrix columns
     float *data;            //!< Pointer to one dimensional array of matrix elements
 };
 
+/**
+ * @brief Matrix errors enums
+ * 
+ */
 enum MTX_Error_ENUM {               //!< Matrix errors
     MTX_Matrix_ERROR_NONE,          //!< No errors
     MTX_Matrix_ERROR_DIMENSIONS,    //!< Dimension mismatch error
