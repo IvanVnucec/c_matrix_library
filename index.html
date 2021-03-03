@@ -90,6 +90,7 @@ Getting Started</h2>
 <p>0. Clone repository and position yourself in the project root directory.</p><ol type="1">
 <li>Build Docker image by running <code>docker build -t="c_matrix_library_container" .</code></li>
 <li>Run Docker image by running <code>docker run --rm -v "$(pwd):/app" c_matrix_library_container</code>. Docker image will build project roject root and run unit tests. Build logs and code coverage reports are written in <code>builddir/meson-logs</code> folder.</li>
+<li>Generate Doxygen documentation by running <code>doxygen Doxyfiledocker run --rm -v "$(pwd):/app" c_matrix_library_container</code>. Doxygen documentation is generated in <code>docs/Doxygen</code> path.</li>
 </ol>
 <h3><a class="anchor" id="autotoc_md3"></a>
 Prerequisites</h3>
