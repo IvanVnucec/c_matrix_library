@@ -2,7 +2,7 @@ var indexSectionsWithContent =
 {
   0: "cdmr",
   1: "m",
-  2: "mr",
+  2: "m",
   3: "m",
   4: "cdr",
   5: "m",
@@ -27,7 +27,7 @@ var indexSectionNames =
 var indexSectionLabels =
 {
   0: "All",
-  1: "Classes",
+  1: "Data Structures",
   2: "Files",
   3: "Functions",
   4: "Variables",

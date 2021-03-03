@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cols_52',['cols',['../structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22',1,'MTX_Matrix_STRUCT']]]
+  ['cols_49',['cols',['../structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22',1,'MTX_Matrix_STRUCT']]]
 ];

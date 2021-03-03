@@ -78,11 +78,13 @@ $(function() {
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="matrix__math_8h_source.html">matrix_math.h</a>&quot;</code><br />
-</div><table class="memberdecls">
+</div>
+<p><a href="matrix__math_8c_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ad77c0f13d3f30a84e9d42ca7d2c40282"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix__math_8c.html#ad77c0f13d3f30a84e9d42ca7d2c40282">MTX_init</a> (<a class="el" href="matrix__math_8h.html#a1824d7879503f15fa570471fccf5e663">MTX_Matrix_S</a> *c, unsigned int rows, unsigned int cols, float *data, <a class="el" href="matrix__math_8h.html#a336e5554a8511665fbe82939fdb8a75d">MTX_Error_E</a> *error)</td></tr>
-<tr class="memdesc:ad77c0f13d3f30a84e9d42ca7d2c40282"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function initializes MTX_Matrix_S data structure.  <a href="matrix__math_8c.html#ad77c0f13d3f30a84e9d42ca7d2c40282">More...</a><br /></td></tr>
+<tr class="memdesc:ad77c0f13d3f30a84e9d42ca7d2c40282"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function initializes MTX_Matrix_S data structure. Call init function before you want to work with MTX_Matrix_S data type variable.  <a href="matrix__math_8c.html#ad77c0f13d3f30a84e9d42ca7d2c40282">More...</a><br /></td></tr>
 <tr class="separator:ad77c0f13d3f30a84e9d42ca7d2c40282"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5814af14021b0e3dc78baccff27b858e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix__math_8c.html#a5814af14021b0e3dc78baccff27b858e">MTX_add</a> (<a class="el" href="matrix__math_8h.html#a1824d7879503f15fa570471fccf5e663">MTX_Matrix_S</a> *c, const <a class="el" href="matrix__math_8h.html#a1824d7879503f15fa570471fccf5e663">MTX_Matrix_S</a> *a, const <a class="el" href="matrix__math_8h.html#a1824d7879503f15fa570471fccf5e663">MTX_Matrix_S</a> *b, <a class="el" href="matrix__math_8h.html#a336e5554a8511665fbe82939fdb8a75d">MTX_Error_E</a> *error)</td></tr>
 <tr class="memdesc:a5814af14021b0e3dc78baccff27b858e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function adds a and b matrixes and puts the result into the c matrix: c = a + b.  <a href="matrix__math_8c.html#a5814af14021b0e3dc78baccff27b858e">More...</a><br /></td></tr>
@@ -115,7 +117,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a378dfe11c494f16e8a33ae91a0dc7b3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function copies values from  matrix to <code> matrix. </code> <a href="matrix__math_8c.html#a378dfe11c494f16e8a33ae91a0dc7b3f">More...</a><br /></td></tr>
 <tr class="separator:a378dfe11c494f16e8a33ae91a0dc7b3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34f5f55e427aec058991cd7fcde23878"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix__math_8c.html#a34f5f55e427aec058991cd7fcde23878">MTX_cholesky</a> (<a class="el" href="matrix__math_8h.html#a1824d7879503f15fa570471fccf5e663">MTX_Matrix_S</a> *c, const <a class="el" href="matrix__math_8h.html#a1824d7879503f15fa570471fccf5e663">MTX_Matrix_S</a> *a, <a class="el" href="matrix__math_8h.html#a336e5554a8511665fbe82939fdb8a75d">MTX_Error_E</a> *error)</td></tr>
-<tr class="memdesc:a34f5f55e427aec058991cd7fcde23878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function performs the Cholesky–Banachiewicz algorithm.  <a href="matrix__math_8c.html#a34f5f55e427aec058991cd7fcde23878">More...</a><br /></td></tr>
+<tr class="memdesc:a34f5f55e427aec058991cd7fcde23878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function performs the Cholesky–Banachiewicz algorithm. Returns lower triangular matrix. C = cholesky(A)  <a href="matrix__math_8c.html#a34f5f55e427aec058991cd7fcde23878">More...</a><br /></td></tr>
 <tr class="separator:a34f5f55e427aec058991cd7fcde23878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5b2960c5a6965051fa4415989acef2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix__math_8c.html#ae5b2960c5a6965051fa4415989acef2b">MTX_print</a> (const <a class="el" href="matrix__math_8h.html#a1824d7879503f15fa570471fccf5e663">MTX_Matrix_S</a> *c, <a class="el" href="matrix__math_8h.html#a336e5554a8511665fbe82939fdb8a75d">MTX_Error_E</a> *error)</td></tr>
 <tr class="memdesc:ae5b2960c5a6965051fa4415989acef2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function prints MTX_Matrix_S *c matrix row by row, column by column.  <a href="matrix__math_8c.html#ae5b2960c5a6965051fa4415989acef2b">More...</a><br /></td></tr>
@@ -126,6 +128,8 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Ivan Vnucec </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2021-03-03</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Do whatever you want with it. I don't care. </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a5814af14021b0e3dc78baccff27b858e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5814af14021b0e3dc78baccff27b858e">&#9670;&nbsp;</a></span>MTX_add()</h2>
@@ -177,6 +181,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00069">69</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+
 </div>
 </div>
 <a id="a34f5f55e427aec058991cd7fcde23878"></a>
@@ -211,8 +217,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Function performs the Cholesky–Banachiewicz algorithm. </p>
-<p>Returns lower triangular matrix. C = cholesky(A) </p><dl class="section note"><dt>Note</dt><dd>Function can not be inplaced: A = cholesky(A)!</dd></dl>
+<p>Function performs the Cholesky–Banachiewicz algorithm. Returns lower triangular matrix. C = cholesky(A) </p>
+<dl class="section note"><dt>Note</dt><dd>Function can not be inplaced: A = cholesky(A)!</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>Lower triangular matrix. </td></tr>
@@ -221,6 +227,8 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00487">487</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -265,6 +273,8 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00445">445</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -320,6 +330,8 @@ If &lt;column&gt; is matrix then it will copy <code> column values to its 0'th c
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00406">406</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+
 </div>
 </div>
 <a id="a8d352b078689fba8ff6c56106fc3d0d4"></a>
@@ -356,6 +368,8 @@ If &lt;column&gt; is matrix then it will copy <code> column values to its 0'th c
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00212">212</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -403,8 +417,7 @@ If &lt;column&gt; is matrix then it will copy <code> column values to its 0'th c
       </table>
 </div><div class="memdoc">
 
-<p>Function initializes MTX_Matrix_S data structure. </p>
-<p>Call init function before you want to work with MTX_Matrix_S data type variable.</p>
+<p>Function initializes MTX_Matrix_S data structure. Call init function before you want to work with MTX_Matrix_S data type variable. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>Destination data structure where rows, cols and data will be written. </td></tr>
@@ -415,6 +428,8 @@ If &lt;column&gt; is matrix then it will copy <code> column values to its 0'th c
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00029">29</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -468,6 +483,8 @@ If &lt;column&gt; is matrix then it will copy <code> column values to its 0'th c
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00299">299</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+
 </div>
 </div>
 <a id="ae5b2960c5a6965051fa4415989acef2b"></a>
@@ -504,6 +521,8 @@ If &lt;column&gt; is matrix then it will copy <code> column values to its 0'th c
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00559">559</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -556,6 +575,8 @@ If &lt;column&gt; is matrix then it will copy <code> column values to its 0'th c
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00147">147</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -611,6 +632,8 @@ If &lt;column&gt; is matrix then it will copy its values from the 0'th column.</
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00362">362</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+
 </div>
 </div>
 <a id="a081e02257900ed91e18edc646e46e44c"></a>
@@ -663,6 +686,8 @@ If &lt;column&gt; is matrix then it will copy its values from the 0'th column.</
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00108">108</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+
 </div>
 </div>
 <a id="a3fe02eecd9b34485dcf10a3931c5565c"></a>
@@ -707,6 +732,8 @@ If &lt;column&gt; is matrix then it will copy its values from the 0'th column.</
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00255">255</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+
 </div>
 </div>
 <a id="aecdb5807cf34309543e4f5e9736afc4e"></a>
@@ -743,6 +770,8 @@ If &lt;column&gt; is matrix then it will copy its values from the 0'th column.</
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00182">182</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
