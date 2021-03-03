@@ -18,7 +18,7 @@ Project is build using Meson and Unit tested in Docker container. Also, it uses 
 0. Clone repository and position yourself in the project root directory.
 1. Build Docker image by running `docker build -t="c_matrix_library_container" .`
 2. Run Docker image by running `docker run --rm -v "$(pwd):/app" c_matrix_library_container`. Docker image will build project roject root and run unit tests. Build logs and code coverage reports are written in `builddir/meson-logs` folder.
-3. Generate Doxygen documentation by running `doxygen Doxyfile`. Doxygen documentation is generated in `docs/Doxygen` path.
+3. Generate Doxygen documentation by running `doxygen Doxyfile`. Doxygen documentation is generated in `docs/Doxygen` folder.
  
 ### Prerequisites
 * Docker
