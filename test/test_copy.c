@@ -1,3 +1,13 @@
+/**
+ * @file test_copy.c
+ * @author Ivan Vnucec
+ * @brief MTX_copy function test file
+ * @date 2021-03-03
+ * 
+ * @copyright Do whatever you want with it. I don't care.
+ * 
+ */
+
 #include "minunit.h"
 #include "matrix_math.h"
 

@@ -1,3 +1,7 @@
+# About: Meson build configuration.
+# Author: Ivan Vnucec
+# License: Do whatever you want with it. I don't care.
+
 project('matrix', 'c', default_options: ['c_std=c99'])
 
 cc = meson.get_compiler('c')
@@ -10,13 +14,14 @@ test_inc = include_directories('test')
 test_cargs = [
     '-Wall',
     '-Werror',
-    '-DMTX_MATRIX_CHECK_PTRS', 
-    '-DMTX_MATRIX_CHECK_DIMS'
+    '-DMTX_MATRIX_CHECK_PTRS',  # Check for NULL ptrs option
+    '-DMTX_MATRIX_CHECK_DIMS'   # Check matrix dimensions option
     ]
 
-m_dep = cc.find_library('m', required : false)
-rt_dep = cc.find_library('rt', required : false)
+m_dep = cc.find_library('m', required : true)      # Math library
+rt_dep = cc.find_library('rt', required : true)    # Library used by minunit.h test framework.
 
+#######################  Build test executables  #######################
 test_print_exe = executable('test_print_exe', 
     sources : [src, 'test/test_print.c'], 
     include_directories : [inc, test_inc], 
@@ -94,7 +99,9 @@ test_cholesky_exe = executable('test_cholesky_exe',
     include_directories : [inc, test_inc], 
     c_args : test_cargs,
     dependencies: [m_dep, rt_dep])
+########################################################################
 
+#######################  Run test executables  #########################
 test('test_print_exe', test_print_exe)
 test('test_init_exe',  test_init_exe)
 test('test_add_exe',   test_add_exe)
@@ -108,3 +115,4 @@ test('test_setcolumn_exe', test_setcolumn_exe)
 test('test_getcolumn_exe', test_getcolumn_exe)
 test('test_copy_exe',      test_copy_exe)
 test('test_cholesky_exe',  test_cholesky_exe)
+########################################################################

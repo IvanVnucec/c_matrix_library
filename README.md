@@ -2,7 +2,10 @@
 [![codecov](https://codecov.io/gh/IvanVnucec/c_matrix_library/branch/master/graph/badge.svg?token=DIJ1KJMVTM)](https://codecov.io/gh/IvanVnucec/c_matrix_library)
 
 ## About The Project
-Statically linked Matrix library written in C language. Suitable for Embedded systems and for Unscented Kalman filtering math. Row-major order optimized.
+* Statically linked Matrix library written in C language.  
+* Suitable for Embedded systems and for the Unscented Kalman filtering math.  
+* Row-major order optimized.  
+* Unit tested.  
 
 ### Built With
 Project is build using Meson and Unit tested in Docker container. Also, it uses Conda as package manager:
@@ -11,16 +14,18 @@ Project is build using Meson and Unit tested in Docker container. Also, it uses 
 * [Conda](https://docs.conda.io/en/latest/)
 
 ## Getting Started
-1. Git clone this repository.
-2. Build Conda environment by running `conda env update -f environment.yml`.
-3. Activate Conda environment by running `conda activate matrix_lib_env`
-4. Optionally, run Unit tests locally with Docker by running `./scripts/docker_build_image.sh` and then `./scripts/docker_run_container.sh`.
+1. Build Docker image by running `docker build -t="c_matrix_library_container" .`
+2. Position yourself in project root directory.
+3. Run Docker image by running `docker run --rm -v "$(pwd):/app" c_matrix_library_container`
+4. Docker image would build and run unit tests. Build logs and code coverage reports are written in `builddir/meson-logs` folder.
 
 ### Prerequisites
 * Docker
 
 ### Installation
 1. Copy `matrix_math.c` and `matrix_math.h` into your project.
+2. To implement NULL pointers checking uncomment `#define MTX_MATRIX_CHECK_PTRS` preprocessor macro in `matrix_math.h` file.
+3. To implement matrix dimensions checking uncomment `#define MTX_MATRIX_CHECK_DIMS` preprocessor macro in `matrix_math.h` file.
 
 ## Usage
 ```c
@@ -49,8 +54,14 @@ int main(void) {
     MTX_init(&B, 3, 3, dataB, &error);
     MTX_init(&C, 3, 3, dataC, &error);
 
-    /* C = A + B */
-    MTX_add(&C, &A, &B, &error);
+    // C = A + A
+    MTX_add(&C, &A, &A, &error);
+
+    // C = A * B
+    MTX_mult(&C, &A, &B, &error);
+
+    // A = cholesky(C)
+    MTX_cholesky(&A, &C, &error);
 
     MTX_print(&C, &error);
 
