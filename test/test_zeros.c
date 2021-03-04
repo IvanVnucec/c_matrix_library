@@ -17,24 +17,6 @@ void test_setup(void) {
 void test_teardown(void) {
 }
 
-MU_TEST(test_zeros_fail_err_null) {
-    float dataC[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
-
-    MTX_Matrix_S C = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataC
-    };
-
-    MTX_zeros(&C, NULL);
-
-    mu_check(1);
-}
-
 MU_TEST(test_zeros_fail_null_c) {
     MTX_Error_E error;
 
@@ -55,6 +37,32 @@ MU_TEST(test_zeros_fail_null_c_data) {
     MTX_zeros(&C, &error);
 
     mu_check(error == MTX_Matrix_ERROR_NULL);
+}
+
+MU_TEST(test_zeros_success_err_null) {
+    float dataC[3][3] = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+        {7.0, 8.0, 9.0}
+    };
+
+    MTX_Matrix_S C = {
+        .rows = 3,
+        .cols = 3,
+        .data = (float *)dataC
+    };
+
+    MTX_zeros(&C, NULL);
+
+    mu_assert_double_eq(C.data[0], 0.0);
+    mu_assert_double_eq(C.data[1], 0.0);
+    mu_assert_double_eq(C.data[2], 0.0);
+    mu_assert_double_eq(C.data[3], 0.0);
+    mu_assert_double_eq(C.data[4], 0.0);
+    mu_assert_double_eq(C.data[5], 0.0);
+    mu_assert_double_eq(C.data[6], 0.0);
+    mu_assert_double_eq(C.data[7], 0.0);
+    mu_assert_double_eq(C.data[8], 0.0);
 }
 
 MU_TEST(test_zeros_success_c) {
@@ -121,11 +129,11 @@ MU_TEST(test_zeros_success_c_colVect) {
 }
 
 MU_TEST_SUITE(test_suite) {
-    MU_RUN_TEST(test_zeros_fail_err_null);
-
     MU_RUN_TEST(test_zeros_fail_null_c);
     MU_RUN_TEST(test_zeros_fail_null_c_data);
     
+    MU_RUN_TEST(test_zeros_success_err_null);
+
     MU_RUN_TEST(test_zeros_success_c);
     MU_RUN_TEST(test_zeros_success_c_rowVect);
     MU_RUN_TEST(test_zeros_success_c_colVect);

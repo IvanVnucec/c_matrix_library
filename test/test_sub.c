@@ -17,36 +17,6 @@ void test_setup(void) {
 void test_teardown(void) {
 }
 
-MU_TEST(test_sub_fail_err_null) {
-    float dataA[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
-
-    float dataB[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
-
-    MTX_Matrix_S A = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataA
-    };
-
-    MTX_Matrix_S B = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataB
-    };
-
-    MTX_sub(&A, &A, &B, NULL);
-
-    mu_check(1);
-}
-
 MU_TEST(test_sub_fail_dim_a) {
     MTX_Error_E error;
 
@@ -363,6 +333,44 @@ MU_TEST(test_sub_fail_null_c_data) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
+MU_TEST(test_sub_success_err_null) {
+    float dataA[3][3] = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+        {7.0, 8.0, 9.0}
+    };
+
+    float dataB[3][3] = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+        {7.0, 8.0, 9.0}
+    };
+
+    MTX_Matrix_S A = {
+        .rows = 3,
+        .cols = 3,
+        .data = (float *)dataA
+    };
+
+    MTX_Matrix_S B = {
+        .rows = 3,
+        .cols = 3,
+        .data = (float *)dataB
+    };
+
+    MTX_sub(&A, &A, &B, NULL);
+
+    mu_assert_double_eq(A.data[0], 0.0);
+    mu_assert_double_eq(A.data[1], 0.0);
+    mu_assert_double_eq(A.data[2], 0.0);
+    mu_assert_double_eq(A.data[3], 0.0);
+    mu_assert_double_eq(A.data[4], 0.0);
+    mu_assert_double_eq(A.data[5], 0.0);
+    mu_assert_double_eq(A.data[6], 0.0);
+    mu_assert_double_eq(A.data[7], 0.0);
+    mu_assert_double_eq(A.data[8], 0.0);
+}
+
 MU_TEST(test_sub_success_C_A_B) {
     MTX_Error_E error;
 
@@ -610,8 +618,6 @@ MU_TEST(test_sub_success_C_A_B_rowVect) {
 }
 
 MU_TEST_SUITE(test_suite) {
-    MU_RUN_TEST(test_sub_fail_err_null);
-
     MU_RUN_TEST(test_sub_fail_dim_a);
     MU_RUN_TEST(test_sub_fail_dim_b);
     MU_RUN_TEST(test_sub_fail_dim_c);
@@ -623,6 +629,8 @@ MU_TEST_SUITE(test_suite) {
     MU_RUN_TEST(test_sub_fail_null_c);
     MU_RUN_TEST(test_sub_fail_null_c_data);
     
+    MU_RUN_TEST(test_sub_success_err_null);
+
     MU_RUN_TEST(test_sub_success_C_A_B);
     MU_RUN_TEST(test_sub_success_A_A_B);
     MU_RUN_TEST(test_sub_success_A_B_A);
