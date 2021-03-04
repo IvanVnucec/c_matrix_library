@@ -200,15 +200,15 @@ MU_TEST(test_scale_success_err_null) {
 
     MTX_scale(&A, k, &B, NULL);
 
-    mu_assert_double_eq(A.data[0],  2.0);
-    mu_assert_double_eq(A.data[1],  4.0);
-    mu_assert_double_eq(A.data[2],  6.0);
-    mu_assert_double_eq(A.data[3],  8.0);
-    mu_assert_double_eq(A.data[4], 10.0);
-    mu_assert_double_eq(A.data[5], 12.0);
-    mu_assert_double_eq(A.data[6], 14.0);
-    mu_assert_double_eq(A.data[7], 16.0);
-    mu_assert_double_eq(A.data[8], 18.0);
+    mu_assert_double_eq( 2.0, A.data[0]);
+    mu_assert_double_eq( 4.0, A.data[1]);
+    mu_assert_double_eq( 6.0, A.data[2]);
+    mu_assert_double_eq( 8.0, A.data[3]);
+    mu_assert_double_eq(10.0, A.data[4]);
+    mu_assert_double_eq(12.0, A.data[5]);
+    mu_assert_double_eq(14.0, A.data[6]);
+    mu_assert_double_eq(16.0, A.data[7]);
+    mu_assert_double_eq(18.0, A.data[8]);
 }
 
 MU_TEST(test_scale_success_C_k_A) {
@@ -239,15 +239,15 @@ MU_TEST(test_scale_success_C_k_A) {
     MTX_scale(&C, k, &A, &error);
 
     mu_check(error == MTX_Matrix_ERROR_NONE);
-    mu_assert_double_eq(C.data[0],  2.0);
-    mu_assert_double_eq(C.data[1],  4.0);
-    mu_assert_double_eq(C.data[2],  6.0);
-    mu_assert_double_eq(C.data[3],  8.0);
-    mu_assert_double_eq(C.data[4], 10.0);
-    mu_assert_double_eq(C.data[5], 12.0);
-    mu_assert_double_eq(C.data[6], 14.0);
-    mu_assert_double_eq(C.data[7], 16.0);
-    mu_assert_double_eq(C.data[8], 18.0);
+    mu_assert_double_eq( 2.0, C.data[0]);
+    mu_assert_double_eq( 4.0, C.data[1]);
+    mu_assert_double_eq( 6.0, C.data[2]);
+    mu_assert_double_eq( 8.0, C.data[3]);
+    mu_assert_double_eq(10.0, C.data[4]);
+    mu_assert_double_eq(12.0, C.data[5]);
+    mu_assert_double_eq(14.0, C.data[6]);
+    mu_assert_double_eq(16.0, C.data[7]);
+    mu_assert_double_eq(18.0, C.data[8]);
 }
 
 MU_TEST(test_scale_success_A_k_A) {
@@ -270,15 +270,15 @@ MU_TEST(test_scale_success_A_k_A) {
     MTX_scale(&A, k, &A, &error);
 
     mu_check(error == MTX_Matrix_ERROR_NONE);
-    mu_assert_double_eq(A.data[0],  2.0);
-    mu_assert_double_eq(A.data[1],  4.0);
-    mu_assert_double_eq(A.data[2],  6.0);
-    mu_assert_double_eq(A.data[3],  8.0);
-    mu_assert_double_eq(A.data[4], 10.0);
-    mu_assert_double_eq(A.data[5], 12.0);
-    mu_assert_double_eq(A.data[6], 14.0);
-    mu_assert_double_eq(A.data[7], 16.0);
-    mu_assert_double_eq(A.data[8], 18.0);
+    mu_assert_double_eq( 2.0, A.data[0]);
+    mu_assert_double_eq( 4.0, A.data[1]);
+    mu_assert_double_eq( 6.0, A.data[2]);
+    mu_assert_double_eq( 8.0, A.data[3]);
+    mu_assert_double_eq(10.0, A.data[4]);
+    mu_assert_double_eq(12.0, A.data[5]);
+    mu_assert_double_eq(14.0, A.data[6]);
+    mu_assert_double_eq(16.0, A.data[7]);
+    mu_assert_double_eq(18.0, A.data[8]);
 }
 
 MU_TEST(test_scale_success_C_k_A_rowVect) {
@@ -309,9 +309,9 @@ MU_TEST(test_scale_success_C_k_A_rowVect) {
     MTX_scale(&C, k, &A, &error);
 
     mu_check(error == MTX_Matrix_ERROR_NONE);
-    mu_assert_double_eq(C.data[0],  2.0);
-    mu_assert_double_eq(C.data[1],  8.0);
-    mu_assert_double_eq(C.data[2],  14.0);
+    mu_assert_double_eq( 2.0, C.data[0]);
+    mu_assert_double_eq( 8.0, C.data[1]);
+    mu_assert_double_eq(14.0, C.data[2]);
 }
 
 MU_TEST(test_scale_success_C_k_A_colVect) {

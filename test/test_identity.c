@@ -87,15 +87,15 @@ MU_TEST(test_identity_success_c) {
     MTX_identity(&C, &error);
 
     mu_check(error == MTX_Matrix_ERROR_NONE);
-    mu_assert_double_eq(C.data[0], 1.0);
-    mu_assert_double_eq(C.data[1], 0.0);
-    mu_assert_double_eq(C.data[2], 0.0);
-    mu_assert_double_eq(C.data[3], 0.0);
-    mu_assert_double_eq(C.data[4], 1.0);
-    mu_assert_double_eq(C.data[5], 0.0);
-    mu_assert_double_eq(C.data[6], 0.0);
-    mu_assert_double_eq(C.data[7], 0.0);
-    mu_assert_double_eq(C.data[8], 1.0);
+    mu_assert_double_eq(1.0, C.data[0]);
+    mu_assert_double_eq(0.0, C.data[1]);
+    mu_assert_double_eq(0.0, C.data[2]);
+    mu_assert_double_eq(0.0, C.data[3]);
+    mu_assert_double_eq(1.0, C.data[4]);
+    mu_assert_double_eq(0.0, C.data[5]);
+    mu_assert_double_eq(0.0, C.data[6]);
+    mu_assert_double_eq(0.0, C.data[7]);
+    mu_assert_double_eq(1.0, C.data[8]);
 }
 
 
