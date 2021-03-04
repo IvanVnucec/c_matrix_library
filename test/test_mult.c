@@ -17,34 +17,6 @@ void test_setup(void) {
 void test_teardown(void) {
 }
 
-MU_TEST(test_mult_fail_err_null) {
-    float dataA[2][3];
-    float dataB[3][3];
-    float dataC[2][3];
-
-    MTX_Matrix_S A = {
-        .rows = 2,
-        .cols = 3,
-        .data = (float *)dataA
-    };
-
-    MTX_Matrix_S B = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataB
-    };
-
-    MTX_Matrix_S C = {
-        .rows = 2,
-        .cols = 3,
-        .data = (float *)dataC
-    };
-
-    MTX_mult(&C, &A, &B, NULL);
-
-    mu_check(1);
-}
-
 MU_TEST(test_mult_fail_dim_a) {
     MTX_Error_E error;
 
@@ -329,6 +301,49 @@ MU_TEST(test_mult_fail_null_c_data) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
+MU_TEST(test_mult_success_err_null) {
+    float dataA[2][3] = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+    };
+
+    float dataB[3][3] = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+        {7.0, 8.0, 9.0}
+    };
+
+    float dataC[2][3];
+
+    MTX_Matrix_S A = {
+        .rows = 2,
+        .cols = 3,
+        .data = (float *)dataA
+    };
+
+    MTX_Matrix_S B = {
+        .rows = 3,
+        .cols = 3,
+        .data = (float *)dataB
+    };
+
+    MTX_Matrix_S C = {
+        .rows = 2,
+        .cols = 3,
+        .data = (float *)dataC
+    };
+
+    MTX_mult(&C, &A, &B, NULL);
+
+    mu_assert_double_eq(C.data[0], 30.0);
+    mu_assert_double_eq(C.data[1], 36.0);
+    mu_assert_double_eq(C.data[2], 42.0);
+
+    mu_assert_double_eq(C.data[3], 66.0);
+    mu_assert_double_eq(C.data[4], 81.0);
+    mu_assert_double_eq(C.data[5], 96.0);
+}
+
 MU_TEST(test_mult_success_C_A_B) {
     MTX_Error_E error;
 
@@ -540,8 +555,6 @@ MU_TEST(test_mult_fail_inplace_A_A_A) {
 }
 
 MU_TEST_SUITE(test_suite) {
-    MU_RUN_TEST(test_mult_fail_err_null);
-
     MU_RUN_TEST(test_mult_fail_dim_a);
     MU_RUN_TEST(test_mult_fail_dim_b);
     MU_RUN_TEST(test_mult_fail_dim_c);
@@ -557,6 +570,8 @@ MU_TEST_SUITE(test_suite) {
     MU_RUN_TEST(test_mult_fail_inplace_A_B_A);
     MU_RUN_TEST(test_mult_fail_inplace_A_A_A);
     
+    MU_RUN_TEST(test_mult_success_err_null);
+
     MU_RUN_TEST(test_mult_success_C_A_B);
     MU_RUN_TEST(test_mult_success_C_Arow_Bcol);
     MU_RUN_TEST(test_mult_success_C_Acol_Brow);

@@ -17,35 +17,6 @@ void test_setup(void) {
 void test_teardown(void) {
 }
 
-MU_TEST(test_getColumn_fail_err_null) {
-    MTX_Error_E error;
-
-    float dataColumn[3][1] = {
-        {1.0},
-        {2.0},
-        {3.0}
-    };
-
-    MTX_Matrix_S column;
-
-    float dataC[3][3] = {
-        {1.0, 0.0, 0.0},
-        {2.0, 0.0, 0.0},
-        {3.0, 0.0, 0.0}
-    };
-
-    MTX_Matrix_S C;
-
-    MTX_init(&column, 3, 1, (float *)dataColumn, &error);
-    MTX_init(&C,      3, 3, (float *)dataC,      &error);
-
-    MTX_getColumn(&column, &C, 0, NULL);
-
-    mu_assert_double_eq(1.0, column.data[0]);
-    mu_assert_double_eq(2.0, column.data[1]);
-    mu_assert_double_eq(3.0, column.data[2]);
-}
-
 MU_TEST(test_getColumn_fail_null_c) {
     MTX_Error_E error;
 
@@ -176,6 +147,35 @@ MU_TEST(test_getColumn_fail_dim_cols) {
     mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
 }
 
+MU_TEST(test_getColumn_success_err_null) {
+    MTX_Error_E error;
+
+    float dataColumn[3][1] = {
+        {1.0},
+        {2.0},
+        {3.0}
+    };
+
+    MTX_Matrix_S column;
+
+    float dataC[3][3] = {
+        {1.0, 0.0, 0.0},
+        {2.0, 0.0, 0.0},
+        {3.0, 0.0, 0.0}
+    };
+
+    MTX_Matrix_S C;
+
+    MTX_init(&column, 3, 1, (float *)dataColumn, &error);
+    MTX_init(&C,      3, 3, (float *)dataC,      &error);
+
+    MTX_getColumn(&column, &C, 0, NULL);
+
+    mu_assert_double_eq(1.0, column.data[0]);
+    mu_assert_double_eq(2.0, column.data[1]);
+    mu_assert_double_eq(3.0, column.data[2]);
+}
+
 MU_TEST(test_getColumn_success_c) {
     MTX_Error_E error;
 
@@ -266,8 +266,6 @@ MU_TEST(test_getColumn_success_inplace) {
 }
 
 MU_TEST_SUITE(test_suite) {
-    MU_RUN_TEST(test_getColumn_fail_err_null);
-
     MU_RUN_TEST(test_getColumn_fail_null_c);
     MU_RUN_TEST(test_getColumn_fail_null_c_data);
     MU_RUN_TEST(test_getColumn_fail_null_column);
@@ -276,6 +274,8 @@ MU_TEST_SUITE(test_suite) {
     MU_RUN_TEST(test_getColumn_fail_dim_cols);
     MU_RUN_TEST(test_getColumn_fail_dim_rows);
     
+    MU_RUN_TEST(test_getColumn_success_err_null);
+
     MU_RUN_TEST(test_getColumn_success_c);
     MU_RUN_TEST(test_getColumn_success_column_not_column);
     MU_RUN_TEST(test_getColumn_success_inplace);
