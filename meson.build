@@ -22,11 +22,6 @@ m_dep = cc.find_library('m', required : true)      # Math library
 rt_dep = cc.find_library('rt', required : true)    # Library used by minunit.h test framework.
 
 #######################  Build test executables  #######################
-test_print_exe = executable('test_print_exe', 
-    sources : [src, 'test/test_print.c'], 
-    include_directories : [inc, test_inc], 
-    c_args : test_cargs,
-    dependencies: [m_dep, rt_dep])
 
 test_init_exe = executable('test_init_exe', 
     sources : [src, 'test/test_init.c'], 
@@ -102,7 +97,6 @@ test_cholesky_exe = executable('test_cholesky_exe',
 ########################################################################
 
 #######################  Run test executables  #########################
-test('test_print_exe', test_print_exe)
 test('test_init_exe',  test_init_exe)
 test('test_add_exe',   test_add_exe)
 test('test_sub_exe',   test_sub_exe)
