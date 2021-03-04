@@ -335,13 +335,13 @@ MU_TEST(test_mult_success_err_null) {
 
     MTX_mult(&C, &A, &B, NULL);
 
-    mu_assert_double_eq(C.data[0], 30.0);
-    mu_assert_double_eq(C.data[1], 36.0);
-    mu_assert_double_eq(C.data[2], 42.0);
+    mu_assert_double_eq(30.0, C.data[0]);
+    mu_assert_double_eq(36.0, C.data[1]);
+    mu_assert_double_eq(42.0, C.data[2]);
 
-    mu_assert_double_eq(C.data[3], 66.0);
-    mu_assert_double_eq(C.data[4], 81.0);
-    mu_assert_double_eq(C.data[5], 96.0);
+    mu_assert_double_eq(66.0, C.data[3]);
+    mu_assert_double_eq(81.0, C.data[4]);
+    mu_assert_double_eq(96.0, C.data[5]);
 }
 
 MU_TEST(test_mult_success_C_A_B) {
@@ -381,13 +381,13 @@ MU_TEST(test_mult_success_C_A_B) {
     MTX_mult(&C, &A, &B, &error);
 
     mu_check(error == MTX_Matrix_ERROR_NONE);
-    mu_assert_double_eq(C.data[0], 30.0);
-    mu_assert_double_eq(C.data[1], 36.0);
-    mu_assert_double_eq(C.data[2], 42.0);
+    mu_assert_double_eq(30.0, C.data[0]);
+    mu_assert_double_eq(36.0, C.data[1]);
+    mu_assert_double_eq(42.0, C.data[2]);
 
-    mu_assert_double_eq(C.data[3], 66.0);
-    mu_assert_double_eq(C.data[4], 81.0);
-    mu_assert_double_eq(C.data[5], 96.0);
+    mu_assert_double_eq(66.0, C.data[3]);
+    mu_assert_double_eq(81.0, C.data[4]);
+    mu_assert_double_eq(96.0, C.data[5]);
 }
 
 MU_TEST(test_mult_success_C_Arow_Bcol) {
@@ -425,13 +425,13 @@ MU_TEST(test_mult_success_C_Arow_Bcol) {
     MTX_mult(&C, &A, &B, &error);
 
     mu_check(error == MTX_Matrix_ERROR_NONE);
-    mu_assert_double_eq(C.data[0], 1.0);
-    mu_assert_double_eq(C.data[1], 2.0);
-    mu_assert_double_eq(C.data[2], 3.0);
+    mu_assert_double_eq(1.0, C.data[0]);
+    mu_assert_double_eq(2.0, C.data[1]);
+    mu_assert_double_eq(3.0, C.data[2]);
 
-    mu_assert_double_eq(C.data[3], 2.0);
-    mu_assert_double_eq(C.data[4], 4.0);
-    mu_assert_double_eq(C.data[5], 6.0);
+    mu_assert_double_eq(2.0, C.data[3]);
+    mu_assert_double_eq(4.0, C.data[4]);
+    mu_assert_double_eq(6.0, C.data[5]);
 }
 
 MU_TEST(test_mult_success_C_Acol_Brow) {
@@ -470,7 +470,7 @@ MU_TEST(test_mult_success_C_Acol_Brow) {
     MTX_mult(&C, &A, &B, &error);
 
     mu_check(error == MTX_Matrix_ERROR_NONE);
-    mu_assert_double_eq(C.data[0], 14.0);
+    mu_assert_double_eq(14.0, C.data[0]);
 }
 
 MU_TEST(test_mult_fail_inplace_A_A_B) {

@@ -170,21 +170,21 @@ MU_TEST(test_trans_success_err_null) {
 
     MTX_trans(&C, &A, NULL);
 
-    mu_assert_double_eq(C.data[0],   1.0);
-    mu_assert_double_eq(C.data[1],   5.0);
-    mu_assert_double_eq(C.data[2],   9.0);
+    mu_assert_double_eq( 1.0, C.data[0]);
+    mu_assert_double_eq( 5.0, C.data[1]);
+    mu_assert_double_eq( 9.0, C.data[2]);
 
-    mu_assert_double_eq(C.data[3],   2.0);
-    mu_assert_double_eq(C.data[4],   6.0);
-    mu_assert_double_eq(C.data[5],  10.0);
+    mu_assert_double_eq( 2.0, C.data[3]);
+    mu_assert_double_eq( 6.0, C.data[4]);
+    mu_assert_double_eq(10.0, C.data[5]);
 
-    mu_assert_double_eq(C.data[6],   3.0);
-    mu_assert_double_eq(C.data[7],   7.0);
-    mu_assert_double_eq(C.data[8],  11.0);
+    mu_assert_double_eq( 3.0, C.data[6]);
+    mu_assert_double_eq( 7.0, C.data[7]);
+    mu_assert_double_eq(11.0, C.data[8]);
 
-    mu_assert_double_eq(C.data[9],   4.0);
-    mu_assert_double_eq(C.data[10],  8.0);
-    mu_assert_double_eq(C.data[11], 12.0);
+    mu_assert_double_eq( 4.0, C.data[9] );
+    mu_assert_double_eq( 8.0, C.data[10]);
+    mu_assert_double_eq(12.0, C.data[11]);
 }
 
 MU_TEST(test_trans_success_c) {
@@ -213,21 +213,21 @@ MU_TEST(test_trans_success_c) {
     MTX_trans(&C, &A, &error);
 
     mu_check(error == MTX_Matrix_ERROR_NONE);
-    mu_assert_double_eq(C.data[0],   1.0);
-    mu_assert_double_eq(C.data[1],   5.0);
-    mu_assert_double_eq(C.data[2],   9.0);
+    mu_assert_double_eq( 1.0, C.data[0]);
+    mu_assert_double_eq( 5.0, C.data[1]);
+    mu_assert_double_eq( 9.0, C.data[2]);
 
-    mu_assert_double_eq(C.data[3],   2.0);
-    mu_assert_double_eq(C.data[4],   6.0);
-    mu_assert_double_eq(C.data[5],  10.0);
+    mu_assert_double_eq( 2.0, C.data[3]);
+    mu_assert_double_eq( 6.0, C.data[4]);
+    mu_assert_double_eq(10.0, C.data[5]);
 
-    mu_assert_double_eq(C.data[6],   3.0);
-    mu_assert_double_eq(C.data[7],   7.0);
-    mu_assert_double_eq(C.data[8],  11.0);
+    mu_assert_double_eq( 3.0, C.data[6]);
+    mu_assert_double_eq( 7.0, C.data[7]);
+    mu_assert_double_eq(11.0, C.data[8]);
 
-    mu_assert_double_eq(C.data[9],   4.0);
-    mu_assert_double_eq(C.data[10],  8.0);
-    mu_assert_double_eq(C.data[11], 12.0);
+    mu_assert_double_eq( 4.0, C.data[9] );
+    mu_assert_double_eq( 8.0, C.data[10]);
+    mu_assert_double_eq(12.0, C.data[11]);
 }
 
 MU_TEST(test_trans_success_c_rowVect) {
@@ -256,9 +256,9 @@ MU_TEST(test_trans_success_c_rowVect) {
     MTX_trans(&C, &A, &error);
 
     mu_check(error == MTX_Matrix_ERROR_NONE);
-    mu_assert_double_eq(C.data[0],   1.0);
-    mu_assert_double_eq(C.data[1],   5.0);
-    mu_assert_double_eq(C.data[2],   9.0);
+    mu_assert_double_eq(1.0, C.data[0]);
+    mu_assert_double_eq(5.0, C.data[1]);
+    mu_assert_double_eq(9.0, C.data[2]);
 }
 
 MU_TEST(test_trans_success_c_colVect) {
@@ -283,10 +283,10 @@ MU_TEST(test_trans_success_c_colVect) {
     MTX_trans(&C, &A, &error);
 
     mu_check(error == MTX_Matrix_ERROR_NONE);
-    mu_assert_double_eq(C.data[0],   1.0);
-    mu_assert_double_eq(C.data[1],   2.0);
-    mu_assert_double_eq(C.data[2],   3.0);
-    mu_assert_double_eq(C.data[3],   4.0);
+    mu_assert_double_eq(1.0, C.data[0]);
+    mu_assert_double_eq(2.0, C.data[1]);
+    mu_assert_double_eq(3.0, C.data[2]);
+    mu_assert_double_eq(4.0, C.data[3]);
 }
 
 
