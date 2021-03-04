@@ -55,7 +55,10 @@ void MTX_init (MTX_Matrix_S *c, unsigned int rows, unsigned int cols, float *dat
 
 /**
  * @brief Function adds a and b matrixes and puts the result into the c matrix: c = a + b
- * @note  Can be inplaced: A = A + A or A = A + B or A = B + A.
+ * @note  Can be inplaced: 
+ *      - A = A + A
+ *      - A = A + B 
+ *      - A = B + A
  * 
  * @param c Result of operation matrix.
  * @param a First operand to add.
@@ -94,7 +97,10 @@ void MTX_add(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_
 
 /**
  * @brief Function subtracts matrix b from a matrix and puts the result into the c matrix: c = a - b
- * @note  Can be inplaced: A = A - A or A = A - B or A = B - A.
+ * @note  Can be inplaced: 
+ *          - A = A - A
+ *          - A = A - B
+ *          - A = B - A.
  * 
  * @param c Result of operation matrix.
  * @param a First operand to subtract from.
@@ -133,7 +139,8 @@ void MTX_sub(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b, MTX_
 
 /**
  * @brief Function scales every element of matrix c by scalar term k: c = k * a.
- * @note  Can be inplaced: A = k * A
+ * @note  Can be inplaced: 
+ *      - A = k * A
  * 
  * @param c Result of operation matrix.
  * @param k Scalar scale term.
@@ -284,7 +291,7 @@ void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
 
 /**
  * @brief Multiplies two matrices a and b and puts the result in matrix c: c = a * b.
- * @note Can not be inplaced: ex. A = A * A or B = A * B etc...
+ * @warning Can not be inplaced: ex. `A = A * A` or `B = A * B` or `B = B * A`
  * 
  * @param c Result of operation matrix.
  * @param a First operand.
@@ -471,7 +478,7 @@ void MTX_copy(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
 /**
  * @brief Function performs the Cholesky–Banachiewicz algorithm. Returns lower triangular matrix.
  * C = cholesky(A)
- * @note Function can not be inplaced: A = cholesky(A)!
+ * @warning Function can not be inplaced: A = cholesky(A)!
  * 
  * @param c Lower triangular matrix.
  * @param a Matrix to perform Cholesky decomposition.
