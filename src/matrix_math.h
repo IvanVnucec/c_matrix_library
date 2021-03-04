@@ -122,7 +122,6 @@ void MTX_setColumn(MTX_Matrix_S *c, unsigned int columnIndex, const MTX_Matrix_S
 void MTX_getColumn(MTX_Matrix_S *column, MTX_Matrix_S *c, unsigned int columnIndex, MTX_Error_E *error);
 void MTX_copy (MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error);
 void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error);
-void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error);
 
 
 #ifdef __cplusplus 

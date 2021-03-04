@@ -9,7 +9,6 @@
  */
 
 #include <stddef.h>
-#include <stdio.h>
 #include <math.h>
 #include "matrix_math.h"
 
@@ -547,35 +546,4 @@ void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
     }
 
     return; 
-}
-
-/**
- * @brief Function prints MTX_Matrix_S *c matrix row by row, column by column.
- * 
- * @param c Matrix to print.
- * @param error Variable used to return error. It can have the following values:
- *      - MTX_Matrix_ERROR_NONE - No errors occured.
- */
-void MTX_print(const MTX_Matrix_S *c, MTX_Error_E *error) {
-    MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
-    int i, j;
-
-    #ifdef MTX_MATRIX_CHECK_PTRS
-    MTX_CHECK_NULL_PTRS_1(errorLocal, c);
-    #endif
-
-    if (errorLocal == MTX_Matrix_ERROR_NONE) {
-        for (i = 0u; i < c->rows; i++) {
-            for (j = 0u; j < c->cols; j++) {
-                printf("%6.3f ", c->data[i * c->cols + j]);
-            }
-            printf("\n");
-        }
-    }
-
-    if (error != NULL) {
-        *error = errorLocal;
-    }
-
-    return;
 }
