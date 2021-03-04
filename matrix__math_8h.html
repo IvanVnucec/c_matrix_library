@@ -489,7 +489,12 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Function adds a and b matrixes and puts the result into the c matrix: c = a + b. </p>
-<dl class="section note"><dt>Note</dt><dd>Can be inplaced: A = A + A or A = A + B or A = B + A.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Can be inplaced:<ul>
+<li>A = A + A</li>
+<li>A = A + B</li>
+<li>A = B + A</li>
+</ul>
+</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>Result of operation matrix. </td></tr>
@@ -505,7 +510,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00068">68</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00071">71</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -542,7 +547,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Function performs the Cholesky–Banachiewicz algorithm. Returns lower triangular matrix. C = cholesky(A) </p>
-<dl class="section note"><dt>Note</dt><dd>Function can not be inplaced: A = cholesky(A)!</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Function can not be inplaced: A = cholesky(A)!</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>Lower triangular matrix. </td></tr>
@@ -560,7 +565,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00486">486</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00493">493</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -611,7 +616,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00444">444</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00451">451</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -672,7 +677,7 @@ If column is matrix then it will copy c column values to its 0'th column.</dd></
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00405">405</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00412">412</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -716,7 +721,7 @@ If column is matrix then it will copy c column values to its 0'th column.</dd></
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00211">211</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00218">218</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -824,7 +829,7 @@ If column is matrix then it will copy c column values to its 0'th column.</dd></
 </div><div class="memdoc">
 
 <p>Multiplies two matrices a and b and puts the result in matrix c: c = a * b. </p>
-<dl class="section note"><dt>Note</dt><dd>Can not be inplaced: ex. A = A * A or B = A * B etc...</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Can not be inplaced: ex. <code>A = A * A</code> or <code>B = A * B</code> or <code>B = B * A</code></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>Result of operation matrix. </td></tr>
@@ -841,7 +846,7 @@ If column is matrix then it will copy c column values to its 0'th column.</dd></
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00298">298</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00305">305</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -884,7 +889,10 @@ If column is matrix then it will copy c column values to its 0'th column.</dd></
 </div><div class="memdoc">
 
 <p>Function scales every element of matrix c by scalar term k: c = k * a. </p>
-<dl class="section note"><dt>Note</dt><dd>Can be inplaced: A = k * A</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Can be inplaced:<ul>
+<li>A = k * A</li>
+</ul>
+</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>Result of operation matrix. </td></tr>
@@ -900,7 +908,7 @@ If column is matrix then it will copy c column values to its 0'th column.</dd></
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00146">146</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00153">153</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -961,7 +969,7 @@ If column is matrix then it will copy its values from the 0'th column.</dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00361">361</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00368">368</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -1004,7 +1012,12 @@ If column is matrix then it will copy its values from the 0'th column.</dd></dl>
 </div><div class="memdoc">
 
 <p>Function subtracts matrix b from a matrix and puts the result into the c matrix: c = a - b. </p>
-<dl class="section note"><dt>Note</dt><dd>Can be inplaced: A = A - A or A = A - B or A = B - A.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Can be inplaced:<ul>
+<li>A = A - A</li>
+<li>A = A - B</li>
+<li>A = B - A.</li>
+</ul>
+</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>Result of operation matrix. </td></tr>
@@ -1020,7 +1033,7 @@ If column is matrix then it will copy its values from the 0'th column.</dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00107">107</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00113">113</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -1071,7 +1084,7 @@ If column is matrix then it will copy its values from the 0'th column.</dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00254">254</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00261">261</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -1114,7 +1127,7 @@ If column is matrix then it will copy its values from the 0'th column.</dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00181">181</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00188">188</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
