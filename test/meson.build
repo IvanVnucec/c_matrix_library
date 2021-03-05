@@ -8,9 +8,7 @@ inc = include_directories('./../src/')
 
 args = [
     '-Wall',
-    '-Werror',
-    '-DMTX_MATRIX_CHECK_PTRS',  # Check for NULL ptrs option
-    '-DMTX_MATRIX_CHECK_DIMS'   # Check matrix dimensions option
+    '-Werror'
 ]
 
 m_dep  = cc.find_library('m',  required : true)      # <main.h> library
