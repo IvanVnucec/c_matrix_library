@@ -18,11 +18,8 @@ jobs:
         with:
           fetch-depth: 0
           
-      - name: Run Docker container
-        run: |
-          git clone https://github.com/Sarcasm/run-clang-format
-          mv run-clang-format/run-clang-format.py .
-          python run-clang-format.py -r src test
+      - name: Run Clang format
+        run: mv ./scripts/run-clang-format.py ./ && python run-clang-format.py -r src test
 
       - name: Set up Docker Buildx
         id: buildx
