@@ -12,5 +12,6 @@ dependencies:
   - ninja         # Ninja build system
   - python=3.8    # Python
   - pip           # Pip
+  - clang-format  # Clang code formatter
   - pip:          # with Pip install:
     - meson       # Meson build system
