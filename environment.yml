@@ -7,6 +7,7 @@ name: env
 channels:
   - conda-forge
   - defaults
+  - sarcasm
 dependencies:
   - gcovr         # Code coverage
   - ninja         # Ninja build system
