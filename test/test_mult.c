@@ -3,19 +3,17 @@
  * @author Ivan Vnucec
  * @brief MTX_mult function test file
  * @date 2021-03-03
- * 
+ *
  * @copyright Do whatever you want with it. I don't care.
- * 
+ *
  */
 
-#include "minunit.h"
 #include "matrix_math.h"
+#include "minunit.h"
 
-void test_setup(void) {
-}
+void test_setup(void) {}
 
-void test_teardown(void) {
-}
+void test_teardown(void) {}
 
 MU_TEST(test_mult_fail_dim_a) {
     MTX_Error_E error;
@@ -24,23 +22,11 @@ MU_TEST(test_mult_fail_dim_a) {
     float dataB[2][3];
     float dataC[2][3];
 
-    MTX_Matrix_S A = {
-        .rows = 2,
-        .cols = 3,
-        .data = (float *)dataA
-    };
+    MTX_Matrix_S A = {.rows = 2, .cols = 3, .data = (float *)dataA};
 
-    MTX_Matrix_S B = {
-        .rows = 2,
-        .cols = 3,
-        .data = (float *)dataB
-    };
+    MTX_Matrix_S B = {.rows = 2, .cols = 3, .data = (float *)dataB};
 
-    MTX_Matrix_S C = {
-        .rows = 2,
-        .cols = 3,
-        .data = (float *)dataC
-    };
+    MTX_Matrix_S C = {.rows = 2, .cols = 3, .data = (float *)dataC};
 
     MTX_mult(&C, &A, &B, &error);
 
@@ -54,23 +40,11 @@ MU_TEST(test_mult_fail_dim_b) {
     float dataB[2][3];
     float dataC[2][3];
 
-    MTX_Matrix_S A = {
-        .rows = 2,
-        .cols = 3,
-        .data = (float *)dataA
-    };
+    MTX_Matrix_S A = {.rows = 2, .cols = 3, .data = (float *)dataA};
 
-    MTX_Matrix_S B = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataB
-    };
+    MTX_Matrix_S B = {.rows = 3, .cols = 3, .data = (float *)dataB};
 
-    MTX_Matrix_S C = {
-        .rows = 2,
-        .cols = 2,
-        .data = (float *)dataC
-    };
+    MTX_Matrix_S C = {.rows = 2, .cols = 2, .data = (float *)dataC};
 
     MTX_mult(&C, &A, &B, &error);
 
@@ -84,23 +58,11 @@ MU_TEST(test_mult_fail_dim_c) {
     float dataB[3][3];
     float dataC[3][3];
 
-    MTX_Matrix_S A = {
-        .rows = 2,
-        .cols = 3,
-        .data = (float *)dataA
-    };
+    MTX_Matrix_S A = {.rows = 2, .cols = 3, .data = (float *)dataA};
 
-    MTX_Matrix_S B = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataB
-    };
+    MTX_Matrix_S B = {.rows = 3, .cols = 3, .data = (float *)dataB};
 
-    MTX_Matrix_S C = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataC
-    };
+    MTX_Matrix_S C = {.rows = 3, .cols = 3, .data = (float *)dataC};
 
     MTX_mult(&C, &A, &B, &error);
 
@@ -110,25 +72,13 @@ MU_TEST(test_mult_fail_dim_c) {
 MU_TEST(test_mult_fail_null_a) {
     MTX_Error_E error;
 
-    float dataB[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+    float dataB[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
     float dataC[3][3];
 
-    MTX_Matrix_S B = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataB
-    };
+    MTX_Matrix_S B = {.rows = 3, .cols = 3, .data = (float *)dataB};
 
-    MTX_Matrix_S C = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataC
-    };
+    MTX_Matrix_S C = {.rows = 3, .cols = 3, .data = (float *)dataC};
 
     MTX_mult(&C, NULL, &B, &error);
 
@@ -138,31 +88,15 @@ MU_TEST(test_mult_fail_null_a) {
 MU_TEST(test_mult_fail_null_a_data) {
     MTX_Error_E error;
 
-    float dataB[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+    float dataB[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
     float dataC[3][3];
 
-    MTX_Matrix_S A = {
-        .rows = 3,
-        .cols = 3,
-        .data = NULL
-    };
+    MTX_Matrix_S A = {.rows = 3, .cols = 3, .data = NULL};
 
-    MTX_Matrix_S B = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataB
-    };
+    MTX_Matrix_S B = {.rows = 3, .cols = 3, .data = (float *)dataB};
 
-    MTX_Matrix_S C = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataC
-    };
+    MTX_Matrix_S C = {.rows = 3, .cols = 3, .data = (float *)dataC};
 
     MTX_mult(&C, &A, &B, &error);
 
@@ -172,25 +106,13 @@ MU_TEST(test_mult_fail_null_a_data) {
 MU_TEST(test_mult_fail_null_b) {
     MTX_Error_E error;
 
-    float dataA[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+    float dataA[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
     float dataC[3][3];
 
-    MTX_Matrix_S A = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataA
-    };
+    MTX_Matrix_S A = {.rows = 3, .cols = 3, .data = (float *)dataA};
 
-    MTX_Matrix_S C = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataC
-    };
+    MTX_Matrix_S C = {.rows = 3, .cols = 3, .data = (float *)dataC};
 
     MTX_mult(&C, &A, NULL, &error);
 
@@ -200,31 +122,15 @@ MU_TEST(test_mult_fail_null_b) {
 MU_TEST(test_mult_fail_null_b_data) {
     MTX_Error_E error;
 
-    float dataA[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+    float dataA[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
     float dataC[3][3];
 
-    MTX_Matrix_S A = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataA
-    };
+    MTX_Matrix_S A = {.rows = 3, .cols = 3, .data = (float *)dataA};
 
-    MTX_Matrix_S B = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)NULL
-    };
+    MTX_Matrix_S B = {.rows = 3, .cols = 3, .data = (float *)NULL};
 
-    MTX_Matrix_S C = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataC
-    };
+    MTX_Matrix_S C = {.rows = 3, .cols = 3, .data = (float *)dataC};
 
     MTX_mult(&C, &A, &B, &error);
 
@@ -234,29 +140,13 @@ MU_TEST(test_mult_fail_null_b_data) {
 MU_TEST(test_mult_fail_null_c) {
     MTX_Error_E error;
 
-    float dataA[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+    float dataA[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
-    float dataB[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+    float dataB[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
-    MTX_Matrix_S A = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataA
-    };
+    MTX_Matrix_S A = {.rows = 3, .cols = 3, .data = (float *)dataA};
 
-    MTX_Matrix_S B = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataB
-    };
+    MTX_Matrix_S B = {.rows = 3, .cols = 3, .data = (float *)dataB};
 
     MTX_mult(NULL, &A, &B, &error);
 
@@ -266,35 +156,15 @@ MU_TEST(test_mult_fail_null_c) {
 MU_TEST(test_mult_fail_null_c_data) {
     MTX_Error_E error;
 
-    float dataA[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+    float dataA[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
-    float dataB[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+    float dataB[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
-    MTX_Matrix_S A = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataA
-    };
+    MTX_Matrix_S A = {.rows = 3, .cols = 3, .data = (float *)dataA};
 
-    MTX_Matrix_S B = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataB
-    };
+    MTX_Matrix_S B = {.rows = 3, .cols = 3, .data = (float *)dataB};
 
-    MTX_Matrix_S C = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)NULL
-    };
+    MTX_Matrix_S C = {.rows = 3, .cols = 3, .data = (float *)NULL};
 
     MTX_mult(&C, &A, &B, &error);
 
@@ -307,31 +177,15 @@ MU_TEST(test_mult_success_err_null) {
         {4.0, 5.0, 6.0},
     };
 
-    float dataB[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+    float dataB[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
     float dataC[2][3];
 
-    MTX_Matrix_S A = {
-        .rows = 2,
-        .cols = 3,
-        .data = (float *)dataA
-    };
+    MTX_Matrix_S A = {.rows = 2, .cols = 3, .data = (float *)dataA};
 
-    MTX_Matrix_S B = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataB
-    };
+    MTX_Matrix_S B = {.rows = 3, .cols = 3, .data = (float *)dataB};
 
-    MTX_Matrix_S C = {
-        .rows = 2,
-        .cols = 3,
-        .data = (float *)dataC
-    };
+    MTX_Matrix_S C = {.rows = 2, .cols = 3, .data = (float *)dataC};
 
     MTX_mult(&C, &A, &B, NULL);
 
@@ -352,31 +206,15 @@ MU_TEST(test_mult_success_C_A_B) {
         {4.0, 5.0, 6.0},
     };
 
-    float dataB[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+    float dataB[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
     float dataC[2][3];
 
-    MTX_Matrix_S A = {
-        .rows = 2,
-        .cols = 3,
-        .data = (float *)dataA
-    };
+    MTX_Matrix_S A = {.rows = 2, .cols = 3, .data = (float *)dataA};
 
-    MTX_Matrix_S B = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataB
-    };
+    MTX_Matrix_S B = {.rows = 3, .cols = 3, .data = (float *)dataB};
 
-    MTX_Matrix_S C = {
-        .rows = 2,
-        .cols = 3,
-        .data = (float *)dataC
-    };
+    MTX_Matrix_S C = {.rows = 2, .cols = 3, .data = (float *)dataC};
 
     MTX_mult(&C, &A, &B, &error);
 
@@ -398,29 +236,15 @@ MU_TEST(test_mult_success_C_Arow_Bcol) {
         {2.0},
     };
 
-    float dataB[1][3] = {
-        {1.0, 2.0, 3.0}
-    };
+    float dataB[1][3] = {{1.0, 2.0, 3.0}};
 
     float dataC[2][3];
 
-    MTX_Matrix_S A = {
-        .rows = 2,
-        .cols = 1,
-        .data = (float *)dataA
-    };
+    MTX_Matrix_S A = {.rows = 2, .cols = 1, .data = (float *)dataA};
 
-    MTX_Matrix_S B = {
-        .rows = 1,
-        .cols = 3,
-        .data = (float *)dataB
-    };
+    MTX_Matrix_S B = {.rows = 1, .cols = 3, .data = (float *)dataB};
 
-    MTX_Matrix_S C = {
-        .rows = 2,
-        .cols = 3,
-        .data = (float *)dataC
-    };
+    MTX_Matrix_S C = {.rows = 2, .cols = 3, .data = (float *)dataC};
 
     MTX_mult(&C, &A, &B, &error);
 
@@ -441,31 +265,15 @@ MU_TEST(test_mult_success_C_Acol_Brow) {
         {1.0, 2.0, 3.0},
     };
 
-    float dataB[3][1] = {
-        {1.0},
-        {2.0},
-        {3.0}
-    };
+    float dataB[3][1] = {{1.0}, {2.0}, {3.0}};
 
     float dataC[1][1];
 
-    MTX_Matrix_S A = {
-        .rows = 1,
-        .cols = 3,
-        .data = (float *)dataA
-    };
+    MTX_Matrix_S A = {.rows = 1, .cols = 3, .data = (float *)dataA};
 
-    MTX_Matrix_S B = {
-        .rows = 3,
-        .cols = 1,
-        .data = (float *)dataB
-    };
+    MTX_Matrix_S B = {.rows = 3, .cols = 1, .data = (float *)dataB};
 
-    MTX_Matrix_S C = {
-        .rows = 1,
-        .cols = 1,
-        .data = (float *)dataC
-    };
+    MTX_Matrix_S C = {.rows = 1, .cols = 1, .data = (float *)dataC};
 
     MTX_mult(&C, &A, &B, &error);
 
@@ -481,23 +289,11 @@ MU_TEST(test_mult_fail_inplace_A_A_B) {
         {4.0, 5.0, 6.0},
     };
 
-    float dataB[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+    float dataB[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
-    MTX_Matrix_S A = {
-        .rows = 2,
-        .cols = 3,
-        .data = (float *)dataA
-    };
+    MTX_Matrix_S A = {.rows = 2, .cols = 3, .data = (float *)dataA};
 
-    MTX_Matrix_S B = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataB
-    };
+    MTX_Matrix_S B = {.rows = 3, .cols = 3, .data = (float *)dataB};
 
     MTX_mult(&A, &A, &B, &error);
 
@@ -517,17 +313,9 @@ MU_TEST(test_mult_fail_inplace_A_B_A) {
         {3.0, 4.0},
     };
 
-    MTX_Matrix_S A = {
-        .rows = 2,
-        .cols = 3,
-        .data = (float *)dataA
-    };
+    MTX_Matrix_S A = {.rows = 2, .cols = 3, .data = (float *)dataA};
 
-    MTX_Matrix_S B = {
-        .rows = 2,
-        .cols = 2,
-        .data = (float *)dataB
-    };
+    MTX_Matrix_S B = {.rows = 2, .cols = 2, .data = (float *)dataB};
 
     MTX_mult(&A, &B, &A, &error);
 
@@ -537,17 +325,9 @@ MU_TEST(test_mult_fail_inplace_A_B_A) {
 MU_TEST(test_mult_fail_inplace_A_A_A) {
     MTX_Error_E error;
 
-    float dataA[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+    float dataA[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
-    MTX_Matrix_S A = {
-        .rows = 3,
-        .cols = 3,
-        .data = (float *)dataA
-    };
+    MTX_Matrix_S A = {.rows = 3, .cols = 3, .data = (float *)dataA};
 
     MTX_mult(&A, &A, &A, &error);
 
@@ -569,7 +349,7 @@ MU_TEST_SUITE(test_suite) {
     MU_RUN_TEST(test_mult_fail_inplace_A_A_B);
     MU_RUN_TEST(test_mult_fail_inplace_A_B_A);
     MU_RUN_TEST(test_mult_fail_inplace_A_A_A);
-    
+
     MU_RUN_TEST(test_mult_success_err_null);
 
     MU_RUN_TEST(test_mult_success_C_A_B);
@@ -578,7 +358,7 @@ MU_TEST_SUITE(test_suite) {
 }
 
 int main(int argc, char *argv[]) {
-	MU_RUN_SUITE(test_suite);
-	MU_REPORT();
-	return MU_EXIT_CODE;
+    MU_RUN_SUITE(test_suite);
+    MU_REPORT();
+    return MU_EXIT_CODE;
 }
