@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
           
       - name: Run Clang format
-        run: mv ./scripts/run-clang-format.py ./ && python run-clang-format.py -r src test
+        run: clang-format --version && mv ./scripts/run-clang-format.py ./ && python run-clang-format.py -r src test
 
       - name: Set up Docker Buildx
         id: buildx
