@@ -50,7 +50,9 @@ jobs:
         run: docker run -v "$(pwd):/app" c_matrix_library:latest
 
       - name: Run cppcheck
-        run: ./scripts/cppcheck_check.sh
+        run: |
+          apt-get install -y cppcheck
+          ./scripts/cppcheck_check.sh
 
       - name: Upload GCC Code Coverage Report
         uses: actions/upload-artifact@v2
