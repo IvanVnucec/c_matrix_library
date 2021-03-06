@@ -156,7 +156,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a3fe02eecd9b34485dcf10a3931c5565c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns matrix transpose.  <a href="matrix__math_8h.html#a3fe02eecd9b34485dcf10a3931c5565c">More...</a><br /></td></tr>
 <tr class="separator:a3fe02eecd9b34485dcf10a3931c5565c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48d55bb4ab8739b1209b87eea9e88abe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix__math_8h.html#a48d55bb4ab8739b1209b87eea9e88abe">MTX_mult</a> (<a class="el" href="matrix__math_8h.html#a1824d7879503f15fa570471fccf5e663">MTX_Matrix_S</a> *c, const <a class="el" href="matrix__math_8h.html#a1824d7879503f15fa570471fccf5e663">MTX_Matrix_S</a> *a, const <a class="el" href="matrix__math_8h.html#a1824d7879503f15fa570471fccf5e663">MTX_Matrix_S</a> *b, <a class="el" href="matrix__math_8h.html#a336e5554a8511665fbe82939fdb8a75d">MTX_Error_E</a> *error)</td></tr>
-<tr class="memdesc:a48d55bb4ab8739b1209b87eea9e88abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies two matrices a and b and puts the result in matrix c: c = a * b.  <a href="matrix__math_8h.html#a48d55bb4ab8739b1209b87eea9e88abe">More...</a><br /></td></tr>
+<tr class="memdesc:a48d55bb4ab8739b1209b87eea9e88abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies two matrices a and b and puts the result in matrix c: c = a.  <a href="matrix__math_8h.html#a48d55bb4ab8739b1209b87eea9e88abe">More...</a><br /></td></tr>
 <tr class="separator:a48d55bb4ab8739b1209b87eea9e88abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bf610eced51da3261aa8aa0796c1da6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix__math_8h.html#a2bf610eced51da3261aa8aa0796c1da6">MTX_setColumn</a> (<a class="el" href="matrix__math_8h.html#a1824d7879503f15fa570471fccf5e663">MTX_Matrix_S</a> *c, unsigned int columnIndex, const <a class="el" href="matrix__math_8h.html#a1824d7879503f15fa570471fccf5e663">MTX_Matrix_S</a> *column, <a class="el" href="matrix__math_8h.html#a336e5554a8511665fbe82939fdb8a75d">MTX_Error_E</a> *error)</td></tr>
 <tr class="memdesc:a2bf610eced51da3261aa8aa0796c1da6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function fills columnIndex column of matrix c with values in column matrix.  <a href="matrix__math_8h.html#a2bf610eced51da3261aa8aa0796c1da6">More...</a><br /></td></tr>
@@ -204,17 +204,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    ({ \</div>
-<div class="line">    if ((a) == NULL || (a)-&gt;data == NULL) \</div>
-<div class="line">        { \</div>
-<div class="line">            (err) = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa75ab82dba3906991df556cdbd21d6967">MTX_Matrix_ERROR_NULL</a>; \</div>
-<div class="line">        } \</div>
-<div class="line">})</div>
-<div class="ttc" id="amatrix__math_8h_html_abfe82fa1f49083bdafda92aa88edc4faa75ab82dba3906991df556cdbd21d6967"><div class="ttname"><a href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa75ab82dba3906991df556cdbd21d6967">MTX_Matrix_ERROR_NULL</a></div><div class="ttdeci">@ MTX_Matrix_ERROR_NULL</div><div class="ttdoc">NULL pointer exeption error.</div><div class="ttdef"><b>Definition:</b> <a href="matrix__math_8h_source.html#l00103">matrix_math.h:103</a></div></div>
+<b>Value:</b><div class="fragment"><div class="line">    ({                                                                         \</div>
+<div class="line">        if ((a) == NULL || (a)-&gt;data == NULL) {                                \</div>
+<div class="line">            (err) = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa75ab82dba3906991df556cdbd21d6967">MTX_Matrix_ERROR_NULL</a>;                                     \</div>
+<div class="line">        }                                                                      \</div>
+<div class="line">    })</div>
+<div class="ttc" id="amatrix__math_8h_html_abfe82fa1f49083bdafda92aa88edc4faa75ab82dba3906991df556cdbd21d6967"><div class="ttname"><a href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa75ab82dba3906991df556cdbd21d6967">MTX_Matrix_ERROR_NULL</a></div><div class="ttdeci">@ MTX_Matrix_ERROR_NULL</div><div class="ttdoc">NULL pointer exeption error.</div><div class="ttdef"><b>Definition:</b> <a href="matrix__math_8h_source.html#l00100">matrix_math.h:100</a></div></div>
 </div><!-- fragment -->
 <p>Check NULL pointers of one Matrice. </p>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8h_source.html#l00023">23</a> of file <a class="el" href="matrix__math_8h_source.html">matrix_math.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8h_source.html#l00022">22</a> of file <a class="el" href="matrix__math_8h_source.html">matrix_math.h</a>.</p>
 
 </div>
 </div>
@@ -249,17 +248,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    ({ \</div>
-<div class="line">    if ((a) == NULL || (b) == NULL || \</div>
-<div class="line">        (a)-&gt;data == NULL || (b)-&gt;data == NULL) \</div>
-<div class="line">        { \</div>
-<div class="line">            (err) = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa75ab82dba3906991df556cdbd21d6967">MTX_Matrix_ERROR_NULL</a>; \</div>
-<div class="line">        } \</div>
-<div class="line">})</div>
+<b>Value:</b><div class="fragment"><div class="line">    ({                                                                         \</div>
+<div class="line">        if ((a) == NULL || (b) == NULL || (a)-&gt;data == NULL ||                 \</div>
+<div class="line">            (b)-&gt;data == NULL) {                                               \</div>
+<div class="line">            (err) = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa75ab82dba3906991df556cdbd21d6967">MTX_Matrix_ERROR_NULL</a>;                                     \</div>
+<div class="line">        }                                                                      \</div>
+<div class="line">    })</div>
 </div><!-- fragment -->
 <p>Check NULL pointers of two Matrices. </p>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8h_source.html#l00034">34</a> of file <a class="el" href="matrix__math_8h_source.html">matrix_math.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8h_source.html#l00033">33</a> of file <a class="el" href="matrix__math_8h_source.html">matrix_math.h</a>.</p>
 
 </div>
 </div>
@@ -300,17 +298,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    ({ \</div>
-<div class="line">    if ((a) == NULL || (b) == NULL || (c) == NULL || \</div>
-<div class="line">        (a)-&gt;data == NULL || (b)-&gt;data == NULL || (c)-&gt;data == NULL) \</div>
-<div class="line">        { \</div>
-<div class="line">            (err) = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa75ab82dba3906991df556cdbd21d6967">MTX_Matrix_ERROR_NULL</a>; \</div>
-<div class="line">        } \</div>
-<div class="line">})</div>
+<b>Value:</b><div class="fragment"><div class="line">    ({                                                                         \</div>
+<div class="line">        if ((a) == NULL || (b) == NULL || (c) == NULL || (a)-&gt;data == NULL ||  \</div>
+<div class="line">            (b)-&gt;data == NULL || (c)-&gt;data == NULL) {                          \</div>
+<div class="line">            (err) = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa75ab82dba3906991df556cdbd21d6967">MTX_Matrix_ERROR_NULL</a>;                                     \</div>
+<div class="line">        }                                                                      \</div>
+<div class="line">    })</div>
 </div><!-- fragment -->
 <p>Check NULL pointers of three Matrices. </p>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8h_source.html#l00046">46</a> of file <a class="el" href="matrix__math_8h_source.html">matrix_math.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8h_source.html#l00045">45</a> of file <a class="el" href="matrix__math_8h_source.html">matrix_math.h</a>.</p>
 
 </div>
 </div>
@@ -345,18 +342,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    ({ \</div>
-<div class="line">    if (!((a)-&gt;rows == (b)-&gt;rows &amp;&amp; \</div>
-<div class="line">        (a)-&gt;cols == (b)-&gt;cols))   \</div>
-<div class="line">    { \</div>
-<div class="line">        (err) = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faaac59442713bed1c1d051351dc230e6c6">MTX_Matrix_ERROR_DIMENSIONS</a>; \</div>
-<div class="line">    } \</div>
-<div class="line">})</div>
-<div class="ttc" id="amatrix__math_8h_html_abfe82fa1f49083bdafda92aa88edc4faaac59442713bed1c1d051351dc230e6c6"><div class="ttname"><a href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faaac59442713bed1c1d051351dc230e6c6">MTX_Matrix_ERROR_DIMENSIONS</a></div><div class="ttdeci">@ MTX_Matrix_ERROR_DIMENSIONS</div><div class="ttdoc">Dimension mismatch error.</div><div class="ttdef"><b>Definition:</b> <a href="matrix__math_8h_source.html#l00102">matrix_math.h:102</a></div></div>
+<b>Value:</b><div class="fragment"><div class="line">    ({                                                                         \</div>
+<div class="line">        if (!((a)-&gt;rows == (b)-&gt;rows &amp;&amp; (a)-&gt;cols == (b)-&gt;cols)) {             \</div>
+<div class="line">            (err) = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faaac59442713bed1c1d051351dc230e6c6">MTX_Matrix_ERROR_DIMENSIONS</a>;                               \</div>
+<div class="line">        }                                                                      \</div>
+<div class="line">    })</div>
+<div class="ttc" id="amatrix__math_8h_html_abfe82fa1f49083bdafda92aa88edc4faaac59442713bed1c1d051351dc230e6c6"><div class="ttname"><a href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faaac59442713bed1c1d051351dc230e6c6">MTX_Matrix_ERROR_DIMENSIONS</a></div><div class="ttdeci">@ MTX_Matrix_ERROR_DIMENSIONS</div><div class="ttdoc">Dimension mismatch error.</div><div class="ttdef"><b>Definition:</b> <a href="matrix__math_8h_source.html#l00099">matrix_math.h:99</a></div></div>
 </div><!-- fragment -->
 <p>Check dimensions of two Matrices. </p>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8h_source.html#l00058">58</a> of file <a class="el" href="matrix__math_8h_source.html">matrix_math.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8h_source.html#l00057">57</a> of file <a class="el" href="matrix__math_8h_source.html">matrix_math.h</a>.</p>
 
 </div>
 </div>
@@ -397,19 +392,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    ({ \</div>
-<div class="line">    if (!((c)-&gt;rows == (a)-&gt;rows &amp;&amp; \</div>
-<div class="line">        (c)-&gt;cols == (a)-&gt;cols &amp;&amp; \</div>
-<div class="line">        (a)-&gt;rows == (b)-&gt;rows &amp;&amp; \</div>
-<div class="line">        (a)-&gt;cols == (b)-&gt;cols))  \</div>
-<div class="line">    { \</div>
-<div class="line">        (err) = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faaac59442713bed1c1d051351dc230e6c6">MTX_Matrix_ERROR_DIMENSIONS</a>; \</div>
-<div class="line">    } \</div>
-<div class="line">})</div>
+<b>Value:</b><div class="fragment"><div class="line">    ({                                                                         \</div>
+<div class="line">        if (!((c)-&gt;rows == (a)-&gt;rows &amp;&amp; (c)-&gt;cols == (a)-&gt;cols &amp;&amp;              \</div>
+<div class="line">              (a)-&gt;rows == (b)-&gt;rows &amp;&amp; (a)-&gt;cols == (b)-&gt;cols)) {             \</div>
+<div class="line">            (err) = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faaac59442713bed1c1d051351dc230e6c6">MTX_Matrix_ERROR_DIMENSIONS</a>;                               \</div>
+<div class="line">        }                                                                      \</div>
+<div class="line">    })</div>
 </div><!-- fragment -->
 <p>Check dimensions of three Matrices. </p>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8h_source.html#l00070">70</a> of file <a class="el" href="matrix__math_8h_source.html">matrix_math.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8h_source.html#l00068">68</a> of file <a class="el" href="matrix__math_8h_source.html">matrix_math.h</a>.</p>
 
 </div>
 </div>
@@ -439,13 +431,13 @@ Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="abfe82fa1f49083bdafda92aa88edc4faa80391c022e1b20e9adf04f1ed723094e"></a>MTX_Matrix_ERROR_INPLACE&#160;</td><td class="fielddoc"><p>Matrix inplace error. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="abfe82fa1f49083bdafda92aa88edc4faa912675f79b54eacebf819a80cf3b8263"></a>MTX_Matrix_ERROR_ZERO_DIMS&#160;</td><td class="fielddoc"><p>Matrix with 0 number of rows and/or columns error. </p>
+<tr><td class="fieldname"><a id="abfe82fa1f49083bdafda92aa88edc4faa912675f79b54eacebf819a80cf3b8263"></a>MTX_Matrix_ERROR_ZERO_DIMS&#160;</td><td class="fielddoc"><p>Matrix with 0 number of rows and/or columns error </p>
 </td></tr>
 <tr><td class="fieldname"><a id="abfe82fa1f49083bdafda92aa88edc4faa00be43d7d35001ba2cf553152696158f"></a>MTX_Matrix_ERROR_NOT_POS_DEF&#160;</td><td class="fielddoc"><p>Matrix not positive definite error. </p>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8h_source.html#l00100">100</a> of file <a class="el" href="matrix__math_8h_source.html">matrix_math.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8h_source.html#l00097">97</a> of file <a class="el" href="matrix__math_8h_source.html">matrix_math.h</a>.</p>
 
 </div>
 </div>
@@ -510,7 +502,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00071">71</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00076">76</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -565,7 +557,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00493">493</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00524">524</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -616,7 +608,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00451">451</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00478">478</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -677,7 +669,7 @@ If column is matrix then it will copy c column values to its 0'th column.</dd></
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00412">412</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00435">435</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -721,7 +713,7 @@ If column is matrix then it will copy c column values to its 0'th column.</dd></
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00218">218</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00231">231</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -786,7 +778,7 @@ If column is matrix then it will copy c column values to its 0'th column.</dd></
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00028">28</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00029">29</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -828,8 +820,9 @@ If column is matrix then it will copy c column values to its 0'th column.</dd></
       </table>
 </div><div class="memdoc">
 
-<p>Multiplies two matrices a and b and puts the result in matrix c: c = a * b. </p>
-<dl class="section warning"><dt>Warning</dt><dd>Can not be inplaced: ex. <code>A = A * A</code> or <code>B = A * B</code> or <code>B = B * A</code></dd></dl>
+<p>Multiplies two matrices a and b and puts the result in matrix c: c = a. </p>
+<ul>
+<li>b. <dl class="section warning"><dt>Warning</dt><dd>Can not be inplaced: ex. <code>A = A * A</code> or <code>B = A * B</code> or <code>B = B * A</code></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>Result of operation matrix. </td></tr>
@@ -845,8 +838,10 @@ If column is matrix then it will copy c column values to its 0'th column.</dd></
   </table>
   </dd>
 </dl>
+</li>
+</ul>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00305">305</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00322">322</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -908,7 +903,7 @@ If column is matrix then it will copy c column values to its 0'th column.</dd></
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00153">153</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00165">165</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -969,7 +964,7 @@ If column is matrix then it will copy its values from the 0'th column.</dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00368">368</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00385">385</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -1033,7 +1028,7 @@ If column is matrix then it will copy its values from the 0'th column.</dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00113">113</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00122">122</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -1084,7 +1079,7 @@ If column is matrix then it will copy its values from the 0'th column.</dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00261">261</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00275">275</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
@@ -1127,7 +1122,7 @@ If column is matrix then it will copy its values from the 0'th column.</dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00188">188</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00201">201</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
