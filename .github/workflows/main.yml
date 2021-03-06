@@ -30,6 +30,11 @@ jobs:
             ${{ runner.os }}-buildx-${{ hashFiles('**/Dockerfile') }}
             ${{ runner.os }}-buildx-${{ hashFiles('**/environment.yml') }}
 
+      - name: Run Clang format
+        run: |
+          mv ./scripts/run-clang-format.py ./ 
+          python run-clang-format.py -r src test
+
       - name: Build Docker image
         uses: docker/build-push-action@v2
         with:
