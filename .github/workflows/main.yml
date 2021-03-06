@@ -18,7 +18,7 @@ jobs:
         with:
           fetch-depth: 0
           
-      - name: Run Clang format
+      - name: Run Clang format 
         run: |
           mv ./scripts/run-clang-format.py ./ 
           python run-clang-format.py -r src test
