@@ -51,7 +51,7 @@ jobs:
 
       - name: Run cppcheck
         run: |
-          apt-get install -y cppcheck
+          sudo apt-get install -y cppcheck
           ./scripts/cppcheck_check.sh
 
       - name: Upload GCC Code Coverage Report
