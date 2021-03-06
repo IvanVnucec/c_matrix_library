@@ -77,8 +77,8 @@ extern "C" {
 check or leave uncommented to improve execution time. */
 
 //#define MTX_MATRIX_CHECK_DIMS     // This macro enables matrix dimension
-//checking. #define MTX_MATRIX_CHECK_PTRS     // This macro enables NULL pointer
-//checking.
+// checking. #define MTX_MATRIX_CHECK_PTRS     // This macro enables NULL
+// pointer  checking.
 
 /**
  * @brief Matrix data structure
