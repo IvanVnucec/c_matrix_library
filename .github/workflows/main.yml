@@ -58,11 +58,10 @@ jobs:
       - name: Upload code coverage reports to codecov.io page
         run: bash <(curl -s https://codecov.io/bash) 
 
-      - name: Create Doxygen output folder
-        run: mkdir docs && mkdir docs/Doxygen
-
       - name: Generate Doxygen documentation
-        run: ./scripts/doxygen_generate.sh
+        run: |
+          sudo apt-get install doxygen
+          ./scripts/doxygen_generate.sh
         
       - name: Deploy Doxygen documentation to Github Pages
         uses: peaceiris/actions-gh-pages@v3
