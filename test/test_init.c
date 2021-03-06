@@ -3,28 +3,22 @@
  * @author Ivan Vnucec
  * @brief MTX_init function test file
  * @date 2021-03-03
- * 
+ *
  * @copyright Do whatever you want with it. I don't care.
- * 
+ *
  */
 
-#include "minunit.h"
 #include "matrix_math.h"
+#include "minunit.h"
 
-void test_setup(void) {
-}
+void test_setup(void) {}
 
-void test_teardown(void) {
-}
+void test_teardown(void) {}
 
 MU_TEST(test_init_fail_null_c) {
     MTX_Error_E error;
-	
-    float dataC[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+
+    float dataC[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
     MTX_init(NULL, 3, 3, (float *)dataC, &error);
 
@@ -44,11 +38,7 @@ MU_TEST(test_init_fail_null_c_data) {
 MU_TEST(test_init_fail_dims_zero_rows) {
     MTX_Error_E error;
 
-    float dataC[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+    float dataC[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
     MTX_Matrix_S C;
 
@@ -60,11 +50,7 @@ MU_TEST(test_init_fail_dims_zero_rows) {
 MU_TEST(test_init_fail_dims_zero_cols) {
     MTX_Error_E error;
 
-    float dataC[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+    float dataC[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
     MTX_Matrix_S C;
 
@@ -74,11 +60,7 @@ MU_TEST(test_init_fail_dims_zero_cols) {
 }
 
 MU_TEST(test_init_success_err_null) {
-    float dataC[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+    float dataC[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
     MTX_Matrix_S C;
 
@@ -92,11 +74,7 @@ MU_TEST(test_init_success_err_null) {
 MU_TEST(test_init_success_c) {
     MTX_Error_E error;
 
-    float dataC[3][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
+    float dataC[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
     MTX_Matrix_S C;
 
@@ -111,11 +89,7 @@ MU_TEST(test_init_success_c) {
 MU_TEST(test_init_success_c_rowVect) {
     MTX_Error_E error;
 
-    float dataC[3][1] = {
-        {1.0},
-        {4.0},
-        {7.0}
-    };
+    float dataC[3][1] = {{1.0}, {4.0}, {7.0}};
 
     MTX_Matrix_S C;
 
@@ -148,7 +122,7 @@ MU_TEST_SUITE(test_suite) {
 
     MU_RUN_TEST(test_init_fail_dims_zero_rows);
     MU_RUN_TEST(test_init_fail_dims_zero_cols);
-    
+
     MU_RUN_TEST(test_init_success_err_null);
 
     MU_RUN_TEST(test_init_success_c);
@@ -157,7 +131,7 @@ MU_TEST_SUITE(test_suite) {
 }
 
 int main(int argc, char *argv[]) {
-	MU_RUN_SUITE(test_suite);
-	MU_REPORT();
-	return MU_EXIT_CODE;
+    MU_RUN_SUITE(test_suite);
+    MU_REPORT();
+    return MU_EXIT_CODE;
 }
