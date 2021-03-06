@@ -22,5 +22,6 @@ WORKDIR /app
 CMD ["/bin/bash", "-c", \
     "rm -rf builddir && \
     meson setup builddir -Db_coverage=true && \
+    meson compile -C builddir && \
     meson test -C builddir && \
     ninja coverage -v -C builddir"]
