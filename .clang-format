@@ -32,3 +32,4 @@ BraceWrapping:
   SplitEmptyRecord: true
 
 BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeBraces: WebKit

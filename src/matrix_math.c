@@ -30,7 +30,8 @@ void MTX_init(MTX_Matrix_S *c,
               unsigned int rows,
               unsigned int cols,
               float *data,
-              MTX_Error_E *error) {
+              MTX_Error_E *error)
+{
   MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
 
 #ifdef MTX_MATRIX_CHECK_PTRS
@@ -79,7 +80,8 @@ void MTX_init(MTX_Matrix_S *c,
 void MTX_add(MTX_Matrix_S *c,
              const MTX_Matrix_S *a,
              const MTX_Matrix_S *b,
-             MTX_Error_E *error) {
+             MTX_Error_E *error)
+{
   MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
   int i;
 
@@ -127,7 +129,8 @@ void MTX_add(MTX_Matrix_S *c,
 void MTX_sub(MTX_Matrix_S *c,
              const MTX_Matrix_S *a,
              const MTX_Matrix_S *b,
-             MTX_Error_E *error) {
+             MTX_Error_E *error)
+{
   MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
   int i;
 
@@ -172,7 +175,8 @@ void MTX_sub(MTX_Matrix_S *c,
 void MTX_scale(MTX_Matrix_S *c,
                float k,
                const MTX_Matrix_S *a,
-               MTX_Error_E *error) {
+               MTX_Error_E *error)
+{
   MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
   int i;
 
@@ -207,7 +211,8 @@ void MTX_scale(MTX_Matrix_S *c,
  *      - MTX_Matrix_ERROR_NONE - No errors occured,
  *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c or c->data was NULL
  */
-void MTX_zeros(MTX_Matrix_S *c, MTX_Error_E *error) {
+void MTX_zeros(MTX_Matrix_S *c, MTX_Error_E *error)
+{
   MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
   int i;
 
@@ -237,7 +242,8 @@ void MTX_zeros(MTX_Matrix_S *c, MTX_Error_E *error) {
  *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c or c->data was NULL,
  *      - MTX_Matrix_ERROR_NOT_SQUARE - MTX_Matrix_S *c is not square matrix.
  */
-void MTX_identity(MTX_Matrix_S *c, MTX_Error_E *error) {
+void MTX_identity(MTX_Matrix_S *c, MTX_Error_E *error)
+{
   MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
   int i;
 
@@ -281,7 +287,8 @@ void MTX_identity(MTX_Matrix_S *c, MTX_Error_E *error) {
  * NULL,
  *      - MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c has invalid dimensions.
  */
-void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
+void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
+{
   MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
   int i, j;
 
@@ -331,7 +338,8 @@ void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
 void MTX_mult(MTX_Matrix_S *c,
               const MTX_Matrix_S *a,
               const MTX_Matrix_S *b,
-              MTX_Error_E *error) {
+              MTX_Error_E *error)
+{
   MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
   int m, r, k;
 
@@ -396,7 +404,8 @@ void MTX_mult(MTX_Matrix_S *c,
 void MTX_setColumn(MTX_Matrix_S *c,
                    unsigned int columnIndex,
                    const MTX_Matrix_S *column,
-                   MTX_Error_E *error) {
+                   MTX_Error_E *error)
+{
   MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
   int i;
 
@@ -447,7 +456,8 @@ void MTX_setColumn(MTX_Matrix_S *c,
 void MTX_getColumn(MTX_Matrix_S *column,
                    MTX_Matrix_S *c,
                    unsigned int columnIndex,
-                   MTX_Error_E *error) {
+                   MTX_Error_E *error)
+{
   MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
   int i;
 
@@ -488,7 +498,8 @@ void MTX_getColumn(MTX_Matrix_S *column,
  *      - MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c and MTX_Matrix_S *a have
  * different dimensions.
  */
-void MTX_copy(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
+void MTX_copy(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
+{
   MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
   int i;
 
@@ -534,7 +545,8 @@ void MTX_copy(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
  *      - MTX_Matrix_ERROR_NOT_POS_DEF - MTX_Matrix_S *a is not positive
  * definite.
  */
-void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
+void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
+{
   MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
   int i, j, k;
   float sum, val;
