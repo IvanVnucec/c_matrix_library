@@ -60,7 +60,7 @@ jobs:
 
       - name: Generate Doxygen documentation
         run: |
-          sudo apt-get -qq install doxygen -y
+          sudo apt-get -qq install doxygen graphviz -y
           ./scripts/doxygen_generate.sh
         
       - name: Deploy Doxygen documentation to Github Pages
