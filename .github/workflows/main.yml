@@ -18,36 +18,28 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v1 
-
       - name: Cache register
         uses: actions/cache@v2
         with:
-          path: /tmp/.buildx-cache
+          path: ./tmp
           key: |
             ${{ runner.os }}-buildx-${{ hashFiles('**/Dockerfile') }}
             ${{ runner.os }}-buildx-${{ hashFiles('**/environment.yml') }}
 
-      - name: Run Clang format
+      - name: Save Docker image
+        if: steps.cache-primes.outputs.cache-hit != 'true'
+        run: ./scripts/docker_save_image.sh
+
+      - name: Run Clang format check
         run: |
           mv ./scripts/run-clang-format.py ./ 
           python run-clang-format.py -r src test
 
-      - name: Build Docker image
-        uses: docker/build-push-action@v2
-        with:
-          context: ./
-          file: ./Dockerfile
-          builder: ${{ steps.buildx.outputs.name }}
-          load: true
-          tags: c_matrix_library:latest
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
+      - name: Load Docker image
+        run: ./scripts/docker_load_image.sh
 
       - name: Run Docker container
-        run: docker run -v "$(pwd):/app" c_matrix_library:latest
+        run: ./scripts/docker_run_container.sh
 
       - name: Run cppcheck
         run: |
