@@ -9,6 +9,7 @@
  */
 
 #include "matrix_math.h"
+
 #include <math.h>
 #include <stddef.h>
 
@@ -26,8 +27,12 @@
  *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c or float *data was NULL,
  *      - MTX_Matrix_ERROR_ZERO_DIMS - variable rows or cols has 0 value.
  */
-void MTX_init(MTX_Matrix_S *c, unsigned int rows, unsigned int cols,
-              float *data, MTX_Error_E *error) {
+void MTX_init(MTX_Matrix_S *c,
+              unsigned int rows,
+              unsigned int cols,
+              float *data,
+              MTX_Error_E *error)
+{
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
 
 #ifdef MTX_MATRIX_CHECK_PTRS
@@ -73,8 +78,11 @@ void MTX_init(MTX_Matrix_S *c, unsigned int rows, unsigned int cols,
  *      - MTX_Matrix_ERROR_DIMENSIONS - Matrices a, b and c don't have the same
  * dimensions.
  */
-void MTX_add(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b,
-             MTX_Error_E *error) {
+void MTX_add(MTX_Matrix_S *c,
+             const MTX_Matrix_S *a,
+             const MTX_Matrix_S *b,
+             MTX_Error_E *error)
+{
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i;
 
@@ -119,8 +127,11 @@ void MTX_add(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b,
  *      - MTX_Matrix_ERROR_DIMENSIONS - Matrices a, b and c don't have the same
  * dimensions.
  */
-void MTX_sub(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b,
-             MTX_Error_E *error) {
+void MTX_sub(MTX_Matrix_S *c,
+             const MTX_Matrix_S *a,
+             const MTX_Matrix_S *b,
+             MTX_Error_E *error)
+{
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i;
 
@@ -162,8 +173,8 @@ void MTX_sub(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b,
  *      - MTX_Matrix_ERROR_DIMENSIONS - Matrices a and c don't have the same
  * dimensions.
  */
-void MTX_scale(MTX_Matrix_S *c, float k, const MTX_Matrix_S *a,
-               MTX_Error_E *error) {
+void MTX_scale(MTX_Matrix_S *c, float k, const MTX_Matrix_S *a, MTX_Error_E *error)
+{
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i;
 
@@ -198,7 +209,8 @@ void MTX_scale(MTX_Matrix_S *c, float k, const MTX_Matrix_S *a,
  *      - MTX_Matrix_ERROR_NONE - No errors occured,
  *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c or c->data was NULL
  */
-void MTX_zeros(MTX_Matrix_S *c, MTX_Error_E *error) {
+void MTX_zeros(MTX_Matrix_S *c, MTX_Error_E *error)
+{
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i;
 
@@ -228,7 +240,8 @@ void MTX_zeros(MTX_Matrix_S *c, MTX_Error_E *error) {
  *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *c or c->data was NULL,
  *      - MTX_Matrix_ERROR_NOT_SQUARE - MTX_Matrix_S *c is not square matrix.
  */
-void MTX_identity(MTX_Matrix_S *c, MTX_Error_E *error) {
+void MTX_identity(MTX_Matrix_S *c, MTX_Error_E *error)
+{
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i;
 
@@ -272,7 +285,8 @@ void MTX_identity(MTX_Matrix_S *c, MTX_Error_E *error) {
  * NULL,
  *      - MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c has invalid dimensions.
  */
-void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
+void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
+{
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i, j;
 
@@ -319,8 +333,11 @@ void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
  *      - MTX_Matrix_ERROR_INPLACE - It occured because you presumably did: A =
  * A * A or B = A * B or similar.
  */
-void MTX_mult(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b,
-              MTX_Error_E *error) {
+void MTX_mult(MTX_Matrix_S *c,
+              const MTX_Matrix_S *a,
+              const MTX_Matrix_S *b,
+              MTX_Error_E *error)
+{
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int m, r, k;
 
@@ -352,8 +369,8 @@ void MTX_mult(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b,
 
                 for (k = 0; k < b->rows; k++) {
                     c->data[r + m * c->cols] =
-                        c->data[r + m * c->cols] +
-                        a->data[k + m * a->cols] * b->data[r + k * b->cols];
+                        c->data[r + m * c->cols]
+                        + a->data[k + m * a->cols] * b->data[r + k * b->cols];
                 }
             }
         }
@@ -382,8 +399,11 @@ void MTX_mult(MTX_Matrix_S *c, const MTX_Matrix_S *a, const MTX_Matrix_S *b,
  *      - MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c and MTX_Matrix_S *column
  * has != number of rows or columnIndex is greather then c matrix columns.
  */
-void MTX_setColumn(MTX_Matrix_S *c, unsigned int columnIndex,
-                   const MTX_Matrix_S *column, MTX_Error_E *error) {
+void MTX_setColumn(MTX_Matrix_S *c,
+                   unsigned int columnIndex,
+                   const MTX_Matrix_S *column,
+                   MTX_Error_E *error)
+{
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i;
 
@@ -401,8 +421,7 @@ void MTX_setColumn(MTX_Matrix_S *c, unsigned int columnIndex,
 
     if (errorLocal == MTX_Matrix_ERROR_NONE) {
         for (i = 0; i < c->rows; i++) {
-            c->data[columnIndex + i * c->cols] =
-                column->data[0 + i * column->cols];
+            c->data[columnIndex + i * c->cols] = column->data[0 + i * column->cols];
         }
     }
 
@@ -432,8 +451,11 @@ void MTX_setColumn(MTX_Matrix_S *c, unsigned int columnIndex,
  * has != number of rows or columnIndex is larger then number of columns that c
  * matrix has.
  */
-void MTX_getColumn(MTX_Matrix_S *column, MTX_Matrix_S *c,
-                   unsigned int columnIndex, MTX_Error_E *error) {
+void MTX_getColumn(MTX_Matrix_S *column,
+                   MTX_Matrix_S *c,
+                   unsigned int columnIndex,
+                   MTX_Error_E *error)
+{
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i;
 
@@ -451,8 +473,7 @@ void MTX_getColumn(MTX_Matrix_S *column, MTX_Matrix_S *c,
 
     if (errorLocal == MTX_Matrix_ERROR_NONE) {
         for (i = 0; i < column->rows; i++) {
-            column->data[0 + i * column->cols] =
-                c->data[columnIndex + i * c->cols];
+            column->data[0 + i * column->cols] = c->data[columnIndex + i * c->cols];
         }
     }
 
@@ -475,7 +496,8 @@ void MTX_getColumn(MTX_Matrix_S *column, MTX_Matrix_S *c,
  *      - MTX_Matrix_ERROR_DIMENSIONS - MTX_Matrix_S *c and MTX_Matrix_S *a have
  * different dimensions.
  */
-void MTX_copy(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
+void MTX_copy(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
+{
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i;
 
@@ -521,7 +543,8 @@ void MTX_copy(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
  *      - MTX_Matrix_ERROR_NOT_POS_DEF - MTX_Matrix_S *a is not positive
  * definite.
  */
-void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
+void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
+{
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
     int i, j, k;
     float sum, val;
@@ -553,11 +576,8 @@ void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
     }
 
     if (errorLocal == MTX_Matrix_ERROR_NONE) {
-        for (i = 0; i < c->rows && errorLocal != MTX_Matrix_ERROR_NOT_POS_DEF;
-             i++) {
-            for (j = 0;
-                 j < (i + 1) && errorLocal != MTX_Matrix_ERROR_NOT_POS_DEF;
-                 j++) {
+        for (i = 0; i < c->rows && errorLocal != MTX_Matrix_ERROR_NOT_POS_DEF; i++) {
+            for (j = 0; j < (i + 1) && errorLocal != MTX_Matrix_ERROR_NOT_POS_DEF; j++) {
                 sum = 0.0f;
 
                 for (k = 0; k < j; k++) {
@@ -575,9 +595,8 @@ void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error) {
                     }
 
                 } else {
-                    c->data[i * c->cols + j] =
-                        (1.0f / c->data[j * c->cols + j] *
-                         (a->data[i * a->cols + j] - sum));
+                    c->data[i * c->cols + j] = (1.0f / c->data[j * c->cols + j]
+                                                * (a->data[i * a->cols + j] - sum));
                 }
             }
         }

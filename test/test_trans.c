@@ -11,11 +11,16 @@
 #include "matrix_math.h"
 #include "minunit.h"
 
-void test_setup(void) {}
+void test_setup(void)
+{
+}
 
-void test_teardown(void) {}
+void test_teardown(void)
+{
+}
 
-MU_TEST(test_trans_fail_dim_c_rows) {
+MU_TEST(test_trans_fail_dim_c_rows)
+{
     MTX_Error_E error;
 
     float dataA[3][4];
@@ -30,7 +35,8 @@ MU_TEST(test_trans_fail_dim_c_rows) {
     mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
 }
 
-MU_TEST(test_trans_fail_dim_c_cols) {
+MU_TEST(test_trans_fail_dim_c_cols)
+{
     MTX_Error_E error;
 
     float dataA[3][4];
@@ -45,11 +51,13 @@ MU_TEST(test_trans_fail_dim_c_cols) {
     mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
 }
 
-MU_TEST(test_trans_fail_null_c) {
+MU_TEST(test_trans_fail_null_c)
+{
     MTX_Error_E error;
 
-    float dataA[3][4] = {
-        {1.0, 2.0, 3.0, 4.0}, {5.0, 6.0, 7.0, 8.0}, {9.0, 10.0, 11.0, 12.0}};
+    float dataA[3][4] = {{1.0, 2.0, 3.0, 4.0},
+                         {5.0, 6.0, 7.0, 8.0},
+                         {9.0, 10.0, 11.0, 12.0}};
 
     MTX_Matrix_S A = {.rows = 3, .cols = 4, .data = (float *)dataA};
 
@@ -58,11 +66,13 @@ MU_TEST(test_trans_fail_null_c) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_trans_fail_null_c_data) {
+MU_TEST(test_trans_fail_null_c_data)
+{
     MTX_Error_E error;
 
-    float dataA[3][4] = {
-        {1.0, 2.0, 3.0, 4.0}, {5.0, 6.0, 7.0, 8.0}, {9.0, 10.0, 11.0, 12.0}};
+    float dataA[3][4] = {{1.0, 2.0, 3.0, 4.0},
+                         {5.0, 6.0, 7.0, 8.0},
+                         {9.0, 10.0, 11.0, 12.0}};
 
     MTX_Matrix_S A = {.rows = 3, .cols = 4, .data = (float *)dataA};
 
@@ -73,7 +83,8 @@ MU_TEST(test_trans_fail_null_c_data) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_trans_fail_null_a) {
+MU_TEST(test_trans_fail_null_a)
+{
     MTX_Error_E error;
 
     float dataC[4][3];
@@ -85,7 +96,8 @@ MU_TEST(test_trans_fail_null_a) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_trans_fail_null_a_data) {
+MU_TEST(test_trans_fail_null_a_data)
+{
     MTX_Error_E error;
 
     float dataC[4][3];
@@ -99,9 +111,11 @@ MU_TEST(test_trans_fail_null_a_data) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_trans_success_err_null) {
-    float dataA[3][4] = {
-        {1.0, 2.0, 3.0, 4.0}, {5.0, 6.0, 7.0, 8.0}, {9.0, 10.0, 11.0, 12.0}};
+MU_TEST(test_trans_success_err_null)
+{
+    float dataA[3][4] = {{1.0, 2.0, 3.0, 4.0},
+                         {5.0, 6.0, 7.0, 8.0},
+                         {9.0, 10.0, 11.0, 12.0}};
 
     float dataC[4][3];
 
@@ -128,11 +142,13 @@ MU_TEST(test_trans_success_err_null) {
     mu_assert_double_eq(12.0, C.data[11]);
 }
 
-MU_TEST(test_trans_success_c) {
+MU_TEST(test_trans_success_c)
+{
     MTX_Error_E error;
 
-    float dataA[3][4] = {
-        {1.0, 2.0, 3.0, 4.0}, {5.0, 6.0, 7.0, 8.0}, {9.0, 10.0, 11.0, 12.0}};
+    float dataA[3][4] = {{1.0, 2.0, 3.0, 4.0},
+                         {5.0, 6.0, 7.0, 8.0},
+                         {9.0, 10.0, 11.0, 12.0}};
 
     float dataC[4][3];
 
@@ -160,7 +176,8 @@ MU_TEST(test_trans_success_c) {
     mu_assert_double_eq(12.0, C.data[11]);
 }
 
-MU_TEST(test_trans_success_c_rowVect) {
+MU_TEST(test_trans_success_c_rowVect)
+{
     MTX_Error_E error;
 
     float dataA[3][1] = {{1.0}, {5.0}, {9.0}};
@@ -179,7 +196,8 @@ MU_TEST(test_trans_success_c_rowVect) {
     mu_assert_double_eq(9.0, C.data[2]);
 }
 
-MU_TEST(test_trans_success_c_colVect) {
+MU_TEST(test_trans_success_c_colVect)
+{
     MTX_Error_E error;
 
     float dataA[1][4] = {{1.0, 2.0, 3.0, 4.0}};
@@ -200,7 +218,8 @@ MU_TEST(test_trans_success_c_colVect) {
     mu_assert_double_eq(4.0, C.data[3]);
 }
 
-MU_TEST_SUITE(test_suite) {
+MU_TEST_SUITE(test_suite)
+{
     MU_RUN_TEST(test_trans_fail_dim_c_rows);
     MU_RUN_TEST(test_trans_fail_dim_c_cols);
 
@@ -216,7 +235,8 @@ MU_TEST_SUITE(test_suite) {
     MU_RUN_TEST(test_trans_success_c_colVect);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     MU_RUN_SUITE(test_suite);
     MU_REPORT();
     return MU_EXIT_CODE;

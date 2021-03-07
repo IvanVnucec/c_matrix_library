@@ -11,11 +11,16 @@
 #include "matrix_math.h"
 #include "minunit.h"
 
-void test_setup(void) {}
+void test_setup(void)
+{
+}
 
-void test_teardown(void) {}
+void test_teardown(void)
+{
+}
 
-MU_TEST(test_setColumn_fail_null_c) {
+MU_TEST(test_setColumn_fail_null_c)
+{
     MTX_Error_E error;
 
     float dataColumn[3][1] = {{1.0}, {2.0}, {3.0}};
@@ -29,7 +34,8 @@ MU_TEST(test_setColumn_fail_null_c) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_setColumn_fail_null_c_data) {
+MU_TEST(test_setColumn_fail_null_c_data)
+{
     MTX_Error_E error;
 
     float dataColumn[3][1] = {{1.0}, {2.0}, {3.0}};
@@ -45,7 +51,8 @@ MU_TEST(test_setColumn_fail_null_c_data) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_setColumn_fail_null_column) {
+MU_TEST(test_setColumn_fail_null_column)
+{
     MTX_Error_E error;
 
     float dataC[3][3];
@@ -59,7 +66,8 @@ MU_TEST(test_setColumn_fail_null_column) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_setColumn_fail_null_column_data) {
+MU_TEST(test_setColumn_fail_null_column_data)
+{
     MTX_Error_E error;
 
     float dataC[3][3];
@@ -74,15 +82,18 @@ MU_TEST(test_setColumn_fail_null_column_data) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_setColumn_fail_dim_rows) {
+MU_TEST(test_setColumn_fail_dim_rows)
+{
     MTX_Error_E error;
 
     float dataColumn[3][1] = {{1.0}, {2.0}, {3.0}};
 
     MTX_Matrix_S column;
 
-    float dataC[4][3] = {
-        {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+    float dataC[4][3] = {{0.0, 0.0, 0.0},
+                         {0.0, 0.0, 0.0},
+                         {0.0, 0.0, 0.0},
+                         {0.0, 0.0, 0.0}};
 
     MTX_Matrix_S C;
 
@@ -94,7 +105,8 @@ MU_TEST(test_setColumn_fail_dim_rows) {
     mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
 }
 
-MU_TEST(test_setColumn_fail_dim_cols) {
+MU_TEST(test_setColumn_fail_dim_cols)
+{
     MTX_Error_E error;
 
     float dataColumn[3][1] = {{1.0}, {2.0}, {3.0}};
@@ -113,7 +125,8 @@ MU_TEST(test_setColumn_fail_dim_cols) {
     mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
 }
 
-MU_TEST(test_setColumn_success_err_null) {
+MU_TEST(test_setColumn_success_err_null)
+{
     MTX_Error_E error;
 
     float dataColumn[3][1] = {{1.0}, {2.0}, {3.0}};
@@ -142,7 +155,8 @@ MU_TEST(test_setColumn_success_err_null) {
     mu_assert_double_eq(0.0, C.data[8]);
 }
 
-MU_TEST(test_setColumn_success_c) {
+MU_TEST(test_setColumn_success_c)
+{
     MTX_Error_E error;
 
     float dataColumn[3][1] = {{1.0}, {2.0}, {3.0}};
@@ -172,7 +186,8 @@ MU_TEST(test_setColumn_success_c) {
     mu_assert_double_eq(0.0, C.data[8]);
 }
 
-MU_TEST(test_setColumn_success_column_not_column) {
+MU_TEST(test_setColumn_success_column_not_column)
+{
     MTX_Error_E error;
 
     float dataColumn[3][2] = {{1.0, 1.0}, {2.0, 1.0}, {3.0, 1.0}};
@@ -202,7 +217,8 @@ MU_TEST(test_setColumn_success_column_not_column) {
     mu_assert_double_eq(0.0, C.data[8]);
 }
 
-MU_TEST(test_setColumn_success_inplace) {
+MU_TEST(test_setColumn_success_inplace)
+{
     MTX_Error_E error;
 
     float dataColumn[3][1] = {{1.0}, {2.0}, {3.0}};
@@ -219,7 +235,8 @@ MU_TEST(test_setColumn_success_inplace) {
     mu_assert_double_eq(3.0, column.data[2]);
 }
 
-MU_TEST_SUITE(test_suite) {
+MU_TEST_SUITE(test_suite)
+{
     MU_RUN_TEST(test_setColumn_fail_null_c);
     MU_RUN_TEST(test_setColumn_fail_null_c_data);
     MU_RUN_TEST(test_setColumn_fail_null_column);
@@ -235,7 +252,8 @@ MU_TEST_SUITE(test_suite) {
     MU_RUN_TEST(test_setColumn_success_inplace);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     MU_RUN_SUITE(test_suite);
     MU_REPORT();
     return MU_EXIT_CODE;

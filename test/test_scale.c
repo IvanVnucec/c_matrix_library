@@ -11,15 +11,22 @@
 #include "matrix_math.h"
 #include "minunit.h"
 
-void test_setup(void) {}
+void test_setup(void)
+{
+}
 
-void test_teardown(void) {}
+void test_teardown(void)
+{
+}
 
-MU_TEST(test_scale_fail_dim_a) {
+MU_TEST(test_scale_fail_dim_a)
+{
     MTX_Error_E error;
 
-    float dataA[4][3] = {
-        {1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}, {7.0, 8.0, 9.0}};
+    float dataA[4][3] = {{1.0, 2.0, 3.0},
+                         {4.0, 5.0, 6.0},
+                         {7.0, 8.0, 9.0},
+                         {7.0, 8.0, 9.0}};
 
     float k = 2.0;
 
@@ -34,7 +41,8 @@ MU_TEST(test_scale_fail_dim_a) {
     mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
 }
 
-MU_TEST(test_scale_fail_dim_c) {
+MU_TEST(test_scale_fail_dim_c)
+{
     MTX_Error_E error;
 
     float dataA[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
@@ -52,7 +60,8 @@ MU_TEST(test_scale_fail_dim_c) {
     mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
 }
 
-MU_TEST(test_scale_fail_null_a) {
+MU_TEST(test_scale_fail_null_a)
+{
     MTX_Error_E error;
 
     float k = 2.0;
@@ -66,7 +75,8 @@ MU_TEST(test_scale_fail_null_a) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_scale_fail_null_a_data) {
+MU_TEST(test_scale_fail_null_a_data)
+{
     MTX_Error_E error;
 
     float k = 2.0;
@@ -82,7 +92,8 @@ MU_TEST(test_scale_fail_null_a_data) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_scale_fail_null_c) {
+MU_TEST(test_scale_fail_null_c)
+{
     MTX_Error_E error;
 
     float k = 2.0;
@@ -96,7 +107,8 @@ MU_TEST(test_scale_fail_null_c) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_scale_fail_null_c_data) {
+MU_TEST(test_scale_fail_null_c_data)
+{
     MTX_Error_E error;
 
     float k = 2.0;
@@ -112,8 +124,8 @@ MU_TEST(test_scale_fail_null_c_data) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_scale_success_err_null) {
-
+MU_TEST(test_scale_success_err_null)
+{
     float k = 2.0;
 
     float dataA[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
@@ -137,7 +149,8 @@ MU_TEST(test_scale_success_err_null) {
     mu_assert_double_eq(18.0, A.data[8]);
 }
 
-MU_TEST(test_scale_success_C_k_A) {
+MU_TEST(test_scale_success_C_k_A)
+{
     MTX_Error_E error;
 
     float k = 2.0;
@@ -164,7 +177,8 @@ MU_TEST(test_scale_success_C_k_A) {
     mu_assert_double_eq(18.0, C.data[8]);
 }
 
-MU_TEST(test_scale_success_A_k_A) {
+MU_TEST(test_scale_success_A_k_A)
+{
     MTX_Error_E error;
 
     float k = 2.0;
@@ -187,7 +201,8 @@ MU_TEST(test_scale_success_A_k_A) {
     mu_assert_double_eq(18.0, A.data[8]);
 }
 
-MU_TEST(test_scale_success_C_k_A_rowVect) {
+MU_TEST(test_scale_success_C_k_A_rowVect)
+{
     MTX_Error_E error;
 
     float k = 2.0;
@@ -208,7 +223,8 @@ MU_TEST(test_scale_success_C_k_A_rowVect) {
     mu_assert_double_eq(14.0, C.data[2]);
 }
 
-MU_TEST(test_scale_success_C_k_A_colVect) {
+MU_TEST(test_scale_success_C_k_A_colVect)
+{
     MTX_Error_E error;
 
     float k = 2.0;
@@ -229,7 +245,8 @@ MU_TEST(test_scale_success_C_k_A_colVect) {
     mu_assert_double_eq(C.data[2], 6.0);
 }
 
-MU_TEST_SUITE(test_suite) {
+MU_TEST_SUITE(test_suite)
+{
     MU_RUN_TEST(test_scale_fail_dim_a);
     MU_RUN_TEST(test_scale_fail_dim_c);
 
@@ -247,7 +264,8 @@ MU_TEST_SUITE(test_suite) {
     MU_RUN_TEST(test_scale_success_C_k_A_colVect);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     MU_RUN_SUITE(test_suite);
     MU_REPORT();
     return MU_EXIT_CODE;

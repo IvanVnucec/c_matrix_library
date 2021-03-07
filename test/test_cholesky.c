@@ -11,11 +11,16 @@
 #include "matrix_math.h"
 #include "minunit.h"
 
-void test_setup(void) {}
+void test_setup(void)
+{
+}
 
-void test_teardown(void) {}
+void test_teardown(void)
+{
+}
 
-MU_TEST(test_cholesky_fail_dim_not_square) {
+MU_TEST(test_cholesky_fail_dim_not_square)
+{
     MTX_Error_E error = MTX_Matrix_ERROR_NONE;
 
     float dataA[4][3] = {{4.0, 12.0, -16.0},
@@ -34,7 +39,8 @@ MU_TEST(test_cholesky_fail_dim_not_square) {
     mu_check(error == MTX_Matrix_ERROR_NOT_SQUARE);
 }
 
-MU_TEST(test_cholesky_fail_dim_a) {
+MU_TEST(test_cholesky_fail_dim_a)
+{
     MTX_Error_E error = MTX_Matrix_ERROR_NONE;
 
     float dataA[4][3] = {{4.0, 12.0, -16.0},
@@ -53,11 +59,11 @@ MU_TEST(test_cholesky_fail_dim_a) {
     mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
 }
 
-MU_TEST(test_cholesky_fail_dim_c) {
+MU_TEST(test_cholesky_fail_dim_c)
+{
     MTX_Error_E error = MTX_Matrix_ERROR_NONE;
 
-    float dataA[3][3] = {
-        {4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
+    float dataA[3][3] = {{4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
 
     float dataC[3][4] = {0};
 
@@ -70,11 +76,11 @@ MU_TEST(test_cholesky_fail_dim_c) {
     mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
 }
 
-MU_TEST(test_cholesky_fail_null_c) {
+MU_TEST(test_cholesky_fail_null_c)
+{
     MTX_Error_E error = MTX_Matrix_ERROR_NONE;
 
-    float dataA[3][3] = {
-        {4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
+    float dataA[3][3] = {{4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
 
     MTX_Matrix_S A = {.rows = 3, .cols = 3, .data = (float *)dataA};
 
@@ -83,11 +89,11 @@ MU_TEST(test_cholesky_fail_null_c) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_cholesky_fail_null_c_data) {
+MU_TEST(test_cholesky_fail_null_c_data)
+{
     MTX_Error_E error;
 
-    float dataA[3][3] = {
-        {4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
+    float dataA[3][3] = {{4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
 
     MTX_Matrix_S A = {.rows = 3, .cols = 3, .data = (float *)dataA};
 
@@ -98,11 +104,11 @@ MU_TEST(test_cholesky_fail_null_c_data) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_cholesky_fail_null_a) {
+MU_TEST(test_cholesky_fail_null_a)
+{
     MTX_Error_E error = MTX_Matrix_ERROR_NONE;
 
-    float dataC[3][3] = {
-        {4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
+    float dataC[3][3] = {{4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
 
     MTX_Matrix_S C = {.rows = 3, .cols = 3, .data = (float *)dataC};
 
@@ -111,11 +117,11 @@ MU_TEST(test_cholesky_fail_null_a) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_cholesky_fail_null_a_data) {
+MU_TEST(test_cholesky_fail_null_a_data)
+{
     MTX_Error_E error;
 
-    float dataC[3][3] = {
-        {4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
+    float dataC[3][3] = {{4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
 
     MTX_Matrix_S A = {.rows = 3, .cols = 3, .data = (float *)NULL};
 
@@ -126,7 +132,8 @@ MU_TEST(test_cholesky_fail_null_a_data) {
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_cholesky_fail_not_pos_def) {
+MU_TEST(test_cholesky_fail_not_pos_def)
+{
     MTX_Error_E error;
 
     float dataA[4][4] = {{0.99, 0.78, 0.59, 0.44},
@@ -145,11 +152,11 @@ MU_TEST(test_cholesky_fail_not_pos_def) {
     mu_check(error == MTX_Matrix_ERROR_NOT_POS_DEF);
 }
 
-MU_TEST(test_cholesky_fail_c_inplace) {
+MU_TEST(test_cholesky_fail_c_inplace)
+{
     MTX_Error_E error = MTX_Matrix_ERROR_NONE;
 
-    float dataA[3][3] = {
-        {4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
+    float dataA[3][3] = {{4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
 
     MTX_Matrix_S A = {.rows = 3, .cols = 3, .data = (float *)dataA};
 
@@ -158,10 +165,9 @@ MU_TEST(test_cholesky_fail_c_inplace) {
     mu_check(error == MTX_Matrix_ERROR_INPLACE);
 }
 
-MU_TEST(test_cholesky_success_err_null) {
-
-    float dataA[3][3] = {
-        {4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
+MU_TEST(test_cholesky_success_err_null)
+{
+    float dataA[3][3] = {{4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
 
     float dataC[3][3] = {{1.0, 1.0, 1.0}, {1.0, 1.0, 1.0}, {1.0, 1.0, 1.0}};
 
@@ -182,11 +188,11 @@ MU_TEST(test_cholesky_success_err_null) {
     mu_assert_double_eq(3.0, C.data[8]);
 }
 
-MU_TEST(test_cholesky_success_c) {
+MU_TEST(test_cholesky_success_c)
+{
     MTX_Error_E error = MTX_Matrix_ERROR_NONE;
 
-    float dataA[3][3] = {
-        {4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
+    float dataA[3][3] = {{4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
 
     float dataC[3][3] = {0};
 
@@ -208,7 +214,8 @@ MU_TEST(test_cholesky_success_c) {
     mu_assert_double_eq(3.0, C.data[8]);
 }
 
-MU_TEST_SUITE(test_suite) {
+MU_TEST_SUITE(test_suite)
+{
     MU_RUN_TEST(test_cholesky_fail_dim_not_square);
     MU_RUN_TEST(test_cholesky_fail_dim_a);
     MU_RUN_TEST(test_cholesky_fail_dim_c);
@@ -226,7 +233,8 @@ MU_TEST_SUITE(test_suite) {
     MU_RUN_TEST(test_cholesky_success_c);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     MU_RUN_SUITE(test_suite);
     MU_REPORT();
     return MU_EXIT_CODE;
