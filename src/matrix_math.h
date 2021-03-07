@@ -83,29 +83,29 @@ check or leave uncommented to improve execution time. */
  * @brief Matrix data structure
  *
  */
-struct MTX_Matrix_STRUCT { //!< Matrix data structure
-    unsigned int rows;     //!< Number of matrix rows
-    unsigned int cols;     //!< Number of matrix columns
-    float *data;           //!< Pointer to one dimensional array of matrix elements
+struct MTX_Matrix_STRUCT {    //!< Matrix data structure
+    unsigned int rows;        //!< Number of matrix rows
+    unsigned int cols;        //!< Number of matrix columns
+    float *data;              //!< Pointer to one dimensional array of matrix elements
 };
 
 /**
  * @brief Matrix errors enums
  *
  */
-enum MTX_Error_ENUM {            //!< Matrix errors
-    MTX_Matrix_ERROR_NONE,       //!< No errors
-    MTX_Matrix_ERROR_DIMENSIONS, //!< Dimension mismatch error
-    MTX_Matrix_ERROR_NULL,       //!< NULL pointer exeption error
-    MTX_Matrix_ERROR_NOT_SQUARE, //!< Matrix is not square error
-    MTX_Matrix_ERROR_INPLACE,    //!< Matrix inplace error
-    MTX_Matrix_ERROR_ZERO_DIMS,  //!< Matrix with 0 number of rows and/or columns
-                                 //!< error
-    MTX_Matrix_ERROR_NOT_POS_DEF //!< Matrix not positive definite error
+enum MTX_Error_ENUM {               //!< Matrix errors
+    MTX_Matrix_ERROR_NONE,          //!< No errors
+    MTX_Matrix_ERROR_DIMENSIONS,    //!< Dimension mismatch error
+    MTX_Matrix_ERROR_NULL,          //!< NULL pointer exeption error
+    MTX_Matrix_ERROR_NOT_SQUARE,    //!< Matrix is not square error
+    MTX_Matrix_ERROR_INPLACE,       //!< Matrix inplace error
+    MTX_Matrix_ERROR_ZERO_DIMS,     //!< Matrix with 0 number of rows and/or columns
+                                    //!< error
+    MTX_Matrix_ERROR_NOT_POS_DEF    //!< Matrix not positive definite error
 };
 
-typedef struct MTX_Matrix_STRUCT MTX_Matrix_S; //!< Matrix data structure typedef
-typedef enum MTX_Error_ENUM MTX_Error_E;       //!< Matrix error enum typedef
+typedef struct MTX_Matrix_STRUCT MTX_Matrix_S;    //!< Matrix data structure typedef
+typedef enum MTX_Error_ENUM MTX_Error_E;          //!< Matrix error enum typedef
 
 void MTX_init(MTX_Matrix_S *c,
               unsigned int rows,
