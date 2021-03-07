@@ -19,59 +19,59 @@ extern "C" {
  * @brief Check NULL pointers of one Matrice
  *
  */
-#define MTX_CHECK_NULL_PTRS_1(err, a)                                          \
-    ({                                                                         \
-        if ((a) == NULL || (a)->data == NULL) {                                \
-            (err) = MTX_Matrix_ERROR_NULL;                                     \
-        }                                                                      \
-    })
+#define MTX_CHECK_NULL_PTRS_1(err, a)       \
+  ({                                        \
+    if ((a) == NULL || (a)->data == NULL) { \
+      (err) = MTX_Matrix_ERROR_NULL;        \
+    }                                       \
+  })
 
 /**
  * @brief Check NULL pointers of two Matrices
  *
  */
-#define MTX_CHECK_NULL_PTRS_2(err, a, b)                                       \
-    ({                                                                         \
-        if ((a) == NULL || (b) == NULL || (a)->data == NULL ||                 \
-            (b)->data == NULL) {                                               \
-            (err) = MTX_Matrix_ERROR_NULL;                                     \
-        }                                                                      \
-    })
+#define MTX_CHECK_NULL_PTRS_2(err, a, b)                \
+  ({                                                    \
+    if ((a) == NULL || (b) == NULL || (a)->data == NULL \
+        || (b)->data == NULL) {                         \
+      (err) = MTX_Matrix_ERROR_NULL;                    \
+    }                                                   \
+  })
 
 /**
  * @brief Check NULL pointers of three Matrices
  *
  */
-#define MTX_CHECK_NULL_PTRS_3(err, a, b, c)                                    \
-    ({                                                                         \
-        if ((a) == NULL || (b) == NULL || (c) == NULL || (a)->data == NULL ||  \
-            (b)->data == NULL || (c)->data == NULL) {                          \
-            (err) = MTX_Matrix_ERROR_NULL;                                     \
-        }                                                                      \
-    })
+#define MTX_CHECK_NULL_PTRS_3(err, a, b, c)                            \
+  ({                                                                   \
+    if ((a) == NULL || (b) == NULL || (c) == NULL || (a)->data == NULL \
+        || (b)->data == NULL || (c)->data == NULL) {                   \
+      (err) = MTX_Matrix_ERROR_NULL;                                   \
+    }                                                                  \
+  })
 
 /**
  * @brief Check dimensions of two Matrices
  *
  */
-#define MTX_MATRIX_CHECK_DIMS_2(err, a, b)                                     \
-    ({                                                                         \
-        if (!((a)->rows == (b)->rows && (a)->cols == (b)->cols)) {             \
-            (err) = MTX_Matrix_ERROR_DIMENSIONS;                               \
-        }                                                                      \
-    })
+#define MTX_MATRIX_CHECK_DIMS_2(err, a, b)                     \
+  ({                                                           \
+    if (!((a)->rows == (b)->rows && (a)->cols == (b)->cols)) { \
+      (err) = MTX_Matrix_ERROR_DIMENSIONS;                     \
+    }                                                          \
+  })
 
 /**
  * @brief Check dimensions of three Matrices
  *
  */
-#define MTX_MATRIX_CHECK_DIMS_3(err, a, b, c)                                  \
-    ({                                                                         \
-        if (!((c)->rows == (a)->rows && (c)->cols == (a)->cols &&              \
-              (a)->rows == (b)->rows && (a)->cols == (b)->cols)) {             \
-            (err) = MTX_Matrix_ERROR_DIMENSIONS;                               \
-        }                                                                      \
-    })
+#define MTX_MATRIX_CHECK_DIMS_3(err, a, b, c)                     \
+  ({                                                              \
+    if (!((c)->rows == (a)->rows && (c)->cols == (a)->cols        \
+          && (a)->rows == (b)->rows && (a)->cols == (b)->cols)) { \
+      (err) = MTX_Matrix_ERROR_DIMENSIONS;                        \
+    }                                                             \
+  })
 
 /* Uncoment the lines below to implement NULL pointers or matrix dimensions
 check or leave uncommented to improve execution time. */
@@ -85,24 +85,24 @@ check or leave uncommented to improve execution time. */
  *
  */
 struct MTX_Matrix_STRUCT { //!< Matrix data structure
-    unsigned int rows;     //!< Number of matrix rows
-    unsigned int cols;     //!< Number of matrix columns
-    float *data; //!< Pointer to one dimensional array of matrix elements
+  unsigned int rows;       //!< Number of matrix rows
+  unsigned int cols;       //!< Number of matrix columns
+  float *data; //!< Pointer to one dimensional array of matrix elements
 };
 
 /**
  * @brief Matrix errors enums
  *
  */
-enum MTX_Error_ENUM {            //!< Matrix errors
-    MTX_Matrix_ERROR_NONE,       //!< No errors
-    MTX_Matrix_ERROR_DIMENSIONS, //!< Dimension mismatch error
-    MTX_Matrix_ERROR_NULL,       //!< NULL pointer exeption error
-    MTX_Matrix_ERROR_NOT_SQUARE, //!< Matrix is not square error
-    MTX_Matrix_ERROR_INPLACE,    //!< Matrix inplace error
-    MTX_Matrix_ERROR_ZERO_DIMS, //!< Matrix with 0 number of rows and/or columns
-                                //!< error
-    MTX_Matrix_ERROR_NOT_POS_DEF //!< Matrix not positive definite error
+enum MTX_Error_ENUM {          //!< Matrix errors
+  MTX_Matrix_ERROR_NONE,       //!< No errors
+  MTX_Matrix_ERROR_DIMENSIONS, //!< Dimension mismatch error
+  MTX_Matrix_ERROR_NULL,       //!< NULL pointer exeption error
+  MTX_Matrix_ERROR_NOT_SQUARE, //!< Matrix is not square error
+  MTX_Matrix_ERROR_INPLACE,    //!< Matrix inplace error
+  MTX_Matrix_ERROR_ZERO_DIMS,  //!< Matrix with 0 number of rows and/or columns
+                               //!< error
+  MTX_Matrix_ERROR_NOT_POS_DEF //!< Matrix not positive definite error
 };
 
 typedef struct MTX_Matrix_STRUCT
