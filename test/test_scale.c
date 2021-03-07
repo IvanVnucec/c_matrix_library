@@ -11,9 +11,11 @@
 #include "matrix_math.h"
 #include "minunit.h"
 
-void test_setup(void) {}
+void test_setup(void) {
+}
 
-void test_teardown(void) {}
+void test_teardown(void) {
+}
 
 MU_TEST(test_scale_fail_dim_a) {
   MTX_Error_E error;

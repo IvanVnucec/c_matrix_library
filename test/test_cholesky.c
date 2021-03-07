@@ -11,9 +11,11 @@
 #include "matrix_math.h"
 #include "minunit.h"
 
-void test_setup(void) {}
+void test_setup(void) {
+}
 
-void test_teardown(void) {}
+void test_teardown(void) {
+}
 
 MU_TEST(test_cholesky_fail_dim_not_square) {
   MTX_Error_E error = MTX_Matrix_ERROR_NONE;
