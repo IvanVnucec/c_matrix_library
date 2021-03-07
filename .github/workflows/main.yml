@@ -26,7 +26,7 @@ jobs:
             ${{ runner.os }}-buildx-${{ hashFiles('**/Dockerfile') }}
             ${{ runner.os }}-buildx-${{ hashFiles('**/environment.yml') }}
 
-      - name: Save Docker image
+      - name: Save Docker image if not cached
         if: steps.cache-primes.outputs.cache-hit != 'true'
         run: ./scripts/docker_save_image.sh
 
