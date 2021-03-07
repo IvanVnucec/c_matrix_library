@@ -28,39 +28,39 @@ extern "C" {
 #endif
 
 #if defined(_WIN32)
-#include <Windows.h>
-#if defined(_MSC_VER) && _MSC_VER < 1900
-#define snprintf _snprintf
-#define __func__ __FUNCTION__
-#endif
+  #include <Windows.h>
+  #if defined(_MSC_VER) && _MSC_VER < 1900
+    #define snprintf _snprintf
+    #define __func__ __FUNCTION__
+  #endif
 
 #elif defined(__unix__) || defined(__unix) || defined(unix) \
     || (defined(__APPLE__) && defined(__MACH__))
 
-/* Change POSIX C SOURCE version for pure c99 compilers */
-#if !defined(_POSIX_C_SOURCE) || _POSIX_C_SOURCE < 200112L
-#undef _POSIX_C_SOURCE
-#define _POSIX_C_SOURCE 200112L
-#endif
+  /* Change POSIX C SOURCE version for pure c99 compilers */
+  #if !defined(_POSIX_C_SOURCE) || _POSIX_C_SOURCE < 200112L
+    #undef _POSIX_C_SOURCE
+    #define _POSIX_C_SOURCE 200112L
+  #endif
 
-#include <string.h>
-#include <sys/resource.h>
-#include <sys/time.h> /* gethrtime(), gettimeofday() */
-#include <sys/times.h>
-#include <time.h>   /* clock_gettime(), time() */
-#include <unistd.h> /* POSIX flags */
+  #include <string.h>
+  #include <sys/resource.h>
+  #include <sys/time.h> /* gethrtime(), gettimeofday() */
+  #include <sys/times.h>
+  #include <time.h>   /* clock_gettime(), time() */
+  #include <unistd.h> /* POSIX flags */
 
-#if defined(__MACH__) && defined(__APPLE__)
-#include <mach/mach.h>
-#include <mach/mach_time.h>
-#endif
+  #if defined(__MACH__) && defined(__APPLE__)
+    #include <mach/mach.h>
+    #include <mach/mach_time.h>
+  #endif
 
-#if __GNUC__ >= 5 && !defined(__STDC_VERSION__)
-#define __func__ __extension__ __FUNCTION__
-#endif
+  #if __GNUC__ >= 5 && !defined(__STDC_VERSION__)
+    #define __func__ __extension__ __FUNCTION__
+  #endif
 
 #else
-#error "Unable to define timers for an unknown OS."
+  #error "Unable to define timers for an unknown OS."
 #endif
 
 #include <math.h>
@@ -281,32 +281,32 @@ static double mu_timer_real(void)
 #elif defined(_POSIX_VERSION)
   /* POSIX. --------------------------------------------------- */
   struct timeval tm;
-#if defined(_POSIX_TIMERS) && (_POSIX_TIMERS > 0)
+  #if defined(_POSIX_TIMERS) && (_POSIX_TIMERS > 0)
   {
     struct timespec ts;
-#if defined(CLOCK_MONOTONIC_PRECISE)
+    #if defined(CLOCK_MONOTONIC_PRECISE)
     /* BSD. --------------------------------------------- */
     const clockid_t id = CLOCK_MONOTONIC_PRECISE;
-#elif defined(CLOCK_MONOTONIC_RAW)
+    #elif defined(CLOCK_MONOTONIC_RAW)
     /* Linux. ------------------------------------------- */
     const clockid_t id = CLOCK_MONOTONIC_RAW;
-#elif defined(CLOCK_HIGHRES)
+    #elif defined(CLOCK_HIGHRES)
     /* Solaris. ----------------------------------------- */
     const clockid_t id = CLOCK_HIGHRES;
-#elif defined(CLOCK_MONOTONIC)
+    #elif defined(CLOCK_MONOTONIC)
     /* AIX, BSD, Linux, POSIX, Solaris. ----------------- */
     const clockid_t id = CLOCK_MONOTONIC;
-#elif defined(CLOCK_REALTIME)
+    #elif defined(CLOCK_REALTIME)
     /* AIX, BSD, HP-UX, Linux, POSIX. ------------------- */
     const clockid_t id = CLOCK_REALTIME;
-#else
+    #else
     const clockid_t id = (clockid_t)-1; /* Unknown. */
-#endif /* CLOCK_* */
+    #endif /* CLOCK_* */
     if (id != (clockid_t)-1 && clock_gettime(id, &ts) != -1)
       return (double)ts.tv_sec + (double)ts.tv_nsec / 1000000000.0;
     /* Fall thru. */
   }
-#endif /* _POSIX_TIMERS */
+  #endif   /* _POSIX_TIMERS */
 
   /* AIX, BSD, Cygwin, HP-UX, Linux, OSX, POSIX, Solaris. ----- */
   gettimeofday(&tm, NULL);
@@ -340,55 +340,55 @@ static double mu_timer_cpu(void)
 
 #elif defined(__unix__) || defined(__unix) || defined(unix) \
     || (defined(__APPLE__) && defined(__MACH__))
-  /* AIX, BSD, Cygwin, HP-UX, Linux, OSX, and Solaris --------- */
+    /* AIX, BSD, Cygwin, HP-UX, Linux, OSX, and Solaris --------- */
 
-#if defined(_POSIX_TIMERS) && (_POSIX_TIMERS > 0)
+  #if defined(_POSIX_TIMERS) && (_POSIX_TIMERS > 0)
   /* Prefer high-res POSIX timers, when available. */
   {
     clockid_t id;
     struct timespec ts;
-#if _POSIX_CPUTIME > 0
+    #if _POSIX_CPUTIME > 0
     /* Clock ids vary by OS.  Query the id, if possible. */
     if (clock_getcpuclockid(0, &id) == -1)
-#endif
-#if defined(CLOCK_PROCESS_CPUTIME_ID)
+    #endif
+    #if defined(CLOCK_PROCESS_CPUTIME_ID)
       /* Use known clock id for AIX, Linux, or Solaris. */
       id = CLOCK_PROCESS_CPUTIME_ID;
-#elif defined(CLOCK_VIRTUAL)
+    #elif defined(CLOCK_VIRTUAL)
     /* Use known clock id for BSD or HP-UX. */
     id = CLOCK_VIRTUAL;
-#else
+    #else
     id = (clockid_t)-1;
-#endif
+    #endif
     if (id != (clockid_t)-1 && clock_gettime(id, &ts) != -1)
       return (double)ts.tv_sec + (double)ts.tv_nsec / 1000000000.0;
   }
-#endif
+  #endif
 
-#if defined(RUSAGE_SELF)
+  #if defined(RUSAGE_SELF)
   {
     struct rusage rusage;
     if (getrusage(RUSAGE_SELF, &rusage) != -1)
       return (double)rusage.ru_utime.tv_sec + (double)rusage.ru_utime.tv_usec / 1000000.0;
   }
-#endif
+  #endif
 
-#if defined(_SC_CLK_TCK)
+  #if defined(_SC_CLK_TCK)
   {
     const double ticks = (double)sysconf(_SC_CLK_TCK);
     struct tms tms;
     if (times(&tms) != (clock_t)-1)
       return (double)tms.tms_utime / ticks;
   }
-#endif
+  #endif
 
-#if defined(CLOCKS_PER_SEC)
+  #if defined(CLOCKS_PER_SEC)
   {
     clock_t cl = clock();
     if (cl != (clock_t)-1)
       return (double)cl / (double)CLOCKS_PER_SEC;
   }
-#endif
+  #endif
 
 #endif
 
