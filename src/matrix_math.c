@@ -9,6 +9,7 @@
  */
 
 #include "matrix_math.h"
+
 #include <math.h>
 #include <stddef.h>
 

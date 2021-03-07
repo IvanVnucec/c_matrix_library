@@ -36,3 +36,6 @@ BreakBeforeBraces: WebKit
 BreakBeforeTernaryOperators: false
 BreakStringLiterals: false
 ColumnLimit: 90
+ContinuationIndentWidth: 4
+Cpp11BracedListStyle: true
+IncludeBlocks: Regroup
