@@ -595,8 +595,8 @@ void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
                     }
 
                 } else {
-                    c->data[i * c->cols + j] = (1.0f / c->data[j * c->cols + j]
-                                                * (a->data[i * a->cols + j] - sum));
+                    c->data[i * c->cols + j] = 1.0f / c->data[j * c->cols + j]
+                                               * (a->data[i * a->cols + j] - sum);
                 }
             }
         }
