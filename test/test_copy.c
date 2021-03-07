@@ -45,9 +45,7 @@ MU_TEST(test_copy_fail_dim_a_cols)
 {
   MTX_Error_E error = MTX_Matrix_ERROR_NONE;
 
-  float dataA[3][4] = {{1.0, 2.0, 3.0, 0.0},
-                       {4.0, 5.0, 6.0, 0.0},
-                       {7.0, 8.0, 9.0, 0.0}};
+  float dataA[3][4] = {{1.0, 2.0, 3.0, 0.0}, {4.0, 5.0, 6.0, 0.0}, {7.0, 8.0, 9.0, 0.0}};
 
   float dataC[3][3];
 

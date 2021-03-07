@@ -123,18 +123,17 @@ static void (*minunit_teardown)(void) = NULL;
       if (minunit_teardown)(*minunit_teardown)();)
 
 /*  Report */
-#define MU_REPORT()                                                       \
-  MU__SAFE_BLOCK(                                                         \
-      double minunit_end_real_timer; double minunit_end_proc_timer;       \
-      printf("\n\n%d tests, %d assertions, %d failures\n",                \
-             minunit_run,                                                 \
-             minunit_assert,                                              \
-             minunit_fail);                                               \
-      minunit_end_real_timer = mu_timer_real();                           \
-      minunit_end_proc_timer = mu_timer_cpu();                            \
-      printf("\nFinished in %.8f seconds (real) %.8f seconds (proc)\n\n", \
-             minunit_end_real_timer - minunit_real_timer,                 \
-             minunit_end_proc_timer - minunit_proc_timer);)
+#define MU_REPORT()                                                                  \
+  MU__SAFE_BLOCK(double minunit_end_real_timer; double minunit_end_proc_timer;       \
+                 printf("\n\n%d tests, %d assertions, %d failures\n",                \
+                        minunit_run,                                                 \
+                        minunit_assert,                                              \
+                        minunit_fail);                                               \
+                 minunit_end_real_timer = mu_timer_real();                           \
+                 minunit_end_proc_timer = mu_timer_cpu();                            \
+                 printf("\nFinished in %.8f seconds (real) %.8f seconds (proc)\n\n", \
+                        minunit_end_real_timer - minunit_real_timer,                 \
+                        minunit_end_proc_timer - minunit_proc_timer);)
 #define MU_EXIT_CODE minunit_fail
 
 /*  Assertions */
@@ -216,26 +215,23 @@ static void (*minunit_teardown)(void) = NULL;
         return;                                                       \
       } else { printf("."); })
 
-#define mu_assert_string_eq(expected, result)                       \
-  MU__SAFE_BLOCK(                                                   \
-      const char *minunit_tmp_e = expected;                         \
-      const char *minunit_tmp_r = result;                           \
-      minunit_assert++;                                             \
-      if (!minunit_tmp_e) {                                         \
-        minunit_tmp_e = "<null pointer>";                           \
-      } if (!minunit_tmp_r) {                                       \
-        minunit_tmp_r = "<null pointer>";                           \
-      } if (strcmp(minunit_tmp_e, minunit_tmp_r)) {                 \
-        snprintf(minunit_last_message,                              \
-                 MINUNIT_MESSAGE_LEN,                               \
-                 "%s failed:\n\t%s:%d: '%s' expected but was '%s'", \
-                 __func__,                                          \
-                 __FILE__,                                          \
-                 __LINE__,                                          \
-                 minunit_tmp_e,                                     \
-                 minunit_tmp_r);                                    \
-        minunit_status = 1;                                         \
-        return;                                                     \
+#define mu_assert_string_eq(expected, result)                                         \
+  MU__SAFE_BLOCK(                                                                     \
+      const char *minunit_tmp_e = expected; const char *minunit_tmp_r = result;       \
+      minunit_assert++;                                                               \
+      if (!minunit_tmp_e) { minunit_tmp_e = "<null pointer>"; } if (!minunit_tmp_r) { \
+        minunit_tmp_r = "<null pointer>";                                             \
+      } if (strcmp(minunit_tmp_e, minunit_tmp_r)) {                                   \
+        snprintf(minunit_last_message,                                                \
+                 MINUNIT_MESSAGE_LEN,                                                 \
+                 "%s failed:\n\t%s:%d: '%s' expected but was '%s'",                   \
+                 __func__,                                                            \
+                 __FILE__,                                                            \
+                 __LINE__,                                                            \
+                 minunit_tmp_e,                                                       \
+                 minunit_tmp_r);                                                      \
+        minunit_status = 1;                                                           \
+        return;                                                                       \
       } else { printf("."); })
 
 /*
@@ -278,8 +274,7 @@ static double mu_timer_real(void)
   if (timeConvert == 0.0) {
     mach_timebase_info_data_t timeBase;
     (void)mach_timebase_info(&timeBase);
-    timeConvert =
-        (double)timeBase.numer / (double)timeBase.denom / 1000000000.0;
+    timeConvert = (double)timeBase.numer / (double)timeBase.denom / 1000000000.0;
   }
   return (double)mach_absolute_time() * timeConvert;
 
@@ -336,11 +331,7 @@ static double mu_timer_cpu(void)
 
   /* This approach has a resolution of 1/64 second. Unfortunately, Windows'
    * API does not offer better */
-  if (GetProcessTimes(GetCurrentProcess(),
-                      &createTime,
-                      &exitTime,
-                      &kernelTime,
-                      &userTime)
+  if (GetProcessTimes(GetCurrentProcess(), &createTime, &exitTime, &kernelTime, &userTime)
       != 0) {
     ULARGE_INTEGER userSystemTime;
     memcpy(&userSystemTime, &userTime, sizeof(ULARGE_INTEGER));
@@ -378,8 +369,7 @@ static double mu_timer_cpu(void)
   {
     struct rusage rusage;
     if (getrusage(RUSAGE_SELF, &rusage) != -1)
-      return (double)rusage.ru_utime.tv_sec
-             + (double)rusage.ru_utime.tv_usec / 1000000.0;
+      return (double)rusage.ru_utime.tv_sec + (double)rusage.ru_utime.tv_usec / 1000000.0;
   }
 #endif
 

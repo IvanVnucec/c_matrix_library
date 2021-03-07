@@ -33,3 +33,6 @@ BraceWrapping:
 
 BreakBeforeBinaryOperators: NonAssignment
 BreakBeforeBraces: WebKit
+BreakBeforeTernaryOperators: false
+BreakStringLiterals: false
+ColumnLimit: 90

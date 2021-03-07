@@ -172,10 +172,7 @@ void MTX_sub(MTX_Matrix_S *c,
  *      - MTX_Matrix_ERROR_DIMENSIONS - Matrices a and c don't have the same
  * dimensions.
  */
-void MTX_scale(MTX_Matrix_S *c,
-               float k,
-               const MTX_Matrix_S *a,
-               MTX_Error_E *error)
+void MTX_scale(MTX_Matrix_S *c, float k, const MTX_Matrix_S *a, MTX_Error_E *error)
 {
   MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
   int i;
@@ -578,10 +575,8 @@ void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
   }
 
   if (errorLocal == MTX_Matrix_ERROR_NONE) {
-    for (i = 0; i < c->rows && errorLocal != MTX_Matrix_ERROR_NOT_POS_DEF;
-         i++) {
-      for (j = 0; j < (i + 1) && errorLocal != MTX_Matrix_ERROR_NOT_POS_DEF;
-           j++) {
+    for (i = 0; i < c->rows && errorLocal != MTX_Matrix_ERROR_NOT_POS_DEF; i++) {
+      for (j = 0; j < (i + 1) && errorLocal != MTX_Matrix_ERROR_NOT_POS_DEF; j++) {
         sum = 0.0f;
 
         for (k = 0; k < j; k++) {
@@ -599,8 +594,8 @@ void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
           }
 
         } else {
-          c->data[i * c->cols + j] = (1.0f / c->data[j * c->cols + j]
-                                      * (a->data[i * a->cols + j] - sum));
+          c->data[i * c->cols + j] =
+              (1.0f / c->data[j * c->cols + j] * (a->data[i * a->cols + j] - sum));
         }
       }
     }
