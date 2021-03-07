@@ -19,6 +19,7 @@ jobs:
           fetch-depth: 0
 
       - name: Cache register
+        id: cache-docker-image
         uses: actions/cache@v2
         with:
           path: ./tmp
@@ -27,11 +28,11 @@ jobs:
             ${{ runner.os }}-buildx-${{ hashFiles('**/environment.yml') }}
 
       - name: Build Docker image if not cached
-        if: steps.cache-primes.outputs.cache-hit != 'true'
+        if: steps.cache-docker-image.outputs.cache-hit != 'true'
         run: ./scripts/docker_build_image.sh
 
       - name: Save Docker image if not cached
-        if: steps.cache-primes.outputs.cache-hit != 'true'
+        if: steps.cache-docker-image.outputs.cache-hit != 'true'
         run: ./scripts/docker_save_image.sh
 
       - name: Run Clang format check
