@@ -388,7 +388,7 @@ void MTX_setColumn(MTX_Matrix_S *c, unsigned int columnIndex,
     int i;
 
 #ifdef MTX_MATRIX_CHECK_PTRS
-    MTX_CHECK_NULL_PTRS_2(errorLocal, c, column);
+      MTX_CHECK_NULL_PTRS_2(errorLocal, c, column);
 #endif
 
 #ifdef MTX_MATRIX_CHECK_DIMS

@@ -36,11 +36,9 @@ jobs:
         run: ./scripts/docker_save_image.sh
 
       - name: Run Clang format check
-        run: |
-          mv ./scripts/run-clang-format.py ./ 
-          python run-clang-format.py -r src test
+        run: ./scripts/clang_format_check.sh
 
-      - name: Load Docker image
+      - name: Load cached Docker image
         run: ./scripts/docker_load_image.sh
 
       - name: Run Docker container
