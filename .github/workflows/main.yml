@@ -46,7 +46,7 @@ jobs:
 
       - name: Run cppcheck
         run: |
-          sudo apt-get install -y cppcheck
+          sudo apt-get -qq install -y cppcheck
           ./scripts/cppcheck_check.sh
 
       - name: Upload GCC Code Coverage Report
@@ -60,7 +60,7 @@ jobs:
 
       - name: Generate Doxygen documentation
         run: |
-          sudo apt-get install doxygen -y
+          sudo apt-get -qq install doxygen -y
           ./scripts/doxygen_generate.sh
         
       - name: Deploy Doxygen documentation to Github Pages
