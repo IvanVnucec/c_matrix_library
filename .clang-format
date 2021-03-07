@@ -41,3 +41,4 @@ Cpp11BracedListStyle: true
 IncludeBlocks: Regroup
 IndentCaseLabels: true
 IndentPPDirectives: BeforeHash
+IndentWidth: 4
