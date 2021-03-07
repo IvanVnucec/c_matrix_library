@@ -126,7 +126,6 @@ MU_TEST(test_scale_fail_null_c_data)
 
 MU_TEST(test_scale_success_err_null)
 {
-
     float k = 2.0;
 
     float dataA[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};

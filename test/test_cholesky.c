@@ -167,7 +167,6 @@ MU_TEST(test_cholesky_fail_c_inplace)
 
 MU_TEST(test_cholesky_success_err_null)
 {
-
     float dataA[3][3] = {{4.0, 12.0, -16.0}, {12.0, 37.0, -43.0}, {-16.0, -43.0, 98.0}};
 
     float dataC[3][3] = {{1.0, 1.0, 1.0}, {1.0, 1.0, 1.0}, {1.0, 1.0, 1.0}};
