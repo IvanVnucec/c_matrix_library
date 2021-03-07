@@ -20,8 +20,10 @@ void test_teardown(void) {
 MU_TEST(test_scale_fail_dim_a) {
   MTX_Error_E error;
 
-  float dataA[4][3]
-      = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}, {7.0, 8.0, 9.0}};
+  float dataA[4][3] = {{1.0, 2.0, 3.0},
+                       {4.0, 5.0, 6.0},
+                       {7.0, 8.0, 9.0},
+                       {7.0, 8.0, 9.0}};
 
   float k = 2.0;
 

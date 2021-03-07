@@ -83,8 +83,10 @@ MU_TEST(test_setColumn_fail_dim_rows) {
 
   MTX_Matrix_S column;
 
-  float dataC[4][3]
-      = {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+  float dataC[4][3] = {{0.0, 0.0, 0.0},
+                       {0.0, 0.0, 0.0},
+                       {0.0, 0.0, 0.0},
+                       {0.0, 0.0, 0.0}};
 
   MTX_Matrix_S C;
 

@@ -50,8 +50,9 @@ MU_TEST(test_trans_fail_dim_c_cols) {
 MU_TEST(test_trans_fail_null_c) {
   MTX_Error_E error;
 
-  float dataA[3][4]
-      = {{1.0, 2.0, 3.0, 4.0}, {5.0, 6.0, 7.0, 8.0}, {9.0, 10.0, 11.0, 12.0}};
+  float dataA[3][4] = {{1.0, 2.0, 3.0, 4.0},
+                       {5.0, 6.0, 7.0, 8.0},
+                       {9.0, 10.0, 11.0, 12.0}};
 
   MTX_Matrix_S A = {.rows = 3, .cols = 4, .data = (float *)dataA};
 
@@ -63,8 +64,9 @@ MU_TEST(test_trans_fail_null_c) {
 MU_TEST(test_trans_fail_null_c_data) {
   MTX_Error_E error;
 
-  float dataA[3][4]
-      = {{1.0, 2.0, 3.0, 4.0}, {5.0, 6.0, 7.0, 8.0}, {9.0, 10.0, 11.0, 12.0}};
+  float dataA[3][4] = {{1.0, 2.0, 3.0, 4.0},
+                       {5.0, 6.0, 7.0, 8.0},
+                       {9.0, 10.0, 11.0, 12.0}};
 
   MTX_Matrix_S A = {.rows = 3, .cols = 4, .data = (float *)dataA};
 
@@ -102,8 +104,9 @@ MU_TEST(test_trans_fail_null_a_data) {
 }
 
 MU_TEST(test_trans_success_err_null) {
-  float dataA[3][4]
-      = {{1.0, 2.0, 3.0, 4.0}, {5.0, 6.0, 7.0, 8.0}, {9.0, 10.0, 11.0, 12.0}};
+  float dataA[3][4] = {{1.0, 2.0, 3.0, 4.0},
+                       {5.0, 6.0, 7.0, 8.0},
+                       {9.0, 10.0, 11.0, 12.0}};
 
   float dataC[4][3];
 
@@ -133,8 +136,9 @@ MU_TEST(test_trans_success_err_null) {
 MU_TEST(test_trans_success_c) {
   MTX_Error_E error;
 
-  float dataA[3][4]
-      = {{1.0, 2.0, 3.0, 4.0}, {5.0, 6.0, 7.0, 8.0}, {9.0, 10.0, 11.0, 12.0}};
+  float dataA[3][4] = {{1.0, 2.0, 3.0, 4.0},
+                       {5.0, 6.0, 7.0, 8.0},
+                       {9.0, 10.0, 11.0, 12.0}};
 
   float dataC[4][3];
 

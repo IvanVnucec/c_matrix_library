@@ -362,9 +362,9 @@ void MTX_mult(MTX_Matrix_S *c,
         c->data[r + m * c->cols] = 0.0f;
 
         for (k = 0; k < b->rows; k++) {
-          c->data[r + m * c->cols]
-              = c->data[r + m * c->cols]
-                + a->data[k + m * a->cols] * b->data[r + k * b->cols];
+          c->data[r + m * c->cols] =
+              c->data[r + m * c->cols]
+              + a->data[k + m * a->cols] * b->data[r + k * b->cols];
         }
       }
     }

@@ -20,8 +20,10 @@ void test_teardown(void) {
 MU_TEST(test_copy_fail_dim_a_rows) {
   MTX_Error_E error = MTX_Matrix_ERROR_NONE;
 
-  float dataA[4][3]
-      = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}, {7.0, 8.0, 9.0}};
+  float dataA[4][3] = {{1.0, 2.0, 3.0},
+                       {4.0, 5.0, 6.0},
+                       {7.0, 8.0, 9.0},
+                       {7.0, 8.0, 9.0}};
 
   float dataC[3][3];
 
@@ -39,8 +41,9 @@ MU_TEST(test_copy_fail_dim_a_rows) {
 MU_TEST(test_copy_fail_dim_a_cols) {
   MTX_Error_E error = MTX_Matrix_ERROR_NONE;
 
-  float dataA[3][4]
-      = {{1.0, 2.0, 3.0, 0.0}, {4.0, 5.0, 6.0, 0.0}, {7.0, 8.0, 9.0, 0.0}};
+  float dataA[3][4] = {{1.0, 2.0, 3.0, 0.0},
+                       {4.0, 5.0, 6.0, 0.0},
+                       {7.0, 8.0, 9.0, 0.0}};
 
   float dataC[3][3];
 

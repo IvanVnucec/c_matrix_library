@@ -277,8 +277,8 @@ static double mu_timer_real(void) {
   if (timeConvert == 0.0) {
     mach_timebase_info_data_t timeBase;
     (void)mach_timebase_info(&timeBase);
-    timeConvert
-        = (double)timeBase.numer / (double)timeBase.denom / 1000000000.0;
+    timeConvert =
+        (double)timeBase.numer / (double)timeBase.denom / 1000000000.0;
   }
   return (double)mach_absolute_time() * timeConvert;
 
