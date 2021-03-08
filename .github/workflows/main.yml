@@ -36,7 +36,7 @@ jobs:
         run: ./scripts/docker_save_image.sh
 
       - name: Run Clang format check
-        run: ./scripts/clang_format_check.sh
+        run: ./scripts/clang_format_check.sh ${{ github.head_ref }}.${{ github.sha }}
 
       - name: Load cached Docker image
         run: ./scripts/docker_load_image.sh
