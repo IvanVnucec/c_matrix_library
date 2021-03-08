@@ -29,20 +29,29 @@ jobs:
 
       - name: Build Docker image if not cached
         if: steps.cache-docker-image.outputs.cache-hit != 'true'
-        run: ./scripts/docker_build_image.sh
+        run: ./scripts/docker_image_build.sh
 
       - name: Save Docker image if not cached
         if: steps.cache-docker-image.outputs.cache-hit != 'true'
-        run: ./scripts/docker_save_image.sh
+        run: ./scripts/docker_image_save.sh
 
       - name: Run Clang format check
         run: ./scripts/clang_format_check.sh
 
       - name: Load cached Docker image
-        run: ./scripts/docker_load_image.sh
+        run: ./scripts/docker_image_load.sh
 
       - name: Run Docker container
-        run: ./scripts/docker_run_container.sh
+        run: ./scripts/docker_container_run.sh
+
+      - name: Build project
+        run: ./scripts/docker_project_build.sh
+
+      - name: Test project
+        run: ./scripts/docker_project_test.sh
+
+      - name: Stop Docker container
+        run: ./scripts/docker_container_stop.sh
 
       - name: Run cppcheck
         run: |
