@@ -5,7 +5,6 @@
 
 readonly HOST_WORKDIR=/app  # defined in Dockerfile
 
-echo "Running Docker container."
 docker exec $IMAGE_NAME rm -rf builddir
 (($? != 0)) && { printf '%s\n' "Command exited with non-zero"; exit 1; }
 
