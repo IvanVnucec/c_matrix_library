@@ -9,4 +9,6 @@ RUN apt-get update && \
 
 RUN pip3 install --no-cache-dir meson gcovr
 
+RUN ln -s /usr/bin/python3.8 /usr/bin/python
+
 WORKDIR /app
