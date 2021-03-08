@@ -44,11 +44,11 @@ jobs:
       - name: Run Clang format check
         run: ./scripts/docker_project_clang_format_check.sh
 
-      - name: Run cppcheck
-        run: ./scripts/docker_project_cppcheck.sh
-
       - name: Build project
         run: ./scripts/docker_project_build.sh
+        
+      - name: Run cppcheck
+        run: ./scripts/docker_project_cppcheck.sh
 
       - name: Test project
         run: ./scripts/docker_project_test.sh
