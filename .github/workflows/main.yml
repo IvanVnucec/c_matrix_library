@@ -35,14 +35,17 @@ jobs:
         if: steps.cache-docker-image.outputs.cache-hit != 'true'
         run: ./scripts/docker_image_save.sh
 
-      - name: Run Clang format check
-        run: ./scripts/clang_format_check.sh
-
       - name: Load cached Docker image
         run: ./scripts/docker_image_load.sh
 
       - name: Run Docker container
         run: ./scripts/docker_container_run.sh
+
+      - name: Run Clang format check
+        run: ./scripts/docker_project_clang_format_check.sh
+
+      - name: Run cppcheck
+        run: ./scripts/docker_project_cppcheck.sh
 
       - name: Build project
         run: ./scripts/docker_project_build.sh
@@ -50,13 +53,11 @@ jobs:
       - name: Test project
         run: ./scripts/docker_project_test.sh
 
+      - name: Generate Doxygen documentation
+        run: ./scripts/docker_project_doxygen.sh
+
       - name: Stop Docker container
         run: ./scripts/docker_container_stop.sh
-
-      - name: Run cppcheck
-        run: |
-          sudo apt-get -qq install -y cppcheck
-          ./scripts/cppcheck_check.sh
 
       - name: Upload GCC Code Coverage Report
         uses: actions/upload-artifact@v2
@@ -66,11 +67,6 @@ jobs:
         
       - name: Upload code coverage reports to codecov.io page
         run: bash <(curl -s https://codecov.io/bash) 
-
-      - name: Generate Doxygen documentation
-        run: |
-          sudo apt-get -qq install doxygen graphviz -y
-          ./scripts/doxygen_generate.sh
         
       - name: Deploy Doxygen documentation to Github Pages
         uses: peaceiris/actions-gh-pages@v3

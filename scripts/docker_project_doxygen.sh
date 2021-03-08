@@ -3,12 +3,13 @@
 # load constants
 . ./scripts/constants.env
 
-readonly HOST_WORKDIR=/app  # defined in Dockerfile
-
-docker exec $IMAGE_NAME meson test -C builddir
+docker exec $IMAGE_NAME mkdir docs
 (($? != 0)) && { printf '%s\n' "Command exited with non-zero"; exit 1; }
 
-docker exec $IMAGE_NAME ninja coverage -v -C builddir
+docker exec $IMAGE_NAME mkdir docs/Doxygen
+(($? != 0)) && { printf '%s\n' "Command exited with non-zero"; exit 1; }
+
+docker exec $IMAGE_NAME doxygen Doxyfile ./../Doxyfile
 (($? != 0)) && { printf '%s\n' "Command exited with non-zero"; exit 1; }
 
 exit 0

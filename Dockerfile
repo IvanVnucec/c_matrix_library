@@ -2,18 +2,11 @@
 # Author: Ivan Vnucec
 # License: Do whatever you want with it. I don't care.
 
-# Clone Docker image with Miniconda package manager installed
-FROM continuumio/miniconda3
+FROM ubuntu:20.10
 
-# Get gcc compiler
-RUN apt-get update && apt-get install build-essential -y
+RUN apt-get update && \
+    apt-get install -y python3.8 python3-pip cppcheck gcc-10 doxygen graphviz clang-format-11 ninja-build
 
-# Copy environment.yml used by Miniconda package manager
-COPY environment.yml tmp/environment.yml
-
-# Run Miniconda environment
-RUN conda env create -f tmp/environment.yml
-RUN echo "source activate env" > ~/.bashrc
-ENV PATH /opt/conda/envs/env/bin:$PATH
+RUN pip3 install --no-cache-dir meson gcovr
 
 WORKDIR /app
