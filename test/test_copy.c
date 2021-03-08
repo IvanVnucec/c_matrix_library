@@ -3,30 +3,29 @@
  * @author Ivan Vnucec
  * @brief MTX_copy function test file
  * @date 2021-03-03
- *
+ * 
  * @copyright Do whatever you want with it. I don't care.
- *
+ * 
  */
 
-#include "matrix_math.h"
 #include "minunit.h"
+#include "matrix_math.h"
 
-void test_setup(void)
-{
+void test_setup(void) {
 }
 
-void test_teardown(void)
-{
+void test_teardown(void) {
 }
 
-MU_TEST(test_copy_fail_dim_a_rows)
-{
+MU_TEST(test_copy_fail_dim_a_rows) {
     MTX_Error_E error = MTX_Matrix_ERROR_NONE;
 
-    float dataA[4][3] = {{1.0, 2.0, 3.0},
-                         {4.0, 5.0, 6.0},
-                         {7.0, 8.0, 9.0},
-                         {7.0, 8.0, 9.0}};
+    float dataA[4][3] = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+        {7.0, 8.0, 9.0},
+        {7.0, 8.0, 9.0}
+    };
 
     float dataC[3][3];
 
@@ -41,13 +40,14 @@ MU_TEST(test_copy_fail_dim_a_rows)
     mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
 }
 
-MU_TEST(test_copy_fail_dim_a_cols)
-{
+MU_TEST(test_copy_fail_dim_a_cols) {
     MTX_Error_E error = MTX_Matrix_ERROR_NONE;
 
-    float dataA[3][4] = {{1.0, 2.0, 3.0, 0.0},
-                         {4.0, 5.0, 6.0, 0.0},
-                         {7.0, 8.0, 9.0, 0.0}};
+    float dataA[3][4] = {
+        {1.0, 2.0, 3.0, 0.0},
+        {4.0, 5.0, 6.0, 0.0},
+        {7.0, 8.0, 9.0, 0.0}
+    };
 
     float dataC[3][3];
 
@@ -62,11 +62,14 @@ MU_TEST(test_copy_fail_dim_a_cols)
     mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
 }
 
-MU_TEST(test_copy_fail_dim_c_rows)
-{
+MU_TEST(test_copy_fail_dim_c_rows) {
     MTX_Error_E error;
 
-    float dataA[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+    float dataA[3][3] = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+        {7.0, 8.0, 9.0}
+    };
 
     float dataC[4][3];
 
@@ -81,11 +84,14 @@ MU_TEST(test_copy_fail_dim_c_rows)
     mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
 }
 
-MU_TEST(test_copy_fail_dim_c_cols)
-{
+MU_TEST(test_copy_fail_dim_c_cols) {
     MTX_Error_E error = MTX_Matrix_ERROR_NONE;
 
-    float dataA[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+    float dataA[3][3] = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+        {7.0, 8.0, 9.0}
+    };
 
     float dataC[3][4];
 
@@ -100,8 +106,7 @@ MU_TEST(test_copy_fail_dim_c_cols)
     mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
 }
 
-MU_TEST(test_copy_fail_null_a)
-{
+MU_TEST(test_copy_fail_null_a) {
     MTX_Error_E error;
 
     float dataC[3][3];
@@ -115,13 +120,16 @@ MU_TEST(test_copy_fail_null_a)
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_copy_fail_null_a_data)
-{
+MU_TEST(test_copy_fail_null_a_data) {
     MTX_Error_E error;
 
     float dataC[3][3];
 
-    MTX_Matrix_S A = {.rows = 3, .cols = 3, .data = NULL};
+    MTX_Matrix_S A = {
+        .rows = 3,
+        .cols = 3,
+        .data = NULL
+    };
 
     MTX_Matrix_S C;
 
@@ -132,11 +140,14 @@ MU_TEST(test_copy_fail_null_a_data)
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_copy_fail_null_c)
-{
+MU_TEST(test_copy_fail_null_c) {
     MTX_Error_E error;
 
-    float dataA[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+    float dataA[3][3] = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+        {7.0, 8.0, 9.0}
+    };
 
     MTX_Matrix_S A;
 
@@ -147,13 +158,20 @@ MU_TEST(test_copy_fail_null_c)
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_copy_fail_null_c_data)
-{
+MU_TEST(test_copy_fail_null_c_data) {
     MTX_Error_E error;
 
-    float dataA[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+    float dataA[3][3] = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+        {7.0, 8.0, 9.0}
+    };
 
-    MTX_Matrix_S C = {.rows = 3, .cols = 3, .data = (float *)NULL};
+    MTX_Matrix_S C = {
+        .rows = 3,
+        .cols = 3,
+        .data = (float *)NULL
+    };
 
     MTX_Matrix_S A;
 
@@ -164,13 +182,20 @@ MU_TEST(test_copy_fail_null_c_data)
     mu_check(error == MTX_Matrix_ERROR_NULL);
 }
 
-MU_TEST(test_copy_success_err_null)
-{
+MU_TEST(test_copy_success_err_null) {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
 
-    float dataA[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+    float dataA[3][3] = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+        {7.0, 8.0, 9.0}
+    };
 
-    float dataC[3][3] = {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+    float dataC[3][3] = {
+        {0.0, 0.0, 0.0},
+        {0.0, 0.0, 0.0},
+        {0.0, 0.0, 0.0}
+    };
 
     MTX_Matrix_S A;
     MTX_Matrix_S C;
@@ -193,11 +218,14 @@ MU_TEST(test_copy_success_err_null)
     mu_assert_double_eq(9.0, C.data[8]);
 }
 
-MU_TEST(test_copy_success_C_A)
-{
+MU_TEST(test_copy_success_C_A) {
     MTX_Error_E error;
 
-    float dataA[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+    float dataA[3][3] = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+        {7.0, 8.0, 9.0}
+    };
 
     float dataC[3][3];
 
@@ -221,11 +249,14 @@ MU_TEST(test_copy_success_C_A)
     mu_assert_double_eq(9.0, C.data[8]);
 }
 
-MU_TEST(test_copy_success_A_A)
-{
+MU_TEST(test_copy_success_A_A) {
     MTX_Error_E error;
 
-    float dataA[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+    float dataA[3][3] = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+        {7.0, 8.0, 9.0}
+    };
 
     MTX_Matrix_S A;
 
@@ -245,13 +276,20 @@ MU_TEST(test_copy_success_A_A)
     mu_assert_double_eq(9.0, A.data[8]);
 }
 
-MU_TEST(test_copy_success_C_A_rowVect)
-{
+MU_TEST(test_copy_success_C_A_rowVect) {
     MTX_Error_E error;
 
-    float dataA[3][1] = {{1.0}, {4.0}, {7.0}};
+    float dataA[3][1] = {
+        {1.0},
+        {4.0},
+        {7.0}
+    };
 
-    float dataC[3][1] = {{0.0}, {0.0}, {0.0}};
+    float dataC[3][1] = {
+        {0.0},
+        {0.0},
+        {0.0}
+    };
 
     MTX_Matrix_S A;
     MTX_Matrix_S C;
@@ -267,8 +305,7 @@ MU_TEST(test_copy_success_C_A_rowVect)
     mu_assert_double_eq(7.0, C.data[2]);
 }
 
-MU_TEST(test_copy_success_C_A_colVect)
-{
+MU_TEST(test_copy_success_C_A_colVect) {
     MTX_Error_E error;
 
     float dataA[1][3] = {{1.0, 2.0, 3.0}};
@@ -289,8 +326,7 @@ MU_TEST(test_copy_success_C_A_colVect)
     mu_assert_double_eq(3.0, C.data[2]);
 }
 
-MU_TEST_SUITE(test_suite)
-{
+MU_TEST_SUITE(test_suite) {
     MU_RUN_TEST(test_copy_fail_dim_a_rows);
     MU_RUN_TEST(test_copy_fail_dim_c_rows);
     MU_RUN_TEST(test_copy_fail_dim_a_cols);
@@ -300,7 +336,7 @@ MU_TEST_SUITE(test_suite)
     MU_RUN_TEST(test_copy_fail_null_a_data);
     MU_RUN_TEST(test_copy_fail_null_c);
     MU_RUN_TEST(test_copy_fail_null_c_data);
-
+    
     MU_RUN_TEST(test_copy_success_err_null);
 
     MU_RUN_TEST(test_copy_success_C_A);
@@ -310,9 +346,8 @@ MU_TEST_SUITE(test_suite)
     MU_RUN_TEST(test_copy_success_C_A_colVect);
 }
 
-int main(int argc, char *argv[])
-{
-    MU_RUN_SUITE(test_suite);
-    MU_REPORT();
-    return MU_EXIT_CODE;
+int main(int argc, char *argv[]) {
+	MU_RUN_SUITE(test_suite);
+	MU_REPORT();
+	return MU_EXIT_CODE;
 }
