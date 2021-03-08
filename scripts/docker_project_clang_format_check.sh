@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# load constants
+. ./scripts/constants.env
+
 # Clang-format
 echo "Clang-format code formatting check."
 docker exec $IMAGE_NAME mv ./scripts/run-clang-format.py ./ 
