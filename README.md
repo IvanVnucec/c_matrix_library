@@ -8,7 +8,7 @@
 * Row-major order optimized.  
 * Unit tested.  
 
-### Built With
+## Built With
 Project is built using [Meson](https://mesonbuild.com/) build system.
 
 ## Getting Started
@@ -24,10 +24,10 @@ Project is built using [Meson](https://mesonbuild.com/) build system.
 9. Stop running container `./scripts/docker_container_stop.sh`. Container will remove itself automatically,
 10. To build and test user could just call `./scripts/docker_build_and_run_tests.sh`.
  
-### Prerequisites
+## Prerequisites
 * [Docker](https://www.docker.com/)
 
-### Installation
+## Installation
 1. Copy `matrix_math.c` and `matrix_math.h` into your project.
 2. To implement NULL pointers checking uncomment `#define MTX_MATRIX_CHECK_PTRS` preprocessor macro in `matrix_math.h` file.
 3. To implement matrix dimensions checking uncomment `#define MTX_MATRIX_CHECK_DIMS` preprocessor macro in `matrix_math.h` file.
