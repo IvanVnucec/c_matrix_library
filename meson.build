@@ -1,6 +1,6 @@
 # About: Project root Meson build configuration.
 # Author: Ivan Vnucec
-# License: Do whatever you want with it. I don't care.
+# License WTFPL – Do What the Fuck You Want to Public License. See LICENSE.md file for more information.
 
 project('c_matrix_library', 'c', default_options: ['c_std=c99'])
 

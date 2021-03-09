@@ -1,6 +1,6 @@
 # About: Meson build configuration for source directory.
 # Author: Ivan Vnucec
-# License: Do whatever you want with it. I don't care.
+# License WTFPL – Do What the Fuck You Want to Public License. See LICENSE.md file for more information.
 
 srcs = ['matrix_math.c', 'matrix_math.h']
 
