@@ -58,12 +58,12 @@ jobs:
 
       - name: Stop Docker container
         run: ./scripts/docker_container_stop.sh
-
-      - name: Upload GCC Code Coverage Report
+        
+      - name: Upload Meson logs
         uses: actions/upload-artifact@v2
         with:
-          name: coveragereport
-          path: ./builddir/meson-logs/coveragereport/
+          name: meson-logs
+          path: ./builddir/meson-logs/
         
       - name: Upload code coverage reports to codecov.io page
         run: bash <(curl -s https://codecov.io/bash) 
