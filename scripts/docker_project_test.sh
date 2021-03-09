@@ -5,10 +5,10 @@
 
 readonly HOST_WORKDIR=/app  # defined in Dockerfile
 
-docker exec $IMAGE_NAME meson test -C builddir
+docker exec -i $IMAGE_NAME bash -c "meson test -C builddir"
 (($? != 0)) && { printf '%s\n' "Command exited with non-zero"; exit 1; }
 
-docker exec $IMAGE_NAME ninja coverage -v -C builddir
+docker exec -i $IMAGE_NAME bash -c "ninja coverage -v -C builddir"
 (($? != 0)) && { printf '%s\n' "Command exited with non-zero"; exit 1; }
 
 exit 0
