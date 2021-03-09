@@ -4,7 +4,7 @@
  * @brief Header file that holds matrix function definitions.
  * @date 2021-03-03
  *
- * @copyright Do whatever you want with it. I don't care.
+ * @copyright WTFPL – Do What the Fuck You Want to Public License. See .LICENSE.md file for more information.
  *
  */
 
