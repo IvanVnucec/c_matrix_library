@@ -75,4 +75,4 @@ int main(void) {
 ```
 
 ## License
-Do whatever you want with it. I don't care.
+[WTFPL – Do What the Fuck You Want to Public License](LICENSE.md)
