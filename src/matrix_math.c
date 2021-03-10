@@ -113,7 +113,7 @@ void MTX_add(MTX_Matrix_S *c,
         if (a->cols != b->cols) {
             errorLocal = MTX_Matrix_ERROR_DIMENSIONS;
         }
-    }   
+    }
 #endif
 
     if (errorLocal == MTX_Matrix_ERROR_NONE) {
