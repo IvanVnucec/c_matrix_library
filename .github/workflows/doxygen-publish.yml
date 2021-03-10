@@ -7,15 +7,25 @@ jobs:
   # This name is the one to be used in `running-workflow-name`
   doxygen-publish:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
-      - name: Wait build and test workflow
+      - name: Publish Doxygen documentation
         uses: lewagon/wait-on-check-action@master
         with:
           ref: ${{ github.ref }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
           running-workflow-name: 'doxygen-publish'
+
+      - name: Download artifact
+          uses: dawidd6/action-download-artifact@v2
+          with:
+            workflow: main.yml
+            workflow_conclusion: success
+            pr: ${{github.event.pull_request.number}}
+            branch: master
+            name: doxygen-files
 
       - name: Publish Doxygen documentation to the Github Pages
         uses: peaceiris/actions-gh-pages@v3
