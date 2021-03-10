@@ -20,11 +20,10 @@ void test_teardown(void) {
 MU_TEST(test_add_fail_dim_a) {
     MTX_Error_E error;
 
-    float dataA[4][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0},
-        {7.0, 8.0, 9.0}
+    float dataA[3][4] = {
+        {1.0, 2.0, 3.0, 0.0},
+        {4.0, 5.0, 6.0, 0.0},
+        {7.0, 8.0, 9.0, 0.0}
     };
 
     float dataB[3][3] = {
@@ -36,8 +35,8 @@ MU_TEST(test_add_fail_dim_a) {
     float dataC[3][3];
 
     MTX_Matrix_S A = {
-        .rows = 4,
-        .cols = 3,
+        .rows = 3,
+        .cols = 4,
         .data = (float *)dataA
     };
 
@@ -67,11 +66,10 @@ MU_TEST(test_add_fail_dim_b) {
         {7.0, 8.0, 9.0}
     };
 
-    float dataB[4][3] = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0},
-        {7.0, 8.0, 9.0}
+    float dataB[3][4] = {
+        {1.0, 2.0, 3.0, 0.0},
+        {4.0, 5.0, 6.0, 0.0},
+        {7.0, 8.0, 9.0, 0.0}
     };
 
     float dataC[3][3];
@@ -83,8 +81,8 @@ MU_TEST(test_add_fail_dim_b) {
     };
 
     MTX_Matrix_S B = {
-        .rows = 4,
-        .cols = 3,
+        .rows = 3,
+        .cols = 4,
         .data = (float *)dataB
     };
 
@@ -114,7 +112,7 @@ MU_TEST(test_add_fail_dim_c) {
         {7.0, 8.0, 9.0}
     };
 
-    float dataC[4][3];
+    float dataC[3][4];
 
     MTX_Matrix_S A = {
         .rows = 3,
@@ -129,8 +127,8 @@ MU_TEST(test_add_fail_dim_c) {
     };
 
     MTX_Matrix_S C = {
-        .rows = 4,
-        .cols = 3,
+        .rows = 3,
+        .cols = 4,
         .data = (float *)dataC
     };
 
