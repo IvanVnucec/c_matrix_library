@@ -70,9 +70,4 @@ jobs:
         
       - name: Upload code coverage reports to codecov.io page
         run: bash <(curl -s https://codecov.io/bash) 
-        
-      - name: Deploy Doxygen documentation to Github Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/Doxygen/html
+
