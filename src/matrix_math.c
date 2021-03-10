@@ -92,8 +92,28 @@ void MTX_add(MTX_Matrix_S *c,
 
 #ifdef MTX_MATRIX_CHECK_DIMS
     if (errorLocal == MTX_Matrix_ERROR_NONE) {
-        MTX_MATRIX_CHECK_DIMS_3(errorLocal, a, b, c);
+        if (c->rows != a->rows) {
+            errorLocal = MTX_Matrix_ERROR_DIMENSIONS;
+        }
     }
+
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        if (c->cols != a->cols) {
+            errorLocal = MTX_Matrix_ERROR_DIMENSIONS;
+        }
+    }
+
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        if (a->rows != b->rows) {
+            errorLocal = MTX_Matrix_ERROR_DIMENSIONS;
+        }
+    }
+
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        if (a->cols != b->cols) {
+            errorLocal = MTX_Matrix_ERROR_DIMENSIONS;
+        }
+    }   
 #endif
 
     if (errorLocal == MTX_Matrix_ERROR_NONE) {
