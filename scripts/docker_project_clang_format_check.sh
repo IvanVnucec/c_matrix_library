@@ -3,7 +3,6 @@
 # load constants
 . ./scripts/constants.env
 
-# Clang-format
 echo "Clang-format code formatting check."
 docker exec -i $IMAGE_NAME bash -c "mv ./scripts/run-clang-format.py ./"
 (($? != 0)) && { printf '%s\n' "Command exited with non-zero"; exit 1; }
@@ -14,5 +13,6 @@ retval=$?
 docker exec -i $IMAGE_NAME bash -c "mv ./run-clang-format.py ./scripts"
 (($? != 0)) && { printf '%s\n' "Command exited with non-zero"; exit 1; }
 
-exit $retval
+echo "Done Clang-format code formatting check."
 
+exit $retval
