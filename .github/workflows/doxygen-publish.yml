@@ -1,19 +1,23 @@
-name: Publis Doxygen documentation
+name: Waiting for checks and deploy
 
 on:
   push:
-    branches:
-      - master
 
 jobs:
-  build:
+  # This name is the one to be used in `running-workflow-name`
+  doxygen-publish:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check Out Repo
-        uses: actions/checkout@v2
-        
-      - name: Deploy Doxygen documentation to Github Pages
+      - uses: actions/checkout@v2
+      - name: Wait build and test workflow
+        uses: lewagon/wait-on-check-action@master
+        with:
+          ref: ${{ github.ref }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+          running-workflow-name: 'doxygen-publish'
+
+      - name: Publish Doxygen documentation to the Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
