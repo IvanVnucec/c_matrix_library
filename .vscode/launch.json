@@ -21,15 +21,14 @@
                 // gdb path in Docker container
                 "debuggerPath": "/usr/bin/gdb",
                 "pipeProgram": "docker",
+                // "app" folder is defined in Dockerfile
                 "pipeArgs": [
                     "run",
                     "--rm",
                     "--interactive",
                     "--volume",
-                    // "app" folder is defined in Dockerfile
                     "${workspaceFolder}:/app",
                     "--workdir",
-                    // "app" folder is defined in Dockerfile
                     "/app",
                     "--privileged",
                     "cont",
