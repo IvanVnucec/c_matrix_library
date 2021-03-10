@@ -5,8 +5,8 @@
 FROM ubuntu:20.10
 
 RUN apt-get update && \
-    apt-get install -y python3.8 python3-pip cppcheck gcc-9 gdb doxygen graphviz clang-format-11 ninja-build
+    apt-get install -y python3.8 python3-pip cppcheck gcc-10 lcov gdb doxygen graphviz clang-format-11 ninja-build
 
-RUN pip3 install --no-cache-dir meson gcovr
+RUN pip3 install --no-cache-dir meson
 
 WORKDIR /app
