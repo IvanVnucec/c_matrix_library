@@ -3,8 +3,6 @@
 # load constants
 . ./scripts/constants.env
 
-readonly HOST_WORKDIR=/app  # defined in Dockerfile
-
 docker exec -i $IMAGE_NAME bash -c "meson test -C builddir"
 (($? != 0)) && { printf '%s\n' "Command exited with non-zero"; exit 1; }
 
