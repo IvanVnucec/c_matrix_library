@@ -446,55 +446,56 @@ $(function() {
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    }</div>
 <div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160; </div>
 <div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    <span class="keywordflow">if</span> (errorLocal == <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faaf779365666a400fb47d2b757fa97e6ab">MTX_Matrix_ERROR_NONE</a>) {</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;        <span class="keywordflow">if</span> (c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a0e795e94211fc8a8a166519eb50c4d6d">rows</a> != c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a>) {</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;            errorLocal = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa6f536ed1144c3491cf4bfb7e12339a41">MTX_Matrix_ERROR_NOT_SQUARE</a>;</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;        }</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    }</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160; </div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    <span class="keywordflow">if</span> (errorLocal == <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faaf779365666a400fb47d2b757fa97e6ab">MTX_Matrix_ERROR_NONE</a>) {</div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;        <span class="keywordflow">if</span> (c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a> == a-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>) {</div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;            errorLocal = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa80391c022e1b20e9adf04f1ed723094e">MTX_Matrix_ERROR_INPLACE</a>;</div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;        }</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    }</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160; </div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    <span class="keywordflow">if</span> (errorLocal == <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faaf779365666a400fb47d2b757fa97e6ab">MTX_Matrix_ERROR_NONE</a>) {</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;        <a class="code" href="matrix__math_8c.html#aecdb5807cf34309543e4f5e9736afc4e">MTX_zeros</a>(c, &amp;errorLocal);</div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;    }</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160; </div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;    <span class="keywordflow">if</span> (errorLocal == <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faaf779365666a400fb47d2b757fa97e6ab">MTX_Matrix_ERROR_NONE</a>) {</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;        <span class="keywordflow">for</span> (i = 0; i &lt; c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a0e795e94211fc8a8a166519eb50c4d6d">rows</a> &amp;&amp; errorLocal != <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa00be43d7d35001ba2cf553152696158f">MTX_Matrix_ERROR_NOT_POS_DEF</a>; i++) {</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;            <span class="keywordflow">for</span> (j = 0; j &lt; (i + 1) &amp;&amp; errorLocal != <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa00be43d7d35001ba2cf553152696158f">MTX_Matrix_ERROR_NOT_POS_DEF</a>; j++) {</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;                sum = 0.0f;</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160; </div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;                <span class="keywordflow">for</span> (k = 0; k &lt; j; k++) {</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;                    sum += c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>[i * c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> + k] * c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>[j * c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> + k];</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;                }</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160; </div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;                <span class="keywordflow">if</span> (i == j) {</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;                    val = a-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>[i * a-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> + i] - sum;</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160; </div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;                    <span class="keywordflow">if</span> (val &gt;= 0.0f) {</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;                        c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>[i * c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> + j] = sqrtf(val);</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160; </div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;                    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;                        errorLocal = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa00be43d7d35001ba2cf553152696158f">MTX_Matrix_ERROR_NOT_POS_DEF</a>;</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;                    }</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160; </div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;                    c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>[i * c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> + j] = 1.0f / c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>[j * c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> + j]</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;                                               * (a-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>[i * a-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> + j] - sum);</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;                }</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;            }</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;        }</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    }</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160; </div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    <span class="keywordflow">if</span> (error != NULL) {</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        *error = errorLocal;</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    }</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160; </div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;}</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;        <span class="comment">// no need to check A matrix if its square because it is handled above</span></div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;        <span class="keywordflow">if</span> (c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a0e795e94211fc8a8a166519eb50c4d6d">rows</a> != c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a>) {</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;            errorLocal = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa6f536ed1144c3491cf4bfb7e12339a41">MTX_Matrix_ERROR_NOT_SQUARE</a>;</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;        }</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;    }</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160; </div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    <span class="keywordflow">if</span> (errorLocal == <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faaf779365666a400fb47d2b757fa97e6ab">MTX_Matrix_ERROR_NONE</a>) {</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;        <span class="keywordflow">if</span> (c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a> == a-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>) {</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;            errorLocal = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa80391c022e1b20e9adf04f1ed723094e">MTX_Matrix_ERROR_INPLACE</a>;</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;        }</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    }</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160; </div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="keywordflow">if</span> (errorLocal == <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faaf779365666a400fb47d2b757fa97e6ab">MTX_Matrix_ERROR_NONE</a>) {</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        <a class="code" href="matrix__math_8c.html#aecdb5807cf34309543e4f5e9736afc4e">MTX_zeros</a>(c, &amp;errorLocal);</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    }</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160; </div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;    <span class="keywordflow">if</span> (errorLocal == <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faaf779365666a400fb47d2b757fa97e6ab">MTX_Matrix_ERROR_NONE</a>) {</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;        <span class="keywordflow">for</span> (i = 0; i &lt; c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a0e795e94211fc8a8a166519eb50c4d6d">rows</a> &amp;&amp; errorLocal != <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa00be43d7d35001ba2cf553152696158f">MTX_Matrix_ERROR_NOT_POS_DEF</a>; i++) {</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;            <span class="keywordflow">for</span> (j = 0; j &lt; (i + 1) &amp;&amp; errorLocal != <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa00be43d7d35001ba2cf553152696158f">MTX_Matrix_ERROR_NOT_POS_DEF</a>; j++) {</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;                sum = 0.0f;</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160; </div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;                <span class="keywordflow">for</span> (k = 0; k &lt; j; k++) {</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;                    sum += c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>[i * c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> + k] * c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>[j * c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> + k];</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;                }</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160; </div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;                <span class="keywordflow">if</span> (i == j) {</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;                    val = a-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>[i * a-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> + i] - sum;</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160; </div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;                    <span class="keywordflow">if</span> (val &gt;= 0.0f) {</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;                        c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>[i * c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> + j] = sqrtf(val);</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160; </div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;                    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;                        errorLocal = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa00be43d7d35001ba2cf553152696158f">MTX_Matrix_ERROR_NOT_POS_DEF</a>;</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;                    }</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160; </div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;                    c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>[i * c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> + j] = 1.0f / c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>[j * c-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> + j]</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;                                               * (a-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>[i * a-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> + j] - sum);</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;                }</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;            }</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;        }</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;    }</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160; </div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    <span class="keywordflow">if</span> (error != NULL) {</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        *error = errorLocal;</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;    }</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160; </div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="amatrix__math_8c_html_aac811296526a0d98d97c867fb216a994"><div class="ttname"><a href="matrix__math_8c.html#aac811296526a0d98d97c867fb216a994">MTX_getColumn</a></div><div class="ttdeci">void MTX_getColumn(MTX_Matrix_S *column, MTX_Matrix_S *c, unsigned int columnIndex, MTX_Error_E *error)</div><div class="ttdoc">Function copies columnIndex column vector of matrix c to column vector column.</div><div class="ttdef"><b>Definition:</b> <a href="matrix__math_8c_source.html#l00454">matrix_math.c:454</a></div></div>
 <div class="ttc" id="astructMTX__Matrix__STRUCT_html_aa131109f69f490da3ad5cb7f51b45a40"><div class="ttname"><a href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">MTX_Matrix_STRUCT::data</a></div><div class="ttdeci">float * data</div><div class="ttdoc">Pointer to one dimensional array of matrix elements.</div><div class="ttdef"><b>Definition:</b> <a href="matrix__math_8h_source.html#l00089">matrix_math.h:89</a></div></div>
