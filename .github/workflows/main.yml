@@ -72,7 +72,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: doxygen-files
-          path: ./docs/Doxygen/html
+          path: ./docs/Doxygen
         
       - name: Upload code coverage reports to codecov.io page
         run: bash <(curl -s https://codecov.io/bash) 
