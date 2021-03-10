@@ -53,6 +53,9 @@ jobs:
       - name: Test project
         run: ./scripts/docker_project_test.sh
 
+      - name: Generate Code coverage report
+        run: ./scripts/docker_codecov.sh
+
       - name: Generate Doxygen documentation
         run: ./scripts/docker_project_doxygen.sh
 
