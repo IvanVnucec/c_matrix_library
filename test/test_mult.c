@@ -4,7 +4,7 @@
  * @brief MTX_mult function test file
  * @date 2021-03-03
  * 
- * @copyright WTFPL – Do What the Fuck You Want to Public License. See .LICENSE.md file for more information.
+ * @copyright WTFPL – Do What the Fuck You Want to Public License. See LICENSE.md file for more information.
  * 
  */
 
