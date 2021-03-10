@@ -17,7 +17,7 @@ void test_setup(void) {
 void test_teardown(void) {
 }
 
-MU_TEST(test_scale_fail_dim_a) {
+MU_TEST(test_scale_fail_dim_a_rows) {
     MTX_Error_E error;
 
     float dataA[4][3] = {
@@ -48,7 +48,37 @@ MU_TEST(test_scale_fail_dim_a) {
     mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
 }
 
-MU_TEST(test_scale_fail_dim_c) {
+MU_TEST(test_scale_fail_dim_a_cols) {
+    MTX_Error_E error;
+
+    float dataA[3][4] = {
+        {1.0, 2.0, 3.0, 0.0},
+        {4.0, 5.0, 6.0, 0.0},
+        {7.0, 8.0, 9.0, 0.0},
+    };
+
+    float k = 2.0;
+
+    float dataC[3][3];
+
+    MTX_Matrix_S A = {
+        .rows = 3,
+        .cols = 4,
+        .data = (float *)dataA
+    };
+
+    MTX_Matrix_S C = {
+        .rows = 3,
+        .cols = 3,
+        .data = (float *)dataC
+    };
+
+    MTX_scale(&C, k, &A, &error);
+
+    mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
+}
+
+MU_TEST(test_scale_fail_dim_c_rows) {
     MTX_Error_E error;
 
     float dataA[3][3] = {
@@ -70,6 +100,36 @@ MU_TEST(test_scale_fail_dim_c) {
     MTX_Matrix_S C = {
         .rows = 4,
         .cols = 3,
+        .data = (float *)dataC
+    };
+
+    MTX_scale(&C, k, &A, &error);
+
+    mu_check(error == MTX_Matrix_ERROR_DIMENSIONS);
+}
+
+MU_TEST(test_scale_fail_dim_c_cols) {
+    MTX_Error_E error;
+
+    float dataA[3][3] = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+        {7.0, 8.0, 9.0}
+    };
+
+    float dataC[3][4];
+
+    float k = 2.0;
+
+    MTX_Matrix_S A = {
+        .rows = 3,
+        .cols = 3,
+        .data = (float *)dataA
+    };
+
+    MTX_Matrix_S C = {
+        .rows = 3,
+        .cols = 4,
         .data = (float *)dataC
     };
 
@@ -344,8 +404,10 @@ MU_TEST(test_scale_success_C_k_A_colVect) {
 }
 
 MU_TEST_SUITE(test_suite) {
-    MU_RUN_TEST(test_scale_fail_dim_a);
-    MU_RUN_TEST(test_scale_fail_dim_c);
+    MU_RUN_TEST(test_scale_fail_dim_a_rows);
+    MU_RUN_TEST(test_scale_fail_dim_a_cols);
+    MU_RUN_TEST(test_scale_fail_dim_c_rows);
+    MU_RUN_TEST(test_scale_fail_dim_c_cols);
 
     MU_RUN_TEST(test_scale_fail_null_a);
     MU_RUN_TEST(test_scale_fail_null_a_data);
