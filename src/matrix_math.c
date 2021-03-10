@@ -559,6 +559,7 @@ void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
     }
 
     if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        // no need to check A matrix if its square because it is handled above
         if (c->rows != c->cols) {
             errorLocal = MTX_Matrix_ERROR_NOT_SQUARE;
         }
