@@ -122,6 +122,15 @@ test_cholesky = executable(
     link_with:              [matrix_math_lib]
 )
 
+test_trace = executable(
+    'test_trace', 
+    sources:                ['test_trace.c'], 
+    include_directories:    [inc],
+    c_args:                 [args], 
+    dependencies:           [m_dep, rt_dep],
+    link_with:              [matrix_math_lib]
+)
+
 test('test_init',       test_init)
 test('test_add',        test_add)
 test('test_sub',        test_sub)
@@ -134,3 +143,4 @@ test('test_setcolumn',  test_setcolumn)
 test('test_getcolumn',  test_getcolumn)
 test('test_copy',       test_copy)
 test('test_cholesky',   test_cholesky)
+test('test_trace',      test_trace)

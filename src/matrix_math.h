@@ -138,6 +138,7 @@ void MTX_getColumn(MTX_Matrix_S *column,
                    MTX_Error_E *error);
 void MTX_copy(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error);
 void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error);
+void MTX_trace(float *t, const MTX_Matrix_S *a, MTX_Error_E *error);
 
 #ifdef __cplusplus
 }
