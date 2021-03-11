@@ -34,3 +34,10 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./html     # defined in main.yml
+          
+      - name: Upload Doxygen files
+        uses: actions/upload-artifact@v2
+        with:
+          name: doxygen-files
+          path: ./html
+          
