@@ -129,6 +129,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a34f5f55e427aec058991cd7fcde23878"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix__math_8c.html#a34f5f55e427aec058991cd7fcde23878">MTX_cholesky</a> (<a class="el" href="matrix__math_8h.html#a1824d7879503f15fa570471fccf5e663">MTX_Matrix_S</a> *c, const <a class="el" href="matrix__math_8h.html#a1824d7879503f15fa570471fccf5e663">MTX_Matrix_S</a> *a, <a class="el" href="matrix__math_8h.html#a336e5554a8511665fbe82939fdb8a75d">MTX_Error_E</a> *error)</td></tr>
 <tr class="memdesc:a34f5f55e427aec058991cd7fcde23878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function performs the Cholesky–Banachiewicz algorithm. Returns lower triangular matrix. C = cholesky(A)  <a href="matrix__math_8c.html#a34f5f55e427aec058991cd7fcde23878">More...</a><br /></td></tr>
 <tr class="separator:a34f5f55e427aec058991cd7fcde23878"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a145b7fe2f1c510e65c29d8045f4bd44a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix__math_8c.html#a145b7fe2f1c510e65c29d8045f4bd44a">MTX_trace</a> (float *t, const <a class="el" href="matrix__math_8h.html#a1824d7879503f15fa570471fccf5e663">MTX_Matrix_S</a> *a, <a class="el" href="matrix__math_8h.html#a336e5554a8511665fbe82939fdb8a75d">MTX_Error_E</a> *error)</td></tr>
+<tr class="memdesc:a145b7fe2f1c510e65c29d8045f4bd44a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function performs trace operation (sum of diagonal elements) on a square matrix a.  <a href="matrix__math_8c.html#a145b7fe2f1c510e65c29d8045f4bd44a">More...</a><br /></td></tr>
+<tr class="separator:a145b7fe2f1c510e65c29d8045f4bd44a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Functions to perform matrix operations. </p>
@@ -725,6 +728,57 @@ If column is matrix then it will copy its values from the 0'th column.</dd></dl>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00130">130</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
+
+</div>
+</div>
+<a id="a145b7fe2f1c510e65c29d8045f4bd44a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a145b7fe2f1c510e65c29d8045f4bd44a">&#9670;&nbsp;</a></span>MTX_trace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MTX_trace </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="matrix__math_8h.html#a1824d7879503f15fa570471fccf5e663">MTX_Matrix_S</a> *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="matrix__math_8h.html#a336e5554a8511665fbe82939fdb8a75d">MTX_Error_E</a> *&#160;</td>
+          <td class="paramname"><em>error</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function performs trace operation (sum of diagonal elements) on a square matrix a. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Variable to store sum of diagonal elements. </td></tr>
+    <tr><td class="paramname">a</td><td>Square matrix. </td></tr>
+    <tr><td class="paramname">error</td><td>Variable used to return error. It can have the following values:<ul>
+<li>MTX_Matrix_ERROR_NONE - No errors occured,</li>
+<li>MTX_Matrix_ERROR_NULL - MTX_Matrix_S *a or its *-&gt;data were NULL.</li>
+<li>MTX_Matrix_ERROR_NOT_SQUARE - MTX_Matrix_S *a is not a square matrix. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="matrix__math_8c_source.html#l00623">623</a> of file <a class="el" href="matrix__math_8c_source.html">matrix_math.c</a>.</p>
 
 </div>
 </div>
