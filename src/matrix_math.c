@@ -617,7 +617,7 @@ void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
  * @param a Square matrix.
  * @param error Variable used to return error. It can have the following values:
  *      - MTX_Matrix_ERROR_NONE - No errors occured,
- *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *a or its *->data were NULL.
+ *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *a or its *->data were NULL or t variable was NULL.
  *      - MTX_Matrix_ERROR_NOT_SQUARE - MTX_Matrix_S *a is not a square matrix.
  */
 void MTX_trace(float *t, const MTX_Matrix_S *a, MTX_Error_E *error)
