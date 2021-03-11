@@ -609,3 +609,47 @@ void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
 
     return;
 }
+
+/**
+ * @brief Function performs trace operation (sum of diagonal elements) on a square matrix a.
+ * 
+ * @param t Variable to store sum of diagonal elements.
+ * @param a Square matrix.
+ * @param error Variable used to return error. It can have the following values:
+ *      - MTX_Matrix_ERROR_NONE - No errors occured,
+ *      - MTX_Matrix_ERROR_NULL - MTX_Matrix_S *a or its *->data were NULL.
+ *      - MTX_Matrix_ERROR_NOT_SQUARE - MTX_Matrix_S *a is not a square matrix.
+ */
+void MTX_trace(float *t, const MTX_Matrix_S *a, MTX_Error_E *error)
+{
+    MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
+    int i;
+
+#ifdef MTX_MATRIX_CHECK_PTRS
+    MTX_CHECK_NULL_PTRS_1(errorLocal, a);
+
+    if (t == NULL) {
+        errorLocal = MTX_Matrix_ERROR_NULL;
+    }
+#endif
+
+#ifdef MTX_MATRIX_CHECK_DIMS
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        if (a->rows != a->cols) {
+            errorLocal = MTX_Matrix_ERROR_NOT_SQUARE;
+        }
+    }
+#endif
+
+    if (errorLocal == MTX_Matrix_ERROR_NONE) {
+        *t = 0.0f;
+
+        for (i = 0u; i < a->rows; i++) {
+            *t += a->data[i * a->cols + i];
+        }
+    }
+
+    if (error != NULL) {
+        *error = errorLocal;
+    }
+}
