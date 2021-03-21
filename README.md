@@ -33,6 +33,8 @@ Project is built using [Meson](https://mesonbuild.com/) build system.
 3. To implement matrix dimensions checking uncomment `#define MTX_MATRIX_CHECK_DIMS` preprocessor macro in `matrix_math.h` file.
 
 ## Usage
+See `src/main.c` file for more comprehensive example.
+
 ```c
 #include "matrix_math.h"
 

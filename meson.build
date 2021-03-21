@@ -5,6 +5,15 @@
 project('c_matrix_library', 'c', default_options: ['c_std=c99'])
 
 # Build library
+# comment the lines below to disable checks
+args = [
+    '-DMTX_MATRIX_CHECK_PTRS',  # Check for NULL ptrs option
+    '-DMTX_MATRIX_CHECK_DIMS'   # Check matrix dimensions option
+]
+add_project_arguments(args, language : 'c')
+subdir('src/matrix_math')
+
+# Build example
 subdir('src')
 
 # Test library
