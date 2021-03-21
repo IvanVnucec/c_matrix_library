@@ -4,23 +4,22 @@
 
 cc = meson.get_compiler('c')
 
-inc = include_directories('./../src/')
+inc = []
 
 args = [
     '-Wall',
     '-Werror'
 ]
 
-m_dep  = cc.find_library('m',  required : true)      # <main.h> library
-rt_dep = cc.find_library('rt', required : true)      # Library used by minunit.h test framework.
+m_dep  = cc.find_library('m',  required : false)
+rt_dep = cc.find_library('rt', required : false)
 
 test_init = executable(
     'test_init', 
     sources:                ['test_init.c'], 
     include_directories:    [inc],
     c_args:                 [args], 
-    dependencies:           [m_dep, rt_dep],
-    link_with:              [matrix_math_lib]
+    dependencies:           [m_dep, rt_dep, matrix_math_dep]
 )
 
 test_add = executable(
@@ -28,8 +27,7 @@ test_add = executable(
     sources:                ['test_add.c'], 
     include_directories:    [inc],
     c_args:                 [args], 
-    dependencies:           [m_dep, rt_dep],
-    link_with:              [matrix_math_lib]
+    dependencies:           [m_dep, rt_dep, matrix_math_dep]
 )
 
 test_sub = executable(
@@ -37,8 +35,7 @@ test_sub = executable(
     sources:                ['test_sub.c'], 
     include_directories:    [inc],
     c_args:                 [args], 
-    dependencies:           [m_dep, rt_dep],
-    link_with:              [matrix_math_lib]
+    dependencies:           [m_dep, rt_dep, matrix_math_dep]
 )
 
 test_scale = executable(
@@ -46,8 +43,7 @@ test_scale = executable(
     sources:                ['test_scale.c'], 
     include_directories:    [inc],
     c_args:                 [args], 
-    dependencies:           [m_dep, rt_dep],
-    link_with:              [matrix_math_lib]
+    dependencies:           [m_dep, rt_dep, matrix_math_dep]
 )
 
 test_zeros = executable(
@@ -55,8 +51,7 @@ test_zeros = executable(
     sources:                ['test_zeros.c'], 
     include_directories:    [inc],
     c_args:                 [args], 
-    dependencies:           [m_dep, rt_dep],
-    link_with:              [matrix_math_lib]
+    dependencies:           [m_dep, rt_dep, matrix_math_dep]
 )
 
 test_identity = executable(
@@ -64,8 +59,7 @@ test_identity = executable(
     sources:                ['test_identity.c'], 
     include_directories:    [inc],
     c_args:                 [args], 
-    dependencies:           [m_dep, rt_dep],
-    link_with:              [matrix_math_lib]
+    dependencies:           [m_dep, rt_dep, matrix_math_dep]
 )
 
 test_trans = executable(
@@ -73,8 +67,7 @@ test_trans = executable(
     sources:                ['test_trans.c'], 
     include_directories:    [inc],
     c_args:                 [args], 
-    dependencies:           [m_dep, rt_dep],
-    link_with:              [matrix_math_lib]
+    dependencies:           [m_dep, rt_dep, matrix_math_dep]
 )
 
 test_mult = executable(
@@ -82,8 +75,7 @@ test_mult = executable(
     sources:                ['test_mult.c'], 
     include_directories:    [inc],
     c_args:                 [args], 
-    dependencies:           [m_dep, rt_dep],
-    link_with:              [matrix_math_lib]
+    dependencies:           [m_dep, rt_dep, matrix_math_dep]
 )
 
 test_setcolumn = executable(
@@ -91,8 +83,7 @@ test_setcolumn = executable(
     sources:                ['test_setcolumn.c'], 
     include_directories:    [inc],
     c_args:                 [args], 
-    dependencies:           [m_dep, rt_dep],
-    link_with:              [matrix_math_lib]
+    dependencies:           [m_dep, rt_dep, matrix_math_dep]
 )
 
 test_getcolumn = executable(
@@ -100,8 +91,7 @@ test_getcolumn = executable(
     sources:                ['test_getcolumn.c'], 
     include_directories:    [inc],
     c_args:                 [args], 
-    dependencies:           [m_dep, rt_dep],
-    link_with:              [matrix_math_lib]
+    dependencies:           [m_dep, rt_dep, matrix_math_dep]
 )
 
 test_copy = executable(
@@ -109,8 +99,7 @@ test_copy = executable(
     sources:                ['test_copy.c'], 
     include_directories:    [inc],
     c_args:                 [args], 
-    dependencies:           [m_dep, rt_dep],
-    link_with:              [matrix_math_lib]
+    dependencies:           [m_dep, rt_dep, matrix_math_dep]
 )
 
 test_cholesky = executable(
@@ -118,8 +107,7 @@ test_cholesky = executable(
     sources:                ['test_cholesky.c'], 
     include_directories:    [inc],
     c_args:                 [args], 
-    dependencies:           [m_dep, rt_dep],
-    link_with:              [matrix_math_lib]
+    dependencies:           [m_dep, rt_dep, matrix_math_dep]
 )
 
 test_trace = executable(
@@ -127,8 +115,7 @@ test_trace = executable(
     sources:                ['test_trace.c'], 
     include_directories:    [inc],
     c_args:                 [args], 
-    dependencies:           [m_dep, rt_dep],
-    link_with:              [matrix_math_lib]
+    dependencies:           [m_dep, rt_dep, matrix_math_dep]
 )
 
 test('test_init',       test_init)
