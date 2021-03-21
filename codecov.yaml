@@ -3,10 +3,10 @@
 # License WTFPL – Do What the Fuck You Want to Public License. See LICENSE.md file for more information.
 
 ignore:
+  - "src/main.c"
   - "**/test/**/*"
   - "**/test_*.c"
   - "**/minunit.h"
-  - "**/src/main.c"
 
 codecov:
   require_ci_to_pass: yes
