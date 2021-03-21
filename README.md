@@ -70,8 +70,6 @@ int main(void) {
     // A = cholesky(C)
     MTX_cholesky(&A, &C, &error);
 
-    MTX_print(&C, &error);
-
     return 0;
 }
 ```
