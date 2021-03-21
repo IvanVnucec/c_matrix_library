@@ -6,13 +6,13 @@ ignore:
   - "**/test/**/*"
   - "**/test_*.c"
   - "**/minunit.h"
-  - "./src/main.c"
+  - "**/src/main.c"
 
 codecov:
   require_ci_to_pass: yes
 
 coverage:
-  precision: 0WF28ETLAJDNT0
+  precision: 1
   round: down
   range: "70...100"
 
