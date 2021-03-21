@@ -1,4 +1,5 @@
-<map id="src/matrix_math.h" name="src/matrix_math.h">
-<area shape="rect" id="node1" title="Header file that holds matrix function definitions." alt="" coords="5,5,147,32"/>
-<area shape="rect" id="node2" href="$matrix__math_8c.html" title="Functions to perform matrix operations." alt="" coords="6,80,146,107"/>
+<map id="src/matrix_math/matrix_math.h" name="src/matrix_math/matrix_math.h">
+<area shape="rect" id="node1" title="Header file that holds matrix function definitions." alt="" coords="41,5,217,47"/>
+<area shape="rect" id="node2" href="$main_8c_source.html" title=" " alt="" coords="5,102,95,129"/>
+<area shape="rect" id="node3" href="$matrix__math_8c.html" title="Functions to perform matrix operations." alt="" coords="119,95,295,136"/>
 </map>
