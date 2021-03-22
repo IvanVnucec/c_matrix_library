@@ -5,11 +5,7 @@
 cc = meson.get_compiler('c')
 
 inc = []
-
-args = [
-    '-Wall',
-    '-Werror'
-]
+args = []
 
 m_dep  = cc.find_library('m',  required : false)
 rt_dep = cc.find_library('rt', required : false)
