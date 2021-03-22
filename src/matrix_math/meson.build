@@ -4,10 +4,9 @@
 
 cc = meson.get_compiler('c')
 
-m_dep = cc.find_library('m', required : false)rgs = [
-    '-Wall',
-    '-Werror'
-]
+m_dep = cc.find_library('m', required : false)
+
+args = []
 
 matrix_math = library('matrix_math', 
     sources: ['matrix_math.h', 'matrix_math.c'], 
