@@ -217,11 +217,11 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    ({                                          \</div>
+<b>Value:</b><div class="fragment"><div class="line">    {                                          \</div>
 <div class="line">        if ((a) == NULL || (a)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a> == NULL) { \</div>
 <div class="line">            (err) = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa75ab82dba3906991df556cdbd21d6967">MTX_Matrix_ERROR_NULL</a>;      \</div>
 <div class="line">        }                                       \</div>
-<div class="line">    })</div>
+<div class="line">    }</div>
 </div><!-- fragment -->
 <p>Check NULL pointers of one Matrice. </p>
 
@@ -260,11 +260,11 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    ({                                                                              \</div>
+<b>Value:</b><div class="fragment"><div class="line">    {                                                                              \</div>
 <div class="line">        if ((a) == NULL || (b) == NULL || (a)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a> == NULL || (b)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a> == NULL) { \</div>
 <div class="line">            (err) = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa75ab82dba3906991df556cdbd21d6967">MTX_Matrix_ERROR_NULL</a>;                                          \</div>
 <div class="line">        }                                                                           \</div>
-<div class="line">    })</div>
+<div class="line">    }</div>
 </div><!-- fragment -->
 <p>Check NULL pointers of two Matrices. </p>
 
@@ -309,12 +309,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    ({                                                                     \</div>
+<b>Value:</b><div class="fragment"><div class="line">    {                                                                     \</div>
 <div class="line">        if ((a) == NULL || (b) == NULL || (c) == NULL || (a)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a> == NULL \</div>
 <div class="line">            || (b)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a> == NULL || (c)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a> == NULL) {                   \</div>
 <div class="line">            (err) = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faa75ab82dba3906991df556cdbd21d6967">MTX_Matrix_ERROR_NULL</a>;                                 \</div>
 <div class="line">        }                                                                  \</div>
-<div class="line">    })</div>
+<div class="line">    }</div>
 </div><!-- fragment -->
 <p>Check NULL pointers of three Matrices. </p>
 
@@ -353,11 +353,11 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    ({                                                             \</div>
+<b>Value:</b><div class="fragment"><div class="line">    {                                                             \</div>
 <div class="line">        if (!((a)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a0e795e94211fc8a8a166519eb50c4d6d">rows</a> == (b)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a0e795e94211fc8a8a166519eb50c4d6d">rows</a> &amp;&amp; (a)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> == (b)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a>)) { \</div>
 <div class="line">            (err) = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faaac59442713bed1c1d051351dc230e6c6">MTX_Matrix_ERROR_DIMENSIONS</a>;                   \</div>
 <div class="line">        }                                                          \</div>
-<div class="line">    })</div>
+<div class="line">    }</div>
 </div><!-- fragment -->
 <p>Check dimensions of two Matrices. </p>
 
@@ -402,12 +402,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    ({                                                                                   \</div>
+<b>Value:</b><div class="fragment"><div class="line">    {                                                                                   \</div>
 <div class="line">        if (!((c)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a0e795e94211fc8a8a166519eb50c4d6d">rows</a> == (a)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a0e795e94211fc8a8a166519eb50c4d6d">rows</a> &amp;&amp; (c)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> == (a)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> &amp;&amp; (a)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a0e795e94211fc8a8a166519eb50c4d6d">rows</a> == (b)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a0e795e94211fc8a8a166519eb50c4d6d">rows</a> \</div>
 <div class="line">              &amp;&amp; (a)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a> == (b)-&gt;<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a>)) {                                              \</div>
 <div class="line">            (err) = <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faaac59442713bed1c1d051351dc230e6c6">MTX_Matrix_ERROR_DIMENSIONS</a>;                                         \</div>
 <div class="line">        }                                                                                \</div>
-<div class="line">    })</div>
+<div class="line">    }</div>
 </div><!-- fragment -->
 <p>Check dimensions of three Matrices. </p>
 

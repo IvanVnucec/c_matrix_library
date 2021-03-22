@@ -106,7 +106,7 @@ $(function() {
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// print A matrix if MTX_mult succesfull</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">if</span> (error == <a class="code" href="matrix__math_8h.html#abfe82fa1f49083bdafda92aa88edc4faaf779365666a400fb47d2b757fa97e6ab">MTX_Matrix_ERROR_NONE</a>) {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">int</span> i, j;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i, j;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">for</span> (i = 0; i &lt; C.<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a>; i++) {</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">for</span> (j = 0; j &lt; C.<a class="code" href="structMTX__Matrix__STRUCT.html#a0e795e94211fc8a8a166519eb50c4d6d">rows</a>; j++) {</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                printf(<span class="stringliteral">&quot;%.4f &quot;</span>, C.<a class="code" href="structMTX__Matrix__STRUCT.html#aa131109f69f490da3ad5cb7f51b45a40">data</a>[i + j * C.<a class="code" href="structMTX__Matrix__STRUCT.html#a802019289713592116249dd0a0f37b22">cols</a>]);</div>

@@ -78,41 +78,41 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define MTX_CHECK_NULL_PTRS_1(err, a)           \</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="matrix__math_8h.html#a87f128e136793c4b72d8cb8bdff40bab">   23</a></span>&#160;<span class="preprocessor">    ({                                          \</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="matrix__math_8h.html#a87f128e136793c4b72d8cb8bdff40bab">   23</a></span>&#160;<span class="preprocessor">    {                                          \</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">        if ((a) == NULL || (a)-&gt;data == NULL) { \</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">            (err) = MTX_Matrix_ERROR_NULL;      \</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">        }                                       \</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">    })</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">    }</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#define MTX_CHECK_NULL_PTRS_2(err, a, b)                                            \</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="matrix__math_8h.html#a7d71fe99ae89d05a4d05a1c911c1c0a3">   34</a></span>&#160;<span class="preprocessor">    ({                                                                              \</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="matrix__math_8h.html#a7d71fe99ae89d05a4d05a1c911c1c0a3">   34</a></span>&#160;<span class="preprocessor">    {                                                                              \</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">        if ((a) == NULL || (b) == NULL || (a)-&gt;data == NULL || (b)-&gt;data == NULL) { \</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">            (err) = MTX_Matrix_ERROR_NULL;                                          \</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">        }                                                                           \</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">    })</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">    }</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#define MTX_CHECK_NULL_PTRS_3(err, a, b, c)                                \</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="matrix__math_8h.html#afae3dfc4977f2955ab9f3a0df4a3ae53">   45</a></span>&#160;<span class="preprocessor">    ({                                                                     \</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="matrix__math_8h.html#afae3dfc4977f2955ab9f3a0df4a3ae53">   45</a></span>&#160;<span class="preprocessor">    {                                                                     \</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">        if ((a) == NULL || (b) == NULL || (c) == NULL || (a)-&gt;data == NULL \</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">            || (b)-&gt;data == NULL || (c)-&gt;data == NULL) {                   \</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">            (err) = MTX_Matrix_ERROR_NULL;                                 \</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">        }                                                                  \</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">    })</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">    }</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#define MTX_MATRIX_CHECK_DIMS_2(err, a, b)                         \</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="matrix__math_8h.html#acfce39ad4b8954e83af57779f037cf87">   57</a></span>&#160;<span class="preprocessor">    ({                                                             \</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="matrix__math_8h.html#acfce39ad4b8954e83af57779f037cf87">   57</a></span>&#160;<span class="preprocessor">    {                                                             \</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">        if (!((a)-&gt;rows == (b)-&gt;rows &amp;&amp; (a)-&gt;cols == (b)-&gt;cols)) { \</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">            (err) = MTX_Matrix_ERROR_DIMENSIONS;                   \</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">        }                                                          \</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">    })</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">    }</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#define MTX_MATRIX_CHECK_DIMS_3(err, a, b, c)                                            \</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="matrix__math_8h.html#a9b6c26f926d07721e32ec1ba36ff20b4">   68</a></span>&#160;<span class="preprocessor">    ({                                                                                   \</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="matrix__math_8h.html#a9b6c26f926d07721e32ec1ba36ff20b4">   68</a></span>&#160;<span class="preprocessor">    {                                                                                   \</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">        if (!((c)-&gt;rows == (a)-&gt;rows &amp;&amp; (c)-&gt;cols == (a)-&gt;cols &amp;&amp; (a)-&gt;rows == (b)-&gt;rows \</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">              &amp;&amp; (a)-&gt;cols == (b)-&gt;cols)) {                                              \</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">            (err) = MTX_Matrix_ERROR_DIMENSIONS;                                         \</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">        }                                                                                \</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">    })</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">    }</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">/* Uncoment the lines below to implement NULL pointers or matrix dimensions</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">check or leave uncommented to improve execution time. */</span></div>
