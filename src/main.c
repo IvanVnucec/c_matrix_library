@@ -1,3 +1,5 @@
+// clang-format off
+
 #include "matrix_math.h"
 
 #include <stdio.h>
@@ -46,3 +48,5 @@ int main(void)
 
     return 0;
 }
+
+// clang-format on
