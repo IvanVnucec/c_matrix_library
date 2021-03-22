@@ -84,7 +84,7 @@ void MTX_add(MTX_Matrix_S *c,
              MTX_Error_E *error)
 {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
-    int i;
+    unsigned int i;
 
 #ifdef MTX_MATRIX_CHECK_PTRS
     MTX_CHECK_NULL_PTRS_3(errorLocal, a, b, c);
@@ -133,7 +133,7 @@ void MTX_sub(MTX_Matrix_S *c,
              MTX_Error_E *error)
 {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
-    int i;
+    unsigned int i;
 
 #ifdef MTX_MATRIX_CHECK_PTRS
     MTX_CHECK_NULL_PTRS_3(errorLocal, a, b, c);
@@ -176,7 +176,7 @@ void MTX_sub(MTX_Matrix_S *c,
 void MTX_scale(MTX_Matrix_S *c, float k, const MTX_Matrix_S *a, MTX_Error_E *error)
 {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
-    int i;
+    unsigned int i;
 
 #ifdef MTX_MATRIX_CHECK_PTRS
     MTX_CHECK_NULL_PTRS_2(errorLocal, a, c);
@@ -212,7 +212,7 @@ void MTX_scale(MTX_Matrix_S *c, float k, const MTX_Matrix_S *a, MTX_Error_E *err
 void MTX_zeros(MTX_Matrix_S *c, MTX_Error_E *error)
 {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
-    int i;
+    unsigned int i;
 
 #ifdef MTX_MATRIX_CHECK_PTRS
     MTX_CHECK_NULL_PTRS_1(errorLocal, c);
@@ -243,7 +243,7 @@ void MTX_zeros(MTX_Matrix_S *c, MTX_Error_E *error)
 void MTX_identity(MTX_Matrix_S *c, MTX_Error_E *error)
 {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
-    int i;
+    unsigned int i;
 
 #ifdef MTX_MATRIX_CHECK_PTRS
     MTX_CHECK_NULL_PTRS_1(errorLocal, c);
@@ -288,7 +288,7 @@ void MTX_identity(MTX_Matrix_S *c, MTX_Error_E *error)
 void MTX_trans(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
 {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
-    int i, j;
+    unsigned int i, j;
 
 #ifdef MTX_MATRIX_CHECK_PTRS
     MTX_CHECK_NULL_PTRS_2(errorLocal, c, a);
@@ -339,7 +339,7 @@ void MTX_mult(MTX_Matrix_S *c,
               MTX_Error_E *error)
 {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
-    int m, r, k;
+    unsigned int m, r, k;
 
 #ifdef MTX_MATRIX_CHECK_PTRS
     MTX_CHECK_NULL_PTRS_3(errorLocal, c, a, b);
@@ -405,7 +405,7 @@ void MTX_setColumn(MTX_Matrix_S *c,
                    MTX_Error_E *error)
 {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
-    int i;
+    unsigned int i;
 
 #ifdef MTX_MATRIX_CHECK_PTRS
     MTX_CHECK_NULL_PTRS_2(errorLocal, c, column);
@@ -457,7 +457,7 @@ void MTX_getColumn(MTX_Matrix_S *column,
                    MTX_Error_E *error)
 {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
-    int i;
+    unsigned int i;
 
 #ifdef MTX_MATRIX_CHECK_PTRS
     MTX_CHECK_NULL_PTRS_2(errorLocal, c, column);
@@ -499,7 +499,7 @@ void MTX_getColumn(MTX_Matrix_S *column,
 void MTX_copy(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
 {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
-    int i;
+    unsigned int i;
 
 #ifdef MTX_MATRIX_CHECK_PTRS
     MTX_CHECK_NULL_PTRS_2(errorLocal, c, a);
@@ -546,7 +546,7 @@ void MTX_copy(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
 void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
 {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
-    int i, j, k;
+    unsigned int i, j, k;
     float sum, val;
 
 #ifdef MTX_MATRIX_CHECK_PTRS
@@ -623,7 +623,7 @@ void MTX_cholesky(MTX_Matrix_S *c, const MTX_Matrix_S *a, MTX_Error_E *error)
 void MTX_trace(float *t, const MTX_Matrix_S *a, MTX_Error_E *error)
 {
     MTX_Error_E errorLocal = MTX_Matrix_ERROR_NONE;
-    int i;
+    unsigned int i;
 
 #ifdef MTX_MATRIX_CHECK_PTRS
     MTX_CHECK_NULL_PTRS_1(errorLocal, a);

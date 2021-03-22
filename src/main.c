@@ -35,7 +35,7 @@ int main(void)
 
     // print A matrix if MTX_mult succesfull
     if (error == MTX_Matrix_ERROR_NONE) {
-        int i, j;
+        unsigned int i, j;
         for (i = 0; i < C.cols; i++) {
             for (j = 0; j < C.rows; j++) {
                 printf("%.4f ", C.data[i + j * C.cols]);
