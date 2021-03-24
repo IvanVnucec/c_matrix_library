@@ -2,7 +2,7 @@
 # Author: Ivan Vnucec
 # License WTFPL – Do What the Fuck You Want to Public License. See LICENSE.md file for more information.
 
-project('c_matrix_library', 'c', default_options: ['c_std=c99', 'warning_level=3'])
+project('c_matrix_library', 'c', default_options: ['c_std=c99', 'warning_level=3'], version: '1.0.0', license: 'WTFPL')
 
 # Build library
 # comment the lines below to disable checks
