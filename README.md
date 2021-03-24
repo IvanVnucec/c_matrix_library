@@ -23,7 +23,8 @@ Project is built using [Meson](https://mesonbuild.com/) build system.
 8. (Optional) Generate Doxygen documentation by running `./scripts/docker_project_doxygen.sh`. Doxygen documentation is generated in `docs/Doxygen` folder,
 9. Stop running container `./scripts/docker_container_stop.sh`. Container will remove itself automatically,
 10. To build and test user could just call `./scripts/docker_build_and_run_tests.sh`.
- 
+11. To run example call `./scripts/docker_build_and_run_example.sh`.
+
 ## Prerequisites
 * [Docker](https://www.docker.com/)
 
