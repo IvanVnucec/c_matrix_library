@@ -76,4 +76,4 @@ int main(void) {
 ```
 
 ## License
-[WTFPL – Do What the Fuck You Want to Public License](LICENSE.md)
+[MIT](LICENSE.md)
